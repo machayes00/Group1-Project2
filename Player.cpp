@@ -12,9 +12,16 @@ Player::~Player()
 
 }
 
-bool Player::checkHit()
+bool Player::checkHit(int row,char col)
 {
+    if(hiddenboard.is_what(row,col)=='B')
+    {
 
+    }
+    else
+    {
+
+    }
 }
 
 int Player::checkShips()
@@ -22,9 +29,9 @@ int Player::checkShips()
     return shipsLeft;
 }
 
-void Player::hit()
+void Player::hit(int row,char col)
 {
-
+    gameboard.exchange(row,col,'X');
 }
 
 Board Player::getHiddenBoard()
