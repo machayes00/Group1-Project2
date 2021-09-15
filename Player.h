@@ -1,3 +1,7 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
+
 #include "Board.h"
 
 
@@ -19,5 +23,7 @@ public:
   Board getHiddenBoard();
   Board getGameBoard();
 
-}
+};
 //mark hits with x misses with once
+
+#endif
