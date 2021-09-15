@@ -19,7 +19,7 @@ bool Player::checkHit()
 
 int Player::checkShips()
 {
-
+    return shipsLeft;
 }
 
 void Player::hit()
