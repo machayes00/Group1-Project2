@@ -6,7 +6,7 @@ int main(int argc, char* argv[])
 {
   Executive exec;
   exec.run();
-  int ships = 0;
+  /*int ships = 0;
   std::cout << "How many ships would you like?\n";
   std::cin >> ships;
   Executive game;
@@ -15,5 +15,5 @@ int main(int argc, char* argv[])
   //testing
   // new test
   //Yuyang test
-  //Nathan Test
+  Nathan Test*/
 }
