@@ -9,7 +9,7 @@ class Player{
 private:
   Board hiddenboard;
   Board gameboard;
-  int shipsleft;
+  int shipsLeft;
 
 public:
   Player(int ships);
