@@ -28,15 +28,18 @@ void Executive::run()
   int counter=0; //counter to make sure all of the ships have been put onto the board.
   int row=0; // the row in which the player want to add a ship.
   char column = ' '; // the column in which the player wants to add a ship.
+  int size = 0;//the size of the ship that they wish to put there.
   do{
-    player1.getHiddenBoard().print(); //returns the hidden board of the player class and prints it
+    player1.getGameBoard(); //returns the hidden board of the player class and prints it
     cout<<"where would you like to place a ship.\n";
     cout<<" Please enter a number for the row you would wish to put a ship in.\n";
     cin>>row;
     cout<<"Please enter a letter for the column you wish to put a ship in.\n";
     cin>>column;
-    player1.getHiddenBoard().exchange(row,column,'B'); // places the ship in the hidden board where the player has specified.
-    player1.getHiddenBoard().print(); // a check to make sure that the ship has been put in the correct spot
+    cout<<"what size ship do you wish to add to the board.\n";
+    cin>>size;
+    player1.placeShip(row,column,size); // places the ship in the hidden board where the player has specified.
+    player1.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
     break;    //break for the loop since all the code hasnt been implemented
   } while(counter != player1ships); //while loop to place the ships on the board, only for player1 at the moment.
 
