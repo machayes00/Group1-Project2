@@ -18,6 +18,22 @@ Board::Board()
     }
 }
 
+Board::Board(char hidden_letter)
+{
+    m_map = new char*[9];
+    for (int i = 0 ; i < 9 ; i++) //initialize the row
+    {
+        m_map[i]=new char[10]; //for each row, it has 10 column
+    }
+
+    for (int i = 0; i < 9; i ++) // initialize each character with hidden_letter
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            m_map[i][j] = hidden_letter;
+        }
+    }
+}
 
 Board::~Board()
 {
