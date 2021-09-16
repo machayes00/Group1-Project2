@@ -88,6 +88,16 @@ bool Board::put_column_ship(int row_num, char column_letter, int size,char new_l
     int column_num = (char)column_letter - 65; //change the letter to the ASCII number and minus the A'ASCII number
     if(row_num>=1 && row_num+size-1 <=9 && column_num>=0 && column_num <10) //determine if it is in the boundary
     {
+        int test_num = row_num;
+        for(int i = 0; i<size ; i++)  //check if the ship is over put
+        {
+            if (is_what(test_num,column_letter) != '~')
+            {
+                return false;
+            }
+            test_num++;
+        }
+
         int exchange_time = 0; // the time of the exchange
         do
         {
@@ -110,6 +120,16 @@ bool Board::put_row_ship(int row_num, char column_letter, int size, char new_let
     int column_num = (char)column_letter - 65; //change the letter to the ASCII number and minus the A'ASCII number
     if(row_num>=1 && row_num<=9 && column_num>=0 && column_num+size-1 <10) //determine if it is in the boundary
     {
+        char test_char = column_letter;
+        for(int i = 0; i<size ; i++)  //check if the ship is over put
+        {
+            if (is_what(row_num,test_char) != '~')
+            {
+                return false;
+            }
+            test_char = (char)(1+test_char);
+        }
+
         int exchange_time = 0; // the time of the exchange
         do
         {
