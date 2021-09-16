@@ -7,8 +7,8 @@
 
 class Player{
 private:
-  Board hiddenboard;
-  Board gameboard;
+  Board hiddenBoard;
+  Board gameBoard;
   int shipsLeft;
 
 public:
@@ -22,6 +22,7 @@ public:
   void hit(int row, char col);//helper function checkHit()
   Board getHiddenBoard();
   Board getGameBoard();
+  bool placeShip(int row, char col);
 
 };
 //mark hits with x misses with o
