@@ -46,7 +46,7 @@ Board Player::getGameBoard()
 
 bool Player::placeShip(int row, char col)
 {
-    if(hiddenBoard.is_what(row,col) != 'B')
+    if(hiddenBoard.is_what(row,col) != 'B') //checks to make sure that there isnt already a B at the location of the passed parameters.
     {
         if(hiddenBoard.exchange(row,col,'B')==true)
         {
