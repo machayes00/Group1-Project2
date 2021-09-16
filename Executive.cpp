@@ -25,6 +25,20 @@ void Executive::run()
   Player player2(ships);
   player1ships = ships;
   player2ships = ships;
+  int counter=0;
+  int row=0;
+  char column = ' ';
+  do{
+    player1.getHiddenBoard().print();
+    cout<<"where would you like to place a ship.\n";
+    cout<<" Please enter a number for the row you would wish to put a ship in.\n";
+    cin>>row;
+    cout<<"Please enter a letter for the column you wish to put a ship in.\n";
+    cin>>column;
+    player1.getHiddenBoard().exchange(row,column,'B');
+    player1.getHiddenBoard().print();
+    break;
+  } while(counter != player1ships);
 
 
   do {
