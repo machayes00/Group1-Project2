@@ -9,7 +9,7 @@
 
 class Player{
 private:
-  Board hiddenBoard('*'); // The board shows to opponent
+  Board hiddenBoard ; // The board shows to opponent
   Board gameBoard; // the board shows ships and hitted space
   Board original_Board;// the board stores all the shps and do not make any change
   int shipsLeft;

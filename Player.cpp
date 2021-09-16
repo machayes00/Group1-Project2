@@ -20,7 +20,7 @@ bool Player::checkHit(int row,char col)
     }
     else if (gameBoard.is_what(row,col) == '~')
     {
-        hiddenBoard.exchange(row,col,'~')
+        hiddenBoard.exchange(row,col,'O');
         return false;
     }
 }
@@ -46,7 +46,7 @@ void Player::getGameBoard()
     gameBoard.print();
 }
 
-void Player::getOriginalBoard
+void Player::getOriginalBoard()
 {
     original_Board.print();
 }
@@ -54,7 +54,7 @@ void Player::getOriginalBoard
 bool Player::placeShip(int row, char col, int size)
 {
     string direction;
-    cout << "In which direction do you want to place? (row/col)"
+    cout << "In which direction do you want to place? (row/col)";
     cin >> direction;
     if (direction == "row") // when the direction is row
     {
@@ -70,9 +70,9 @@ bool Player::placeShip(int row, char col, int size)
     }
     else if (direction == "col") // when the direction is col
     {
-        if(gameBoard.put_col_ship(row,col,size,'B'))
+        if(gameBoard.put_column_ship(row,col,size,'B'))
         {
-            original_Board.put_col_ship(row,col,size,'B');
+            original_Board.put_column_ship(row,col,size,'B');
             return true;
         }
         else // over boundary or over put
