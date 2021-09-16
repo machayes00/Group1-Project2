@@ -52,7 +52,7 @@ void Board::print()
         cout << (char) (i+'A'); //print the column sequence from A-J
         cout <<' ';
     }
-    cout << endl <<endl; //switch 2 line
+    cout << endl; //switch 1 line
     for (int i = 0; i < 9; i++)
     {
         cout << i+1 <<' ';//print the row sequence from 1-9
