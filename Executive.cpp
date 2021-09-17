@@ -32,10 +32,15 @@ void Executive::run()
   do{
     player1.getGameBoard(); //returns the hidden board of the player class and prints it
     cout<<"where would you like to place a ship.\n";
-    cout<<" Please enter a number for the row you would wish to put a ship in.\n";
-    cin>>row;
-    cout<<"Please enter a letter for the column you wish to put a ship in.\n";
-    cin>>column;
+    do {
+      cout<<" Please enter a number from 1 to 9 for the row you would wish to put a ship in.\n";
+      cin>>row;
+    } while(!(row >= 1 && row <= 9));
+    do {
+      cout<<"Please enter a letter from A to J for the column you wish to put a ship in.\n";
+      cin>>column;
+    } while(!((char)column >= 65 && (char)column <= 74)); //loops untill a capital leter from A to J is given
+
     cout<<"what size ship do you wish to add to the board.\n";
     cin>>size;
     player1.placeShip(row,column,size); // places the ship in the hidden board where the player has specified.
@@ -45,8 +50,8 @@ void Executive::run()
 
 
   do {
-    break;  
-    /*put this here so that the program will end if a test run is down 
+    break;
+    /*put this here so that the program will end if a test run is down
     *because right now it just goes endlessly.
     */
   } while(player1ships != 0 && player2ships != 0);

@@ -9,6 +9,7 @@ class Executive
 private:
   int player1ships;
   int player2ships;
+  int ships;
 public:
   Executive();
   ~Executive();
