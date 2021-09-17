@@ -46,9 +46,17 @@ void Executive::run()
     } while(!((char)column >= 65 && (char)column <= 74)); //loops untill a capital leter from A to J is given
     size=i;
 
-    player1.placeShip(row,column,size); // places the ship in the hidden board where the player has specified.
+    if(player1.placeShip(row,column,size)) // places the ship in the hidden board where the player has specified.
+    {
+      cout<<"Ship placed.\n";
+    }
+    else
+    {
+      cout<<"Can't place a ship there!\n";
+      i--;
+    }
     player1.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
-    
+
   }
 
 
