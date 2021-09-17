@@ -18,12 +18,15 @@ Executive::~Executive()
 void Executive::run()
 {
   system("clear");
+  string tempinput;
   cout << "It is time for Btttle Ship!!!!\n";
   do
   {
     cout<<"How many ships would you like to play with for this time:\n";
-    cin>>ships;
-  }while(ships<0 || ships>6);
+    cin>>tempinput;
+
+  }while(!(tempinput=="1" || tempinput=="2" || tempinput=="3" || tempinput=="4" || tempinput=="5" || tempinput=="6"));
+  ships=stoi(tempinput);
   cout<<"you have selected: "<<ships <<" ships to play with \n";
   player1ships = ships;
   player2ships = ships;
@@ -43,6 +46,7 @@ void Executive::run()
 
 void Executive::place_ship(int size, Player& new_player)
 {
+  string tempinput;
   int num = 1; // reocord the size of ship
   int row = 0;
   char column = ' ';
@@ -50,11 +54,18 @@ void Executive::place_ship(int size, Player& new_player)
       new_player.getGameBoard(); //returns the hidden board of the player class and prints it
       do
       {
+
         cout<<"where would you like to place a ship with size 1x" << num << " ?\n";
         cout<<"It will default to the point of your choice, down or right.\n";
         cout<<"It will repeat for invalid placement of the ship. Please check if it repeats.\n";
-        cout<<"Please enter a number for the row you would wish to put a ship in.\n";
-        cin>>row;
+
+        do
+        {
+          cout<<"Please enter a number for the row you would wish to put a ship in.\n";
+          cin>>tempinput;
+
+        }while(!(tempinput=="1" || tempinput=="2" || tempinput=="3" || tempinput=="4" || tempinput=="5" || tempinput=="6" || tempinput=="7" || tempinput=="8" || tempinput=="9"));
+        row=stoi(tempinput);
         cout<<"Please enter a letter for the column you wish to put a ship in.\n";
         cin>>column;
       }while (!new_player.placeShip(row,column,num));// places the ship in the hidden board where the player has specified.
@@ -76,18 +87,20 @@ void Executive::game_start(Player& player1, Player& player2, int size)
   int row = 0;
   char column = ' ';
   int column_num = 0;
+  string tempinput;
   do
   {
     cout << "======================PLAYER1=======================\n\n";
     cout << "The Board of Player 2, choose one point to hit. \n";
     player2.getHiddenBoard();
-    
-    
+
       do
       {
         cout << "Enter the the row number: ";  // get the row
-        cin >> row;
-      }while (row < 0 || row > 9); //Boundary
+        cin>>tempinput;
+
+      }while(!(tempinput=="1" || tempinput=="2" || tempinput=="3" || tempinput=="4" || tempinput=="5" || tempinput=="6" || tempinput=="7" || tempinput=="8" || tempinput=="9"));
+      row=stoi(tempinput);
       do
       {
         cout << "Enter the column character: "; // get the column
@@ -132,13 +145,15 @@ void Executive::game_start(Player& player1, Player& player2, int size)
       cout << "======================PLAYER2=======================\n\n";
       cout << "The Board of Player 1, choose one point to hit. \n";
       player1.getHiddenBoard();
-    
-    
+
+
       do
       {
         cout << "Enter the the row number: ";  // get the row
-        cin >> row;
-      }while (row < 0 || row > 9);//Boundary
+        cin>>tempinput;
+
+      }while(!(tempinput=="1" || tempinput=="2" || tempinput=="3" || tempinput=="4" || tempinput=="5" || tempinput=="6" || tempinput=="7" || tempinput=="8" || tempinput=="9"));
+      row=stoi(tempinput);
       do
       {
         cout << "Enter the column character: "; // get the column
@@ -174,7 +189,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
         cin >> player_choice;
       }while (player_choice == 'n');
       system("clear");
-    
+
   }while (player1_count < max_count && player2_count < max_count);
   if (player1_count == max_count)
   {
