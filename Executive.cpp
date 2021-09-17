@@ -176,6 +176,10 @@ void Executive::game_start(Player& player1, Player& player2, int size)
         player1_count++;
         cout << "YOU HIT!\n";
         player1.getHiddenBoard();
+        if (player2_count == max_count) //check if Player1 wins
+        {
+          break;
+        }
       }
       else
       {
