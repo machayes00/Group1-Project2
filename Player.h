@@ -15,7 +15,7 @@ private:
   int shipsLeft;
 
 public:
-  Player(int ships);
+  Player();
   ~Player();
   bool checkHit(int row,char col);//checks what is hit
   //@input - int row - the row in which the player wants to place a boat.

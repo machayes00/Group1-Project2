@@ -2,14 +2,14 @@
 using namespace std;
 
 
-Player::Player(int ships)
+Player::Player()
 {
-    shipsLeft = ships;
+    
 }
 
 Player::~Player()
 {
-
+    
 }
 
 bool Player::checkHit(int row,char col)
@@ -18,7 +18,7 @@ bool Player::checkHit(int row,char col)
     {
         return true;
     }
-    else //if (gameBoard.is_what(row,col) == '~')
+    else if (gameBoard.is_what(row,col) == '~')
     {
         hiddenBoard.exchange(row,col,'O');
         return false;
@@ -54,12 +54,9 @@ void Player::getOriginalBoard()
 bool Player::placeShip(int row, char col, int size)
 {
     string direction;
-    do {
-      cout << "In which direction do you want the ship to extend? (>/v)\n"; //row or collumn is ambigous (example: is row left or right?)
-      cin >> direction;
-    } while(!(direction == ">" || direction == "v"));
-
-    if (direction == ">") // when the direction is row
+    cout << "In which direction do you want to place? (row/col)";
+    cin >> direction;
+    if (direction == "row") // when the direction is row
     {
         if(gameBoard.put_row_ship(row,col,size,'B'))
         {
@@ -71,7 +68,7 @@ bool Player::placeShip(int row, char col, int size)
             return false;
         }
     }
-    else if (direction == "v") // when the direction is col
+    else if (direction == "col") // when the direction is col
     {
         if(gameBoard.put_column_ship(row,col,size,'B'))
         {
