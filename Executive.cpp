@@ -52,7 +52,7 @@ void Executive::place_ship(int size, Player& new_player)
       {
         cout<<"where would you like to place a ship with size 1x" << num << " ?\n";
         cout<<"It will default to the point of your choice, down or right.\n";
-        cout<<"It will repeat for invalid put of ships. Please check if it repeat.\n";
+        cout<<"It will repeat for invalid placement of the ship. Please check if it repeats.\n";
         cout<<"Please enter a number for the row you would wish to put a ship in.\n";
         cin>>row;
         cout<<"Please enter a letter for the column you wish to put a ship in.\n";
