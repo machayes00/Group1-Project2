@@ -9,7 +9,7 @@ Player::Player(int ships)
 
 Player::~Player()
 {
-    
+
 }
 
 bool Player::checkHit(int row,char col)
@@ -18,7 +18,7 @@ bool Player::checkHit(int row,char col)
     {
         return true;
     }
-    else if (gameBoard.is_what(row,col) == '~')
+    else //if (gameBoard.is_what(row,col) == '~')
     {
         hiddenBoard.exchange(row,col,'O');
         return false;
