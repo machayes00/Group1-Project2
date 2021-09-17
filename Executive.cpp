@@ -19,10 +19,10 @@ void Executive::run()
 {
   system("clear");
   string tempinput;
-  cout << "It is time for Btttle Ship!!!!\n";
+  cout << "It is time for Batttle Ship!!!\n";
   do
   {
-    cout<<"How many ships would you like to play with for this time:\n";
+    cout<<"How many ships would you like to play with for this game:\n";
     cin>>tempinput;
 
   }while(!(tempinput=="1" || tempinput=="2" || tempinput=="3" || tempinput=="4" || tempinput=="5" || tempinput=="6"));
@@ -31,11 +31,11 @@ void Executive::run()
   player1ships = ships;
   player2ships = ships;
 
-  cout << "Place the ships for player1\n"; // place ships for palyer 1
+  cout << "Place the ships for player 1\n"; // place ships for palyer 1
   place_ship(ships, player1);
   system("clear");
 
-  cout << "Place the ships for player2\n"; // place ships for palyer 2
+  cout << "Place the ships for player 2\n"; // place ships for palyer 2
   place_ship(ships, player2);
   system("clear");
 
@@ -55,23 +55,23 @@ void Executive::place_ship(int size, Player& new_player)
       do
       {
 
-        cout<<"where would you like to place a ship with size 1x" << num << " ?\n";
-        cout<<"It will default to the point of your choice, down or right.\n";
-        cout<<"It will repeat for invalid placement of the ship. Please check if it repeats.\n";
+        cout<<"Where would you like to place a ship with size 1x" << num << "?\n";
+        cout<<"The rest of the ship will extend down or right from your selected coordinate.\n";
+        cout<<"If the placement is invalid your ship will not be placed and you will be prompted for new placemnet information.\n";
 
         do
         {
-          cout<<"Please enter a number for the row you would wish to put a ship in.\n";
+          cout<<"Please enter a number for the row you would wish to place a ship in.\n";
           cin>>tempinput;
 
         }while(!(tempinput=="1" || tempinput=="2" || tempinput=="3" || tempinput=="4" || tempinput=="5" || tempinput=="6" || tempinput=="7" || tempinput=="8" || tempinput=="9"));
         row=stoi(tempinput);
-        cout<<"Please enter a letter for the column you wish to put a ship in.\n";
+        cout<<"Please enter a letter for the column you wish to place a ship in.\n";
         cin>>column;
       }while (!new_player.placeShip(row,column,num));// places the ship in the hidden board where the player has specified.
 
       cout << "Placed!\n";
-      new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
+      //new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
       num++;
    } while(num < size+1);
 
@@ -91,7 +91,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
   do
   {
     cout << "======================PLAYER1=======================\n\n";
-    cout << "The Board of Player 2, choose one point to hit. \n";
+    cout << "The Board of Player 2, choose a coordinate to fire at.\n";
     player2.getHiddenBoard();
 
       do
@@ -108,11 +108,13 @@ void Executive::game_start(Player& player1, Player& player2, int size)
         column_num = (char)column - 65;
       }while (column_num<0 || column_num >10);//Boundary
 
+
+      system("clear");
       if (player2.checkHit(row, column))
       {
         player2.get_hit(row,column);
         player2_count++;
-        cout << "YOU HIT IT!!!\n";
+        cout << "YOU HIT!\n";
         player2.getHiddenBoard();
         if (player2_count == max_count) //check if Player1 wins
         {
@@ -121,29 +123,35 @@ void Executive::game_start(Player& player1, Player& player2, int size)
       }
       else
       {
-        cout << "YOU MISS IT!!!\n";
+        cout << "YOU MISSED!\n";
         player2.getHiddenBoard();
       }
 
-      cout << "Do you want to show your private Board(y/n)?\n";
+      cout << "Do you want to see your Board(y/n)?\n";
       cin >> player_choice;
       if(player_choice == 'y')
       {
         cout <<"YOUR BOARD\n";
         player1.getGameBoard();
       }
-      else{}
+
 
       do
       {
-        cout << "Do you want to take turn(y/n)?\n";
+        cout << "End Turn(y/n)?\n";
         cin >> player_choice;
-      }while (player_choice == 'n');
+      }while (player_choice != 'y');
       system("clear");
 
+      do
+      {
+        cout << "Player2: Begin Turn(y/n)?\n";
+        cin >> player_choice;
+      }while (player_choice != 'y');
+      system("clear");
 
       cout << "======================PLAYER2=======================\n\n";
-      cout << "The Board of Player 1, choose one point to hit. \n";
+      cout << "The Board of Player 1, choose a coordinate to fire at.\n";
       player1.getHiddenBoard();
 
 
@@ -161,20 +169,21 @@ void Executive::game_start(Player& player1, Player& player2, int size)
         int column_num = (char)column - 65;
       }while (column_num<0 || column_num >10); //Boundary
 
+      system("clear");
       if (player1.checkHit(row, column))
       {
         player1.get_hit(row,column);
         player1_count++;
-        cout << "YOU HIT IT!!!\n";
+        cout << "YOU HIT!\n";
         player1.getHiddenBoard();
       }
       else
       {
-        cout << "YOU MISS IT!!!\n";
+        cout << "YOU MISS!\n";
         player1.getHiddenBoard();
       }
 
-      cout << "Do you want to show your private Board(y/n)?\n";
+      cout << "Do you want to see your Board(y/n)?\n";
       cin >> player_choice;
       if(player_choice == 'y')
       {
@@ -185,9 +194,16 @@ void Executive::game_start(Player& player1, Player& player2, int size)
 
       do
       {
-        cout << "Do you want to take turn(y/n)?\n";
+        cout << "End Turn(y/n)?\n";
         cin >> player_choice;
-      }while (player_choice == 'n');
+      }while (player_choice != 'y');
+      system("clear");
+
+      do
+      {
+        cout << "Player2: Begin Turn(y/n)?\n";
+        cin >> player_choice;
+      }while (player_choice != 'y');
       system("clear");
 
   }while (player1_count < max_count && player2_count < max_count);
