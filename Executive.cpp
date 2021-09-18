@@ -91,7 +91,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
   do
   {
     cout << "======================PLAYER1=======================\n\n";
-    cout << "The Board of Player 2, choose a coordinate to fire at.\n";
+    cout << "Opponent's Board: choose a coordinate to fire at.\n";
     player2.getHiddenBoard();
 
       do
@@ -151,7 +151,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
       system("clear");
 
       cout << "======================PLAYER2=======================\n\n";
-      cout << "The Board of Player 1, choose a coordinate to fire at.\n";
+      cout << "Opponent's Board: choose a coordinate to fire at.\n";
       player1.getHiddenBoard();
 
 
@@ -205,7 +205,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
 
       do
       {
-        cout << "Player2: Begin Turn(y/n)?\n";
+        cout << "Player1: Begin Turn(y/n)?\n";
         cin >> player_choice;
       }while (player_choice != 'y');
       system("clear");
