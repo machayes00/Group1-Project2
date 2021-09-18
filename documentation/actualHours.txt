@@ -1,8 +1,17 @@
 Actual account of person-hours we used to complete project.
 Day to Day account of hours spent on project added from all team members:
 
-Started: 9-10-21
-1 hour total
+9-7-21
+2 hours total
+
+9-8
+none 
+
+9-9
+none
+
+9-10-21
+4 hours total
 
 9-11-21
 2.5 hours total
@@ -14,15 +23,17 @@ Started: 9-10-21
 1 hour total
 
 9-14
-3.5 hours total
+4.5 hours total
 
 9-15
 2 hours total
 
 9-16
+7 hours total
 
-
+9-17
+4 hours total
 
 TOTAL HOURS WORKED ON PROJECT:
-11.5
+29 hours
 
