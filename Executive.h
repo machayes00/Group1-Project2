@@ -18,15 +18,23 @@ public:
   ~Executive();
 
   void run();
-  //@process - cout the paly menu and running the following functions
+  //@input - none.
+  //@input - none.
+  //@process - This creates the space where the game is is run and dishes out tasks to the other methods ie the setup and game_start method.
+  //@return - none
 
   void place_ship(int size, Player& new_player);
-  //@input - the size of the ships and which player
-  //@prociess - put the ship form size 1 to the input size
+  //@input - size - the size of the ship you wish to place at that coordinate.ie a 1x1 or 1x2 etc.
+  //@input - new_player - passes a player object by reference.
+  //@process - places a ship with the passed size on the passed players gameBoard.
+  //@return - none
 
   void game_start(Player& player1, Player& player2, int size);
-  //@input - player1, player2 and the size of ships
-  //@process - take turns until one palyer fialure
+  //@input - player1 - a passed player object.
+  //@input - player2 - a passed player object
+  //@input - size - amount of ships that game is currrently being player with between 1-6.
+  //@process - runs the games turns and checks for a win for both players.
+  //@return - none
 
 };
 

@@ -22,10 +22,10 @@ void Executive::run()
   cout << "It is time for Batttle Ship!!!\n";
   do
   {
-    cout<<"How many ships would you like to play with for this game:\n";
+    cout<<"Please entere a number between 1-6 of how many ships you would like to play with this game:\n";
     cin>>tempinput;
 
-  }while(!(tempinput=="1" || tempinput=="2" || tempinput=="3" || tempinput=="4" || tempinput=="5" || tempinput=="6"));
+  }while(!(tempinput=="1" || tempinput=="2" || tempinput=="3" || tempinput=="4" || tempinput=="5" || tempinput=="6")); //runs loop until a valid number of ships is entered into the program
   ships=stoi(tempinput);
   cout<<"you have selected: "<<ships <<" ships to play with \n";
   player1ships = ships;
@@ -80,9 +80,9 @@ void Executive::place_ship(int size, Player& new_player)
 
 void Executive::game_start(Player& player1, Player& player2, int size)
 {
-  int player1_count = 0; //it count all the hitted numbers
+  int player1_count = 0; //keeps a running total of the number of hits scored on each players side
   int player2_count = 0;
-  int max_count = size*(1+size)/2;
+  int max_count = size*(1+size)/2; //uses the given amount of ships(size) to check how many hits each player can have before they are out of ships.
   char player_choice = 'n';
   int row = 0;
   char column = ' ';

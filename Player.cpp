@@ -14,13 +14,13 @@ Player::~Player()
 
 bool Player::checkHit(int row,char col)
 {
-    if(gameBoard.is_what(row,col)=='B')
+    if(gameBoard.is_what(row,col)=='B') //checks to see if there is a ship at the specified coordinates.
     {
         return true;
     }
-    else if (gameBoard.is_what(row,col) == '~')
+    else if (gameBoard.is_what(row,col) == '~')//checks to see if water is at that location.
     {
-        hiddenBoard.exchange(row,col,'O');
+        hiddenBoard.exchange(row,col,'O');//replaces a wave (~) with a miss (O).
         return false;
     }
 }
@@ -32,7 +32,7 @@ int Player::checkShips()
 
 void Player::get_hit(int row,char col)
 {
-    gameBoard.exchange(row,col,'X');
+    gameBoard.exchange(row,col,'X'); //replaces a ship (B) with a hit (X).
     hiddenBoard.exchange(row,col,'X');
 }
 
@@ -63,7 +63,7 @@ bool Player::placeShip(int row, char col, int size)
             original_Board.put_row_ship(row,col,size,'B');
             return true;
         }
-        else // over boundary or over put
+        else // over boundary or put on top of an existing ship.
         {
             return false;
         }
@@ -75,7 +75,7 @@ bool Player::placeShip(int row, char col, int size)
             original_Board.put_column_ship(row,col,size,'B');
             return true;
         }
-        else // over boundary or over put
+        else // over boundary or put on top of an existing ship.
         {
             return false;
         }

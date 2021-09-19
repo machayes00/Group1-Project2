@@ -9,8 +9,8 @@
 
 class Player{
 private:
-  Board hiddenBoard ; // The board shows to opponent
-  Board gameBoard; // the board shows ships and hitted space
+  Board hiddenBoard ; // The board shown to opponent
+  Board gameBoard; // this board shows ships and hitted space
   Board original_Board;// the board stores all the shps and do not make any change
   int shipsLeft;
 
@@ -21,8 +21,6 @@ public:
   //@input - int row - the row in which the player wants to place a boat.
   //@input - char col - the column in which the player wants to place a ship.
   //@process - uses the passed parameters to check to see if a B exists at the passed location in the hiddenBoard.
-  //@return - the board object of the player class.
-  //pass a row and coloumn
   //return 1 if hits ships, 0 if hits water
 
   int checkShips();
@@ -30,26 +28,31 @@ public:
   //@input - none.
   //@process - none
   //@return - returns the amount of ships left for the player class.
+
   void get_hit(int row, char col);//helper function checkHit()
   //@input - int row - the row in which the player wants to place a boat.
   //@input - char col - the column in which the player wants to place a ship.
   //@process - replaces a B in the array with an X.
   //@return - none.
+
   void getHiddenBoard();
   //@input - none.
   //@input - none.
-  //@process - print the hidden board object. Mainly used for calling methods of the board class
-  //@return - 
+  //@process - print the hidden board object.
+  //@return - none
+
   void getGameBoard();
   //@input - none.
   //@input - none.
-  //@process - print the Game board object. Mainly used for calling methods of the board class
-  //@return - 
+  //@process - print the Game board object.
+  //@return - none
+
   void getOriginalBoard();
   //@input - none.
   //@input - none.
   //@process - print the Game board object. Mainly used for calling methods of the board class
-  //@return - 
+  //@return - none
+
   bool placeShip(int row, char col, int size);
   //@input - the row number in which the ship will be placed
   //@input - the column number in which the ship will be place
@@ -58,6 +61,5 @@ public:
   //@return - true if ship was placed, false if ship wasnt placed.
 
 };
-//mark hits with x misses with o
 
 #endif
