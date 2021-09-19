@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+    <head>
+		<meta charset="utf-8">
+		<title>Documentation</title>
+	</head>
+    <body>
+        <h1>Documentation</h1>
+        <h2>Executive Methods</h2>
+        <p>
+            void run()
+            <br>-input - none.
+            <br>-input - none.
+            <br>-process - This creates the space where the game is is run and dishes out tasks to the other methods ie the setup and game_start method.
+            <br>-return - none.
+        </p>
+
+        <p>
+            void place_ship(int size, Player& new_player)
+            <br>-input - size - the size of the ship you wish to place at that coordinate.ie a 1x1 or 1x2 etc.
+            <br>-input - new_player - passes a player object by reference.
+            <br>-process - places a ship with the passed size on the passed players gameBoard.
+            <br>-return - none.
+        </p>
+
+        <p>
+            void game_start(Player& player1, Player& player2, int size)
+            <br>-input - player1 - a passed player object.
+            <br>-input - player2 - a passed player object.
+            <br>-input - size - amount of ships that game is currrently being player with between 1-6.
+            <br>-process - runs the games turns and checks for a win for both players.
+            <br>-return - none
+        </p>
+        <h3>Player Methods</h3>
+        <p>
+            bool checkHit(int row,char col)
+            <br>-input - int row - the row in which the player wants to place a boat.
+            <br>-input - char col - the column in which the player wants to place a ship.
+            <br>-process - uses the passed parameters to check to see if a B exists at the passed location in the hiddenBoard.
+            <br>-return - 1 if hits ships, 0 if hits water.
+        </p>
+        <p>
+            int checkShips()
+            <br>-input - none.
+            <br>-input - none.
+            <br>-process - none.
+            <br>-return - returns the amount of ships left for the player class.
+        </p>
+        <p>
+            void get_hit(int row, char col)
+            <br>-input - int row - the row in which the player wants to place a boat.
+            <br>-input - char col - the column in which the player wants to place a ship.
+            <br>-process - replaces a B in the array with an X.
+            <br>-return - none.
+        </p>
+        <p>
+            void getHiddenBoard()
+            <br>-input - none.
+            <br>-input - none.
+            <br>-process - print the hidden board object.
+            <br>-return - none.
+        </p>
+        <p>
+            void getGameBoard()
+            <br>-input - none.
+            <br>-input - none.
+            <br>-process - print the Game board object.
+            <br>-return - none.
+        </p>
+        <p>
+            void getOriginalBoard()
+            <br>-input - none.
+            <br>-input - none.
+            <br>-process - print the Game board object. Mainly used for calling methods of the board class.
+            <br>-return - none.
+        </p>
+        <p>
+            bool placeShip(int row, char col, int size)
+            <br>-input - the row number in which the ship will be placed.
+            <br>-input - the column number in which the ship will be place.
+            <br>-input - int the size of the ship.
+            <br>-process - asking user about the direction of the shop. places a ship in the gameBoard and original_Board.
+            <br>-return - true if ship was placed, false if ship wasnt placed.
+        </p>
+        <h3>Board Methods</h3>
+        <p>
+            Board()
+            <br>-initialize the m_map with the size 9x10 character array.
+            <br>-filled each character with '~' which shows waves.
+        </p>
+        <p>
+            ~Board()
+            <br>-delete m_map claen the memory.
+        </p>
+        <p>
+            Board(char hidden_letter)
+            <br>-process - this function works for hidden_board, which exchange all the '~' into 'hidden_letter'.
+        </p>
+        <p>
+            void print()
+            <br>-print the m_map witch has the row's sequence shows 1-9.
+            <br>-it has the column's sequence shows A-J.
+            <br>-it shows the whole m_map.
+        </p>
+        <p>
+            bool exchange(int row_num, char column_letter, char new_letter)
+            <br>-input - the row, colum and the new_letter to be exchanged on the board.
+            <br>-process - exchange the original letter of the point to the new_letter.
+            <br>-return - true for success, false for failure.
+        </p>
+        <p>
+            bool put_column_ship(int row_num, char column_letter, int size, char new_letter)
+            <br>-input - The number of the row, the letter of the column and the size of the ship's head.
+            <br>-input - The new_letter for the ship.
+            <br>-process -determine if the ship is in the bounday.
+            <br>-process -if it is true put the ship with the start point in column with the size and the new_lettter.
+            <br>-return - true for success, false for failure.
+        </p>
+        <p>
+            bool put_row_ship(int row_num, char column_letter, int size, char new_letter)
+            <br>-input - The number of the row, the letter of the column and the size of the ship's head.
+            <br>-input - The new_letter for the ship.
+            <br>-process -determine if the ship is in the bounday.
+            <br>-process- if it is true put the ship with the start point in row with the size and the new_lettter.
+            <br>-return - true for success, false for failure.
+        </p>
+        <p>
+            char is_what(int row_num, char column_letter)
+            <br>-input - Number of the row and the letter for the column.
+            <br>-process - determine if the point is in the bounday.
+            <br>-return - if it is in the boundary, return the letter.
+            <br>-return - if it is not in the boundary,  throw the exception error.
+        </p>
+    </body>
+</html>
