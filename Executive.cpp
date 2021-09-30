@@ -67,8 +67,8 @@ void Executive::aiplace(int size, Player& new_player)
 
   do{
       new_player.getGameBoard(); //returns the hidden board of the player class and prints it
-      do{
       srand(time(NULL));
+      do{
       row=rand() % 9;
       tempinput=rand() % 10;
       column = tempinput + 'A';
