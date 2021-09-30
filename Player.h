@@ -53,7 +53,7 @@ public:
   //@process - print the Game board object. Mainly used for calling methods of the board class
   //@return - none
 
-  bool placeShip(int row, char col, int size);
+  bool placeShip(int row, char col, int size,string direction);
   //@input - the row number in which the ship will be placed
   //@input - the column number in which the ship will be place
   //@input - int the size of the ship
