@@ -1,6 +1,9 @@
 #include "Executive.h"
 #include "Board.h"
 #include "Player.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <iostream>
 using namespace std;
 
@@ -19,10 +22,11 @@ void Executive::run()
 {
   system("clear");
   string tempinput;
+  string aitrigger;
   cout << "It is time for Batttle Ship!!!\n";
   do
   {
-    cout<<"Please entere a number between 1-6 of how many ships you would like to play with this game:\n";
+    cout<<"Please enter a number between 1-6 of how many ships you would like to play with this game:\n";
     cin>>tempinput;
 
   }while(!(tempinput=="1" || tempinput=="2" || tempinput=="3" || tempinput=="4" || tempinput=="5" || tempinput=="6")); //runs loop until a valid number of ships is entered into the program
@@ -30,26 +34,69 @@ void Executive::run()
   cout<<"you have selected: "<<ships <<" ships to play with \n";
   player1ships = ships;
   player2ships = ships;
-
+  cout << "Do you want to play against an AI?(Y/N)";
+  cin >> aitrigger;
   cout << "Place the ships for player 1\n"; // place ships for palyer 1
   place_ship(ships, player1);
   system("clear");
-
+  if(aitrigger == "Y" || aitrigger == "y")
+  {
+    cout << "Placing the ships for player 2\n"; // place ships for palyer 2
+    aiplace(ships,player2);
+    system("clear");
+  }
+  else
+  {
   cout << "Place the ships for player 2\n"; // place ships for palyer 2
   place_ship(ships, player2);
   system("clear");
-
+  }
   game_start(player1,player2,ships);
 
   return;
 }
 
+void Executive::aiplace(int size, Player& new_player)
+{
+  string tempinput;
+  int num = 1; // reocord the size of ship
+  int row = 0;
+  char column = ' ';
+  int tempinput;
+  string dir;
+
+  do{
+      new_player.getGameBoard(); //returns the hidden board of the player class and prints it
+      do{
+      srand(time(NULL));
+      row=rand() % 9;
+      tempinput=rand() % 10;
+      column = tempinput + 'A';
+      tempinput=rand() % 2;
+      if(tempinput == 1)
+      {
+        dir="row";
+      }
+      else
+      {
+        dir="col"
+      }
+      }while (!new_player.placeShip(row,column,num,dir));// places the ship in the hidden board where the player has specified.
+
+      cout << "Placed!\n";
+      //new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
+      num++;
+   } while(num < size+1);
+
+   return;
+}
 void Executive::place_ship(int size, Player& new_player)
 {
   string tempinput;
   int num = 1; // reocord the size of ship
   int row = 0;
   char column = ' ';
+  string direction;
   do{
       new_player.getGameBoard(); //returns the hidden board of the player class and prints it
       do
@@ -63,12 +110,13 @@ void Executive::place_ship(int size, Player& new_player)
         {
           cout<<"Please enter a number for the row you would wish to place a ship in.\n";
           cin>>tempinput;
-
         }while(!(tempinput=="1" || tempinput=="2" || tempinput=="3" || tempinput=="4" || tempinput=="5" || tempinput=="6" || tempinput=="7" || tempinput=="8" || tempinput=="9"));
         row=stoi(tempinput);
         cout<<"Please enter a letter for the column you wish to place a ship in.\n";
         cin>>column;
-      }while (!new_player.placeShip(row,column,num));// places the ship in the hidden board where the player has specified.
+        cout << "In which direction do you want to place? (row/col)";
+        cin >> direction;
+      } while(!new_player.placeShip(row,column,num,direction));// places the ship in the hidden board where the player has specified.
 
       cout << "Placed!\n";
       //new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot

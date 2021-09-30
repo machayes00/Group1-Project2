@@ -51,11 +51,8 @@ void Player::getOriginalBoard()
     original_Board.print();
 }
 
-bool Player::placeShip(int row, char col, int size)
+bool Player::placeShip(int row, char col, int size,string direction)
 {
-    string direction;
-    cout << "In which direction do you want to place? (row/col)";
-    cin >> direction;
     if (direction == "row") // when the direction is row
     {
         if(gameBoard.put_row_ship(row,col,size,'B'))
