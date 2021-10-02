@@ -56,13 +56,15 @@ void Executive::run()
   return;
 }
 
+// E: please add comments to make it easier for me to help with this. I only marked syntax errors.
+// If comments clarify the intnet or plan, it makes it easier to fix the code.
 void Executive::aiplace(int size, Player& new_player)
 {
-  string tempinput;
+  string tempinput; // E: tempinput is declared as both string and int
   int num = 1; // reocord the size of ship
   int row = 0;
   char column = ' ';
-  int tempinput;
+  int tempinput;  // E: tempinput is declared as both string and int (I think 2nd declaration is ignored)
   string dir;
 
   do{
@@ -71,15 +73,15 @@ void Executive::aiplace(int size, Player& new_player)
       do{
       row=rand() % 9;
       tempinput=rand() % 10;
-      column = tempinput + 'A';
+      column = tempinput + 'A'; // E: column was declared as a char. Can't assign to a string OR int
       tempinput=rand() % 2;
-      if(tempinput == 1)
+      if(tempinput == 1) //  E: needs fix. C++ thinks you are comparing a string type to an int type
       {
         dir="row";
       }
       else
       {
-        dir="col"
+        dir="col";
       }
       }while (!new_player.placeShip(row,column,num,dir));// places the ship in the hidden board where the player has specified.
 
