@@ -28,6 +28,7 @@ public:
   //@input - new_player - passes a player object by reference.
   //@process - places a ship with the passed size on the passed players gameBoard.
   //@return - none
+  
   void aiplace(int size, Player& new_player);
   //@input - size - the size of the ship you wish to place at that coordinate.ie a 1x1 or 1x2 etc.
   //@input - new_player - passes a player object by reference.
