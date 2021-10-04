@@ -1,4 +1,5 @@
 #include "Player.h"
+
 using namespace std;
 
 
@@ -23,6 +24,7 @@ bool Player::checkHit(int row,char col)
         hiddenBoard.exchange(row,col,'O');//replaces a wave (~) with a miss (O).
         return false;
     }
+    return false; // added this to get rid of compiler warning
 }
 
 int Player::checkShips()
@@ -51,9 +53,11 @@ void Player::getOriginalBoard()
     original_Board.print();
 }
 
-bool Player::placeShip(int row, char col, int size,string direction)
+// E: Alex added extra strubg parameter here (direction). I agree with the intent 
+// but it caused compiler error. Changed to char.
+bool Player::placeShip(int row, char col, int size, char dir)
 {
-    if (direction == "row") // when the direction is row
+    if (dir == 'r' || dir == 'R') // when the direction is right, horizontal
     {
         if(gameBoard.put_row_ship(row,col,size,'B'))
         {
@@ -65,7 +69,7 @@ bool Player::placeShip(int row, char col, int size,string direction)
             return false;
         }
     }
-    else if (direction == "col") // when the direction is col
+    else if (dir == 'd' || dir == 'D') // when the direction is down, vertical
     {
         if(gameBoard.put_column_ship(row,col,size,'B'))
         {

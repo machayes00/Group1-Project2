@@ -2,8 +2,8 @@
 #include "Board.h"
 #include "Player.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <stdlib.h>  // need for srand rand
+#include <time.h>    // need for unique start point (seed) for random number generation
 #include <iostream>
 using namespace std;
 
@@ -27,7 +27,7 @@ void Executive::run()
     cin >> tempinput;
 
   } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || 
-  tempinput == "5" || tempinput == "6")); //runs loop until a valid number of ships is entered into the program
+          tempinput == "5" || tempinput == "6")); //runs loop until a valid number of ships is entered
 
   ships = stoi(tempinput); // changes string input to int
   cout << "You have selected: " << ships << " ships per player for this game. \n";
@@ -56,65 +56,78 @@ void Executive::run()
   }
 
   game_start(player1, player2, ships);
-
-  return;
 }
 
 // Placing ships randomly for the AI opponent
-// E: I will explain the fixes in GitHub comments or Discord chat rather than here
-// E: Pushing a commit before I fix anything at all, because I fixed the formatting in this file
-// a lot (to help me read the code easier) and I do not want format changes to hide important changes
-void Executive::aiplace(int size, Player &new_player)
+// E: I will delete the temporary explanatory comments. So much easier to explain what I am changing
+// while working on the code.
+void Executive::aiplace(int size, Player& new_player)
 {
-  string tempinput; // E: tempinput is declared as both string and int
-  int num = 1;      // reocord the size of ship
-  int row = 0;
-  char column = ' ';
-  int tempinput; // E: tempinput is declared as both string and int (I think 2nd declaration is ignored)
-  string dir;
+  // string tempinput;  E: commented out; tempinput is declared as both string and int
+  // int tempinput;  E: commented out; tempinput is declared as both string and int (I think 2nd declaration is ignored)
+  // E: since AI ship placement does not need temporary string variable from user input (that is, a tempinput)
+  // probably name the variable differently, and use each var name with one type.
+  // BUT the variables you want can be locally declared in the while loop
+
+  char dir = ' '; // will be randomly assigned a direction (changed to char because string caused compiler error)
+  int num = 1; // the size of the ship, to be incremented after each placement
+  int row = 0;  // will be randomly generated
+  char column = ' '; // will be randomly generated
 
   do
   {
     new_player.getGameBoard(); //returns the hidden board of the player class and prints it
-    srand(time(NULL));
+    srand(time(NULL));  // seed for random number generator is set based on current time
     do
     {
-      row = rand() % 9;
-      tempinput = rand() % 10;
-      column = tempinput + 'A'; // E: column was declared as a char. Can't assign to a string OR int
-      tempinput = rand() % 2;
-      if (tempinput == 1) //  E: needs fix. C++ thinks you are comparing a string type to an int type
+      // generate random row:
+      // row = rand() % 9; E: maybe this was right but I commented out, and changed to:
+      row = (rand()%9)+1;  // E: This should give random number between 1 and 9
+      // Or did you want indices? But placeShip and Board methods are set up for numbers 1 - 9
+      // Rationale is, n%m  gives values between (0 and m-1) and so I want to add 1 to result
+
+      // generate random column:
+      // rand() % 10 gives randon muber between 0 and 9
+      // You want to convert the random number 0-9 to A - J, so add 65
+      int randomnumber = (rand()%10)+65;
+      // Now, ovnert randomnumber to ASCII and assign that to column char variable
+      column = '0' + randomnumber; // I need to check if this works.
+      // actually this should be same as
+      // int randomnumber = rand()%10; column = 'A' + randomnumber; like previously
+      // But this seems a weird way to do it. Would make more sense to have Board and Player methods 
+      // work with int inputs, and AI would not have to mess with char at all; user input can be converted to int...... oh well.
+
+      // generate random orientation for ship placement
+      int oddoreven = rand() % 2;
+      if (oddoreven == 1) 
       {
-        dir = "row";
+        dir = 'r';
       }
       else
       {
-        dir = "col";
+        dir = 'd';
       }
     } while (!new_player.placeShip(row, column, num, dir)); // places the ship in the hidden board where the player has specified.
 
-    cout << "Placed!\n";
+    cout << "Placed ship!\n";
     //new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
     num++;
   } while (num < size + 1);
-
-  return;
 }
 
 // Placing ship for human opponent
-void Executive::place_ship(int size, Player &new_player)
+void Executive::place_ship(int size, Player& new_player)
 {
-  string tempinput;
-  int num = 1; // stores the size of ship
+  int num = 1;      // stores the size of ship, to be incremented with each ship placement
+  string tempinput; // stores user imput for row number, to be converted to int
   int row = 0;
   char column = ' ';
-  string direction;
+  char direction = ' ';  // changed to char, to fix compiler error
   do
   {
     new_player.getGameBoard(); //returns the hidden board of the player class and prints it
     do
     {
-
       cout << "Where would you like to place a ship with size 1x" << num << "?\n";
       cout << "The rest of the ship will extend down or right from your selected coordinate.\n";
       cout << "If the placement is invalid your ship will not be placed and you will be prompted for new placemnet information.\n";
@@ -123,25 +136,26 @@ void Executive::place_ship(int size, Player &new_player)
       {
         cout << "Please enter a number for the row you would wish to place a ship in.\n";
         cin >> tempinput;
-      } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
+      } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || 
+              tempinput == "5" || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
+
       row = stoi(tempinput);
+
       cout << "Please enter a letter for the column you wish to place a ship in.\n";
       cin >> column;
-      cout << "In which direction do you want to place? (row/col)";
+      cout << "In which direction do you want to place? Enter D or d for down (vertical), R or r for right (horizontal):\n";
       cin >> direction;
     } while (!new_player.placeShip(row, column, num, direction)); // places the ship in the hidden board where the player has specified.
 
-    cout << "Placed!\n";
+    cout << "Placed ship!\n";
     //new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
     num++;
   } while (num < size + 1);
-
-  return;
 }
 
-void Executive::game_start(Player &player1, Player &player2, int size)
+void Executive::game_start(Player& player1, Player& player2, int size)
 {
-  int player1_count = 0; //keeps a running total of the number of hits scored on each players side
+  int player1_count = 0; //keeps a running total of the number of hits scored on each player's side
   int player2_count = 0;
   int max_count = size * (1 + size) / 2; //uses the given amount of ships(size) to check how many hits each player can have before they are out of ships.
   char player_choice = 'n';
@@ -160,16 +174,19 @@ void Executive::game_start(Player &player1, Player &player2, int size)
       cout << "Enter the the row number: "; // get the row
       cin >> tempinput;
 
-    } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
+    } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
+              || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
+
     row = stoi(tempinput);
+
     do
     {
       cout << "Enter the column character: "; // get the column
       cin >> column;
       column_num = (char)column - 65;
     } while (column_num < 0 || column_num > 10); //Boundary
-
     system("clear");
+    
     if (player2.checkHit(row, column))
     {
       player2.get_hit(row, column);
@@ -218,7 +235,8 @@ void Executive::game_start(Player &player1, Player &player2, int size)
       cout << "Enter the the row number: "; // get the row
       cin >> tempinput;
 
-    } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
+    } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
+              || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
     row = stoi(tempinput);
     do
     {
@@ -279,6 +297,4 @@ void Executive::game_start(Player &player1, Player &player2, int size)
   {
     cout << "Player1 WINS!\n";
   }
-
-  return;
 }

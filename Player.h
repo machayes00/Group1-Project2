@@ -9,10 +9,10 @@
 
 class Player{
 private:
-  Board hiddenBoard ; // The board shown to opponent
-  Board gameBoard; // this board shows ships and hitted space
-  Board original_Board;// the board stores all the shps and do not make any change
-  int shipsLeft;
+  Board hiddenBoard ; // this board is shown to opponent
+  Board gameBoard; // this board shows ships and hit locations
+  Board original_Board;// this board stores all the ships and does not make any changes
+  int shipsLeft;  // keeps tracks of number of ships remaining
 
 public:
   Player();
@@ -53,7 +53,9 @@ public:
   //@process - print the Game board object. Mainly used for calling methods of the board class
   //@return - none
 
-  bool placeShip(int row, char col, int size,string direction);
+  // E: extra string parameter added in was causing compiler error
+  // so I changed to char
+  bool placeShip(int row, char col, int size, char dir);
   //@input - the row number in which the ship will be placed
   //@input - the column number in which the ship will be place
   //@input - int the size of the ship
