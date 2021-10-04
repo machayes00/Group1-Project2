@@ -108,7 +108,7 @@ void Executive::aiplace(int size, Player& new_player)
     } while (!new_player.placeShip(row, column, num, dir)); // places the ship in the hidden board where the player has specified.
 
     cout << "Placed ship!\n";
-    //new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
+    new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
     num++;
   } while (num < size + 1);
 }
