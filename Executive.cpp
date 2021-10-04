@@ -1,7 +1,7 @@
 #include "Executive.h"
 #include "Board.h"
 #include "Player.h"
-#include <stdio.h>
+#include <stdio.h>  
 #include <stdlib.h>  // need for srand rand
 #include <time.h>    // need for unique start point (seed) for random number generation
 #include <iostream>
@@ -34,10 +34,11 @@ void Executive::run()
   player1ships = ships;
   player2ships = ships;
 
-  cout << "Do you want to play against an AI instead of human opponent? (Y/N)";
+  cout << "Do you want to play against an AI instead of human opponent? (Y/N): ";
   cin >> aitrigger;
 
   cout << "Placing the ships for player 1\n"; // Player 1 ship placement same for AI opponent or human opponent
+  cout << endl;
   place_ship(ships, player1);
 
   system("clear"); // screen clears after player 1 ships are placed, to prepare for player 2
@@ -87,7 +88,7 @@ void Executive::aiplace(int size, Player& new_player)
       // Rationale is, n%m  gives values between (0 and m-1) and so I want to add 1 to result
 
       // generate random column:
-      // rand() % 10 gives randon muber between 0 and 9
+      // rand() % 10 gives randon number between 0 and 9
       // You want to convert the random number 0-9 to A - J, so add 65
       int randomnumber = (rand()%10)+65;
       // Now, covnert randomnumber to ASCII and assign that to column char variable
