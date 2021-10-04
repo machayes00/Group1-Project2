@@ -90,12 +90,10 @@ void Executive::aiplace(int size, Player& new_player)
       // rand() % 10 gives randon muber between 0 and 9
       // You want to convert the random number 0-9 to A - J, so add 65
       int randomnumber = (rand()%10)+65;
-      // Now, ovnert randomnumber to ASCII and assign that to column char variable
+      // Now, covnert randomnumber to ASCII and assign that to column char variable
       column = '0' + randomnumber; // I need to check if this works.
       // actually this should be same as
       // int randomnumber = rand()%10; column = 'A' + randomnumber; like previously
-      // But this seems a weird way to do it. Would make more sense to have Board and Player methods 
-      // work with int inputs, and AI would not have to mess with char at all; user input can be converted to int...... oh well.
 
       // generate random orientation for ship placement
       int oddoreven = rand() % 2;
