@@ -89,10 +89,9 @@ void Executive::aiplace(int size, Player& new_player)
 
       // generate random column:
       // rand() % 10 gives randon number between 0 and 9
-      // You want to convert the random number 0-9 to A - J, so add 65
-      int randomnumber = (rand()%10)+65;
+      int randomnumber = (rand()%10)+1;
       // Now, covnert randomnumber to ASCII and assign that to column char variable
-      column = '0' + randomnumber; // I need to check if this works.
+      column = 'A' + randomnumber; // this works.
       // actually this should be same as
       // int randomnumber = rand()%10; column = 'A' + randomnumber; like previously
 
