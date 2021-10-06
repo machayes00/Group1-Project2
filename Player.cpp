@@ -90,3 +90,27 @@ bool Player::placeShip(int row, char col, int size, char dir)
         return false;
     }
 }
+void Player::finder(int row,char col)
+{
+    bool check = false;
+    char x;
+    for(int i=1; i <= 9; i++)
+    {
+        for(int j =0; j < 10; j++)
+        {
+                if(check == true)
+                {
+                }
+                else
+                {
+                x='A'+j;
+                if (gameBoard.is_what(i, x) == 'B')
+                {
+                    row = i;
+                    col= x;
+                    check =true;
+                }
+                }
+        }
+     }
+}
