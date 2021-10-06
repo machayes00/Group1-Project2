@@ -58,13 +58,12 @@ void Board::print()
         cout << i+1 <<' ';//print the row sequence from 1-9
         for (int j = 0; j < 10; j++)
         {
-            cout << m_map[i][j]; //print thr map
+            cout << m_map[i][j]; //print the map
             cout << ' ';
         }
         cout << endl; //switch line
     }
-
-    return ;
+    return;
 }
 
 bool Board::exchange(int row_num, char column_letter, char new_letter)
@@ -79,8 +78,6 @@ bool Board::exchange(int row_num, char column_letter, char new_letter)
     {
         return 0; //return false
     }
-
-
 }
 
 bool Board::put_column_ship(int row_num, char column_letter, int size,char new_letter)
@@ -102,7 +99,7 @@ bool Board::put_column_ship(int row_num, char column_letter, int size,char new_l
         do
         {
             exchange(row_num,column_letter,new_letter);//exchange the point's letter
-            row_num++; //go foward for the ship's boday
+            row_num++; //go foward for the ship's body
             exchange_time++;
         } while (exchange_time < size);
         return 1; //return true
@@ -111,8 +108,6 @@ bool Board::put_column_ship(int row_num, char column_letter, int size,char new_l
     {
         return 0; //return false
     }
-
-
 }
 
 bool Board::put_row_ship(int row_num, char column_letter, int size, char new_letter)
@@ -157,3 +152,7 @@ char Board::is_what(int row_num, char column_letter)
         throw (runtime_error("This point is not in the boundary")); // throw the error
     }
 }
+
+// E: there are no try-catch blocks in any code to catch bad entry but if time, I will add them (and more throws)
+// because catching errors and printing them to user is much nicer than just repeating the entire
+// ship placement query from start.

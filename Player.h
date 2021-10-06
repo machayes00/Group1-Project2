@@ -9,56 +9,93 @@
 
 class Player{
 private:
-  Board hiddenBoard ; // The board shown to opponent
-  Board gameBoard; // this board shows ships and hitted space
-  Board original_Board;// the board stores all the shps and do not make any change
-  int shipsLeft;
+  Board hiddenBoard ; // this board is shown to opponent
+  Board gameBoard; // this board shows ships and hit locations
+  Board original_Board;// this board stores all the ships and does not make any changes
+  int shipsLeft;  // keeps tracks of number of ships remaining
 
 public:
+
+  /**
+   * @brief Construct a new Player object
+   * @param none
+   * @pre none
+   * @post new Player object is created
+   */
   Player();
+
+  /**
+   * @brief Destroy the Player object
+   * @pre none
+   * @post Player object is deallocated from memory
+   */
   ~Player();
-  bool checkHit(int row,char col);//checks what is hit
-  //@input - int row - the row in which the player wants to place a boat.
-  //@input - char col - the column in which the player wants to place a ship.
-  //@process - uses the passed parameters to check to see if a B exists at the passed location in the hiddenBoard.
-  //return 1 if hits ships, 0 if hits water
 
+  /**p
+   * @brief Checks for ship hits by checking if a B character exists at the row and col arguments 
+   * @param row the row of the coordinate choosen for hit
+   * @param col the column of the coordinate choosen for hit
+   * @pre the column character must be a capital letter char, A - J; row is int 1-9
+   * @return true if coordinates match a B character
+   * @return false if coordinates do not match a B character
+   */
+  bool checkHit(int row,char col);
+
+  /**
+   * @brief Determines how many ships left for a player
+   * @param none
+   * @pre none
+   * @post none
+   * @return int the number of ships left
+   */
   int checkShips();
-  //@input - none.
-  //@input - none.
-  //@process - none
-  //@return - returns the amount of ships left for the player class.
 
+  /**
+   * @brief Replaces a hit B character with an X character
+   * @pre hit coordinates must be obtained after calling checkHit method
+   * @pre requires exchange method from Board class
+   * @param row the row, which is an int 1-9
+   * @param col the column, whch is a char, capital letter A - J
+   * @ return none (a weird thing for a "get" function but it is not a getter)
+   */
   void get_hit(int row, char col);//helper function checkHit()
-  //@input - int row - the row in which the player wants to place a boat.
-  //@input - char col - the column in which the player wants to place a ship.
-  //@process - replaces a B in the array with an X.
-  //@return - none.
 
+  /**
+   * @brief Prints the "hidden board" which hides the ships 'till hit
+   * @pre none
+   * @post board with ships hidden, and hits if any, is printed to screen
+   * @param none
+   * @return none
+   */
   void getHiddenBoard();
-  //@input - none.
-  //@input - none.
-  //@process - print the hidden board object.
-  //@return - none
 
+  /**
+   * @brief Prints the Board object that reveals ship locations and hits if present
+   * @pre none
+   * @post board with ships and hit locations is printed to screen
+   * @param none
+   * @return none
+   */
   void getGameBoard();
-  //@input - none.
-  //@input - none.
-  //@process - print the Game board object.
-  //@return - none
 
+  /**
+   * @brief Original explanation for this method: "print the Game board  
+   *    object. Mainly used for calling methods of the board class." Will clarify/update...
+   * @param none
+   * @return none
+   */
   void getOriginalBoard();
-  //@input - none.
-  //@input - none.
-  //@process - print the Game board object. Mainly used for calling methods of the board class
-  //@return - none
 
-  bool placeShip(int row, char col, int size);
-  //@input - the row number in which the ship will be placed
-  //@input - the column number in which the ship will be place
-  //@input - int the size of the ship
-  //@process - asking user about the direction of the shop. places a ship in the gameBoard and original_Board
-  //@return - true if ship was placed, false if ship wasnt placed.
+  /**
+   * @brief Interacts with user to place ships on gameBoard and original_Board objects
+   * @param row the rown number for first coordinate of a ship placement (int 1-9)
+   * @param col the col letter for first coordinate of a ship (char capital A-J)
+   * @param size the size of the ship (number of coordinates that need to be marked)
+   * @param dir the direction of the ship (Down or Right, char must be D, d, R, or r)
+   * @return true if ship could be placed
+   * @return false if ship could not be placed
+   */
+  bool placeShip(int row, char col, int size, char dir);
 
 };
 
