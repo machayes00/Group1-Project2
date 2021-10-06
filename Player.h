@@ -17,8 +17,7 @@ private:
   int shipsLeft;  // keeps tracks of number of ships remaining
 
 public:
-
-  /**
+   /**
    * @brief Construct a new Player object
    * @param none
    * @pre none
@@ -26,7 +25,7 @@ public:
    */
   Player();
 
-  /**
+   /**
    * @brief Destroy the Player object
    * @pre none
    * @post Player object is deallocated from memory
@@ -34,7 +33,7 @@ public:
   ~Player();
 
   /**
-   * @brief Checks for ship hits by checking if a B character exists at the row and col arguments 
+   * @brief Checks for ship hits by checking if a B character exists at the row and col arguments
    * @param row the row of the coordinate choosen for hit
    * @param col the column of the coordinate choosen for hit
    * @pre the column character must be a capital letter char, A - J; row is int 1-9
@@ -43,7 +42,7 @@ public:
    */
   bool checkHit(int row,char col);
 
-  /**
+   /**
    * @brief Determines how many ships left for a player
    * @param none
    * @pre none
@@ -52,7 +51,7 @@ public:
    */
   int checkShips();
 
-  /**
+   /**
    * @brief Replaces a hit B character with an X character
    * @pre hit coordinates must be obtained after calling checkHit method
    * @pre requires exchange method from Board class
@@ -62,7 +61,7 @@ public:
    */
   void get_hit(int row, char col);//helper function checkHit()
 
-  /**
+   /**
    * @brief Prints the "hidden board" which hides the ships 'till hit
    * @pre none
    * @post board with ships hidden, and hits if any, is printed to screen
@@ -72,26 +71,26 @@ public:
   void getHiddenBoard();
 
   /**
-   * @brief Prints the Board object that reveals ship locations and hits if present
-   * @pre none
-   * @post board with ships and hit locations is printed to screen
+   * @brief Probably delete method. Original explanation for this method: "print the Game board
+   *    object. Mainly used for calling methods of the board class."
    * @param none
    * @return none
    */
   void getGameBoard();
 
-  /**
+   /**
    * @brief Calls printAnimate Board method on hiddenBoard Board object
-   * @pre Must be called within game_start method, after it calls checkHit method 
+   * @pre Must be called within game_start method, after it calls checkHit method
    * @post printAnimate sub-method prints animation to screen when a ship is hit
    * @param row the row index in 2D array (int 0 - 8)
    * @param col the column index in 2d array (int 0 - 9)
    */
-  void doAnimation(int row, int col);
+
+   void doAnimation(int row, int col);
 
   /**
-   * @brief Probably delete method. Original explanation for this method: "print the Game board  
-   *    object. Mainly used for calling methods of the board class." 
+   * @brief Probably delete method. Original explanation for this method: "print the Game board
+   *    object. Mainly used for calling methods of the board class."
    * @param none
    * @return none
    */
@@ -107,6 +106,9 @@ public:
    * @return false if ship could not be placed
    */
   bool placeShip(int row, char col, int size, char dir);
+
+ //Alex:This method doesn't work right now(used for hard difficulty and finding boats)
+  void finder(int row,char col);
 
 };
 
