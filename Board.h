@@ -21,11 +21,13 @@ class Board
     Board(char hidden_letter);
     //@process - this function works for hidden_board, which exchange all the '~' into 'hidden_letter'
 
-    void printAnimate(int row, int col);
+    void printAnimateHelp(int row, int col);
 
-    void print(int length, int row, int col); // pint the m_map witch has the row's sequence shows 1-9
+    void printAnimate(int length, int row, int col); // pint the m_map witch has the row's sequence shows 1-9
     // it has the column's sequence shows A-J
     // it shows the whole m_map
+
+    void print();
 
     bool exchange(int row_num, char column_letter, char new_letter);
     //@input - the row, colum and the new_letter
