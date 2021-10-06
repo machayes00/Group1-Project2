@@ -52,13 +52,13 @@ void Board::printAnimate(int row, int col)
 
     printAnimateHelp(0, row, col);
 
-    usleep(700000);
+    usleep(500000);
 
     system("clear");
 
     printAnimateHelp(1, row, col);
 
-    usleep(700000);
+    usleep(500000);
 
     system("clear");
 

@@ -22,10 +22,10 @@ class Board
     //@process - this function works for hidden_board, which exchange all the '~' into 'hidden_letter'
 
     void printAnimate(int row, int col);
+    // calls printAnimateHelp to create an animation effect
 
-    void printAnimateHelp(int length, int row, int col); // pint the m_map witch has the row's sequence shows 1-9
-    // it has the column's sequence shows A-J
-    // it shows the whole m_map
+    void printAnimateHelp(int length, int row, int col);
+    // prints as normal, but places X's based on what row+length and col+length is
 
     void print();
 
