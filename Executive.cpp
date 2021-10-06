@@ -60,16 +60,8 @@ void Executive::run()
 }
 
 // Placing ships randomly for the AI opponent
-// E: I will delete the temporary explanatory comments. So much easier to explain what I am changing
-// while working on the code.
 void Executive::aiplace(int size, Player& new_player)
 {
-  // string tempinput;  E: commented out; tempinput is declared as both string and int
-  // int tempinput;  E: commented out; tempinput is declared as both string and int (I think 2nd declaration is ignored)
-  // E: since AI ship placement does not need temporary string variable from user input (that is, a tempinput)
-  // probably name the variable differently, and use each var name with one type.
-  // BUT the variables you want can be locally declared in the while loop
-
   char dir = ' '; // will be randomly assigned a direction (changed to char because string caused compiler error)
   int num = 1; // the size of the ship, to be incremented after each placement
   int row = 0;  // will be randomly generated
@@ -82,18 +74,14 @@ void Executive::aiplace(int size, Player& new_player)
     do
     {
       // generate random row:
-      // row = rand() % 9; E: maybe this was right but I commented out, and changed to:
-      row = (rand()%9)+1;  // E: This should give random number between 1 and 9
-      // Or did you want indices? But placeShip and Board methods are set up for numbers 1 - 9
+      row = (rand()%9)+1;  // This should give random number between 1 and 9
       // Rationale is, n%m  gives values between (0 and m-1) and so I want to add 1 to result
 
       // generate random column:
       // rand() % 10 gives randon number between 0 and 9
       int randomnumber = (rand()%10)+1;
       // Now, covnert randomnumber to ASCII and assign that to column char variable
-      column = 'A' + randomnumber; // this works.
-      // actually this should be same as
-      // int randomnumber = rand()%10; column = 'A' + randomnumber; like previously
+      column = 'A' + randomnumber; 
 
       // generate random orientation for ship placement
       int oddoreven = rand() % 2;
