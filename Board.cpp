@@ -3,7 +3,7 @@ using namespace std;
 
 Board::Board()
 {
-    m_length = 1;
+    m_length = 0;
     m_map = new char*[9];
     for (int i = 0 ; i < 9 ; i++) //initialize the row
     {
@@ -48,19 +48,20 @@ Board::~Board()
 
 void Board::printAnimate(int row, int col)
 {
+    if(m_length == 2){
+        return;
+    }
     system("clear");
 
-    printAnimateHelp(0, row, col);
+    printAnimateHelp(m_length, row, col);
 
     usleep(500000);
 
     system("clear");
 
-    printAnimateHelp(1, row, col);
+    m_length++;
 
-    usleep(500000);
-
-    system("clear");
+    printAnimate(row, col);
 
     return;
 }
@@ -79,22 +80,12 @@ void Board::printAnimateHelp(int length, int row, int col)
         cout << i+1 <<' ';//print the row sequence from 1-9
         for (int j = 0; j < 10; j++)
         {
-            if(length == 0) {
-                if(i == row && j == col) {
-                    cout << '*';
-                    cout << ' ';
-                } else {
-                    cout << m_map[i][j]; //print the map
-                    cout << ' ';
-                }
+            if((i == row+m_length && j == col) || (i == row-m_length && j == col) || (i == row && j == col+m_length) || (i == row && j == col-m_length)) {
+                cout << '*';
+                cout << ' ';
             } else {
-                if((i == row+1 && j == col) || (i == row-1 && j == col) || (i == row && j == col+1) || (i == row && j == col-1)) {
-                    cout << '*';
-                    cout << ' ';
-                } else {
-                    cout << m_map[i][j]; //print the map
-                    cout << ' ';
-                }
+                cout << m_map[i][j]; //print the map
+                cout << ' ';
             }
         }
         cout << endl; //switch line
