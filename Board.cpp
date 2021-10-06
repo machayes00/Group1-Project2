@@ -152,3 +152,7 @@ char Board::is_what(int row_num, char column_letter)
         throw (runtime_error("This point is not in the boundary")); // throw the error
     }
 }
+
+// E: there are no try-catch blocks in any code to catch bad entry but if time, I will add them (and more throws)
+// because catching errors and printing them to user is much nicer than just repeating the entire
+// ship placement query from start.
