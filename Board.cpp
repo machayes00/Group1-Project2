@@ -81,7 +81,7 @@ void Board::printAnimateHelp(int length, int row, int col)
         {
             if(length == 0) {
                 if(i == row && j == col) {
-                    cout << 'X';
+                    cout << '*';
                     cout << ' ';
                 } else {
                     cout << m_map[i][j]; //print the map
@@ -89,7 +89,7 @@ void Board::printAnimateHelp(int length, int row, int col)
                 }
             } else {
                 if((i == row+1 && j == col) || (i == row-1 && j == col) || (i == row && j == col+1) || (i == row && j == col-1)) {
-                    cout << 'X';
+                    cout << '*';
                     cout << ' ';
                 } else {
                     cout << m_map[i][j]; //print the map
