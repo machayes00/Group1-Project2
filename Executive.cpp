@@ -175,6 +175,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
     
     if (player2.checkHit(row, column))
     {
+      player2.doAnimation(row-1, column_num);
       player2.get_hit(row, column);
       player2_count++;
       cout << "YOU HIT!\n";

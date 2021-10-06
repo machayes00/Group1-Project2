@@ -78,6 +78,8 @@ public:
    */
   void getGameBoard();
 
+  void doAnimation(int row, int col);
+
   /**
    * @brief Original explanation for this method: "print the Game board  
    *    object. Mainly used for calling methods of the board class." Will clarify/update...

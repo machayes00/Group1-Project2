@@ -59,6 +59,10 @@ void Board::printAnimate(int row, int col)
     printAnimateHelp(1, row, col);
 
     usleep(700000);
+
+    system("clear");
+
+    return;
 }
 
 void Board::printAnimateHelp(int length, int row, int col)
