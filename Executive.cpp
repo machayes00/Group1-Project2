@@ -1,7 +1,7 @@
 #include "Executive.h"
 #include "Board.h"
 #include "Player.h"
-#include <stdio.h>  
+#include <stdio.h>
 #include <stdlib.h>  // need for srand rand
 #include <time.h>    // need for unique start point (seed) for random number generation
 #include <iostream>
@@ -20,13 +20,31 @@ void Executive::run()
   system("clear");  // this clears the screen
   string tempinput; // temporary variable for capturing user input for number of ships
   string aitrigger; // variable for capturing user choice of AI or human player
+  int diff;//variable for difficulty
   cout << "It is time for Batttle Ship!!!\n";
   do
   {
     cout << "Please enter a number between 1-6 for the number of ships you would like per player:\n";
     cin >> tempinput;
 
-  } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || 
+  } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" ||
+          tempinput == "5" || tempinput == "6")); //runs loop until a valid number of ships is entered
+
+  ships = stoi(tempinput); // changes string input to int
+  cout << "You have selected: " << ships << " ships per player for this game. \n";
+  player1ships = ships;
+  player2ships = ships;
+
+  cout << "Do you want to play against an AI instead of human opponent? (Y/N): ";
+  cin >> aitrigger;
+ int diff;//variable for difficulty
+  cout << "It is time for Batttle Ship!!!\n";
+  do
+  {
+    cout << "Please enter a number between 1-6 for the number of ships you would like per player:\n";
+    cin >> tempinput;
+
+  } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" ||
           tempinput == "5" || tempinput == "6")); //runs loop until a valid number of ships is entered
 
   ships = stoi(tempinput); // changes string input to int
@@ -45,23 +63,47 @@ void Executive::run()
 
   if (aitrigger == "Y" || aitrigger == "y")
   {
-    cout << "Placing the ships for player 2\n"; 
+    cout << "What Difficulty? Easy(1), Medium(2), Hard(3):";
+    cin >> diff;
+    cout << "Placing the ships for player 2\n";
     aiplace(ships, player2);
     system("clear");
   }
   else
   {
-    cout << "Place the ships for player 2\n"; 
+    cout << "Place the ships for player 2\n";
+    place_ship(ships, player2);
+    system("clear");
+
+  if (aitrigger == "Y" || aitrigger == "y")
+  {
+    cout << "What Difficulty? Easy(1), Medium(2), Hard(3):";
+    cin >> diff;
+    cout << "Placing the ships for player 2\n";
+    aiplace(ships, player2);
+    system("clear");
+  }
+  else
+  {
+    cout << "Place the ships for player 2\n";
     place_ship(ships, player2);
     system("clear");
   }
 
-  game_start(player1, player2, ships);
+  game_start(player1, player2, ships, aitrigger,diff);
 }
 
 // Placing ships randomly for the AI opponent
+// E: I will delete the temporary explanatory comments. So much easier to explain what I am changing
+// while working on the code.
 void Executive::aiplace(int size, Player& new_player)
 {
+  // string tempinput;  E: commented out; tempinput is declared as both string and int
+  // int tempinput;  E: commented out; tempinput is declared as both string and int (I think 2nd declaration is ignored)
+  // E: since AI ship placement does not need temporary string variable from user input (that is, a tempinput)
+  // probably name the variable differently, and use each var name with one type.
+  // BUT the variables you want can be locally declared in the while loop
+
   char dir = ' '; // will be randomly assigned a direction (changed to char because string caused compiler error)
   int num = 1; // the size of the ship, to be incremented after each placement
   int row = 0;  // will be randomly generated
@@ -74,18 +116,23 @@ void Executive::aiplace(int size, Player& new_player)
     do
     {
       // generate random row:
-      row = (rand()%9)+1;  // This should give random number between 1 and 9
+      // row = rand() % 9; E: maybe this was right but I commented out, and changed to:
+      row = (rand()%9)+1;  // E: This should give random number between 1 and 9
+      // Or did you want indices? But placeShip and Board methods are set up for numbers 1 - 9
       // Rationale is, n%m  gives values between (0 and m-1) and so I want to add 1 to result
 
       // generate random column:
       // rand() % 10 gives randon number between 0 and 9
+      // You want to convert the random number 0-9 to A - J, so add 65
       int randomnumber = (rand()%10)+1;
       // Now, covnert randomnumber to ASCII and assign that to column char variable
-      column = 'A' + randomnumber; 
+      column = 'A' + randomnumber; // I need to check if this works.
+      // actually this should be same as
+      // int randomnumber = rand()%10; column = 'A' + randomnumber; like previously
 
       // generate random orientation for ship placement
       int oddoreven = rand() % 2;
-      if (oddoreven == 1) 
+      if (oddoreven == 1)
       {
         dir = 'r';
       }
@@ -120,9 +167,9 @@ void Executive::place_ship(int size, Player& new_player)
 
       do
       {
-        cout << "Please enter a number for the row you would wish to place a ship in.\n";
-        cin >> tempinput;
-      } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || 
+      cout << "Please enter a number for the row you would wish to place a ship in.\n";
+ cin >> tempinput;
+      } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" ||
               tempinput == "5" || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
 
       row = stoi(tempinput);
@@ -139,7 +186,7 @@ void Executive::place_ship(int size, Player& new_player)
   } while (num < size + 1);
 }
 
-void Executive::game_start(Player& player1, Player& player2, int size)
+void Executive::game_start(Player& player1, Player& player2, int size,string aitrigger,int diff)
 {
   int player1_count = 0; //keeps a running total of the number of hits scored on each player's side
   int player2_count = 0;
@@ -160,7 +207,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
       cout << "Enter the the row number: "; // get the row
       cin >> tempinput;
 
-    } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
+    } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5"
               || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
 
     row = stoi(tempinput);
@@ -172,7 +219,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
       column_num = (char)column - 65;
     } while (column_num < 0 || column_num > 10); //Boundary
     system("clear");
-    
+
     if (player2.checkHit(row, column))
     {
       player2.doAnimation(row-1, column_num);
@@ -205,7 +252,39 @@ void Executive::game_start(Player& player1, Player& player2, int size)
       cin >> player_choice;
     } while (player_choice != 'y');
     system("clear");
+    if(aitrigger == "Y" || aitrigger == "y")
+    {
+      srand(time(NULL));
+      if(diff == 1)
+      {
+      row = (rand()%9)+1;
+      int randomnumber = (rand()%10);
+      column = 'A' + randomnumber;
+      }
+      if(diff == 3)
+      {
+        player1.finder(row,column);
+      }
+      if (player1.checkHit(row, column))
+      {
+      player1.get_hit(row, column);
+      player1_count++;
+      cout << "AI HIT!\n";
+      player1.getHiddenBoard();
+      if (player1_count == max_count) //check if Player2 wins
+      {
+        break;
+      }
+      }
+      else
+      {
+      cout << "AI MISSED!\n";
+      player1.getHiddenBoard();
+      }
+      }
 
+    else
+    {
     do
     {
       cout << "Player2: Begin Turn(y/n)?\n";
@@ -222,7 +301,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
       cout << "Enter the the row number: "; // get the row
       cin >> tempinput;
 
-    } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
+    } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5"
               || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
     row = stoi(tempinput);
     do
@@ -267,7 +346,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
       cin >> player_choice;
     } while (player_choice != 'y');
     system("clear");
-
+    }
     do
     {
       cout << "Player1: Begin Turn(y/n)?\n";
@@ -285,3 +364,4 @@ void Executive::game_start(Player& player1, Player& player2, int size)
     cout << "Player1 WINS!\n";
   }
 }
+
