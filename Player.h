@@ -7,8 +7,10 @@
 #include <string>
 
 
-class Player{
+class Player
+{
 private:
+
   Board hiddenBoard ; // this board is shown to opponent
   Board gameBoard; // this board shows ships and hit locations
   Board original_Board;// this board stores all the ships and does not make any changes
@@ -31,7 +33,7 @@ public:
    */
   ~Player();
 
-  /**p
+  /**
    * @brief Checks for ship hits by checking if a B character exists at the row and col arguments 
    * @param row the row of the coordinate choosen for hit
    * @param col the column of the coordinate choosen for hit
@@ -78,11 +80,18 @@ public:
    */
   void getGameBoard();
 
+  /**
+   * @brief Calls printAnimate Board method on hiddenBoard Board object
+   * @pre Must be called within game_start method, after it calls checkHit method 
+   * @post printAnimate sub-method prints animation to screen when a ship is hit
+   * @param row the row index in 2D array (int 0 - 8)
+   * @param col the column index in 2d array (int 0 - 9)
+   */
   void doAnimation(int row, int col);
 
   /**
-   * @brief Original explanation for this method: "print the Game board  
-   *    object. Mainly used for calling methods of the board class." Will clarify/update...
+   * @brief Probably delete method. Original explanation for this method: "print the Game board  
+   *    object. Mainly used for calling methods of the board class." 
    * @param none
    * @return none
    */
