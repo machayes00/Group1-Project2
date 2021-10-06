@@ -46,22 +46,22 @@ Board::~Board()
     delete[] m_map;
 }
 
-void Board::printAnimateHelp(int row, int col)
+void Board::printAnimate(int row, int col)
 {
     system("clear");
 
-    printAnimate(0, row, col);
+    printAnimateHelp(0, row, col);
 
     usleep(700000);
 
     system("clear");
 
-    printAnimate(1, row, col);
+    printAnimateHelp(1, row, col);
 
     usleep(700000);
 }
 
-void Board::printAnimate(int length, int row, int col)
+void Board::printAnimateHelp(int length, int row, int col)
 {
     cout << "  ";// the first empty left-up corner
     for (int i = 0; i < 10; i++)
