@@ -45,6 +45,11 @@ void Player::getGameBoard()
     gameBoard.print();
 }
 
+void Player::doAnimation(int row, int col)
+{
+    hiddenBoard.printAnimate(row, col);
+}
+
 // E: I don't think this method is ever used.
 // and the "getBoard" methods are not getters. Do not need getters.
 void Player::getOriginalBoard()

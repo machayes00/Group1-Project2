@@ -3,6 +3,7 @@ using namespace std;
 
 Board::Board()
 {
+    m_length = 0;
     m_map = new char*[9];
     for (int i = 0 ; i < 9 ; i++) //initialize the row
     {
@@ -20,6 +21,7 @@ Board::Board()
 
 Board::Board(char hidden_letter)
 {
+    m_length = 1;
     m_map = new char*[9];
     for (int i = 0 ; i < 9 ; i++) //initialize the row
     {
@@ -42,6 +44,53 @@ Board::~Board()
         delete[] m_map[i];
     }
     delete[] m_map;
+}
+
+void Board::printAnimate(int row, int col)
+{
+    if(m_length == 2){
+        return;
+    }
+    system("clear");
+
+    printAnimateHelp(m_length, row, col);
+
+    usleep(500000);
+
+    system("clear");
+
+    m_length++;
+
+    printAnimate(row, col);
+
+    return;
+}
+
+void Board::printAnimateHelp(int length, int row, int col)
+{
+    cout << "  ";// the first empty left-up corner
+    for (int i = 0; i < 10; i++)
+    {
+        cout << (char) (i+'A'); //print the column sequence from A-J
+        cout <<' ';
+    }
+    cout << endl; //switch 1 line
+    for (int i = 0; i < 9; i++)
+    {
+        cout << i+1 <<' ';//print the row sequence from 1-9
+        for (int j = 0; j < 10; j++)
+        {
+            if((i == row+m_length && j == col) || (i == row-m_length && j == col) || (i == row && j == col+m_length) || (i == row && j == col-m_length)) {
+                cout << '*';
+                cout << ' ';
+            } else {
+                cout << m_map[i][j]; //print the map
+                cout << ' ';
+            }
+        }
+        cout << endl; //switch line
+    }
+    return ;
 }
 
 void Board::print()

@@ -3,12 +3,14 @@
 
 #include <iostream>
 #include <exception>
+#include <unistd.h>
 
 
 class Board
 {
     private:
     char** m_map = nullptr;
+    int m_length = 0;
 
     public:
     Board(); //initialize the m_map with the size 9x10 character array
@@ -19,9 +21,13 @@ class Board
     Board(char hidden_letter);
     //@process - this function works for hidden_board, which exchange all the '~' into 'hidden_letter'
 
-    void print(); // pint the m_map witch has the row's sequence shows 1-9
-    // it has the column's sequence shows A-J
-    // it shows the whole m_map
+    void printAnimate(int row, int col);
+    // calls printAnimateHelp to create an animation effect
+
+    void printAnimateHelp(int length, int row, int col);
+    // prints as normal, but places X's based on what row+length and col+length is
+
+    void print();
 
     bool exchange(int row_num, char column_letter, char new_letter);
     //@input - the row, colum and the new_letter
