@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "Player.h"
-
+using namespace std;
 class Executive
 {
 private:
@@ -59,9 +59,11 @@ public:
    * @param player1 Player object
    * @param player2 Player object
    * @param size The number of ships, 1-6
+   * @param aitrigger for playing against ai
+   * @param diff as difficulty setting
    * return none
    */
-  void game_start(Player& player1, Player& player2, int size);
+  void game_start(Player& player1, Player& player2, int size,string aitrigger,int diff);
 
 };
 
