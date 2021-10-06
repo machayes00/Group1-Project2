@@ -45,6 +45,8 @@ void Player::getGameBoard()
     gameBoard.print();
 }
 
+// E: I don't think this method is ever used.
+// and the "getBoard" methods are not getters. Do not need getters.
 void Player::getOriginalBoard()
 {
     original_Board.print();
