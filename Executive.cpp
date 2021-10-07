@@ -1,7 +1,7 @@
 #include "Executive.h"
 #include "Board.h"
 #include "Player.h"
-#include <stdio.h>
+#include <stdio.h>  
 #include <stdlib.h>  // need for srand rand
 #include <time.h>    // need for unique start point (seed) for random number generation
 #include <iostream>
@@ -27,24 +27,7 @@ void Executive::run()
     cout << "Please enter a number between 1-6 for the number of ships you would like per player:\n";
     cin >> tempinput;
 
-  } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" ||
-          tempinput == "5" || tempinput == "6")); //runs loop until a valid number of ships is entered
-
-  ships = stoi(tempinput); // changes string input to int
-  cout << "You have selected: " << ships << " ships per player for this game. \n";
-  player1ships = ships;
-  player2ships = ships;
-
-  cout << "Do you want to play against an AI instead of human opponent? (Y/N): ";
-  cin >> aitrigger;
- int diff;//variable for difficulty
-  cout << "It is time for Batttle Ship!!!\n";
-  do
-  {
-    cout << "Please enter a number between 1-6 for the number of ships you would like per player:\n";
-    cin >> tempinput;
-
-  } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" ||
+  } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || 
           tempinput == "5" || tempinput == "6")); //runs loop until a valid number of ships is entered
 
   ships = stoi(tempinput); // changes string input to int
@@ -65,27 +48,13 @@ void Executive::run()
   {
     cout << "What Difficulty? Easy(1), Medium(2), Hard(3):";
     cin >> diff;
-    cout << "Placing the ships for player 2\n";
+    cout << "Placing the ships for player 2\n"; 
     aiplace(ships, player2);
     system("clear");
   }
   else
   {
-    cout << "Place the ships for player 2\n";
-    place_ship(ships, player2);
-    system("clear");
-
-  if (aitrigger == "Y" || aitrigger == "y")
-  {
-    cout << "What Difficulty? Easy(1), Medium(2), Hard(3):";
-    cin >> diff;
-    cout << "Placing the ships for player 2\n";
-    aiplace(ships, player2);
-    system("clear");
-  }
-  else
-  {
-    cout << "Place the ships for player 2\n";
+    cout << "Place the ships for player 2\n"; 
     place_ship(ships, player2);
     system("clear");
   }
@@ -132,7 +101,7 @@ void Executive::aiplace(int size, Player& new_player)
 
       // generate random orientation for ship placement
       int oddoreven = rand() % 2;
-      if (oddoreven == 1)
+      if (oddoreven == 1) 
       {
         dir = 'r';
       }
@@ -167,9 +136,9 @@ void Executive::place_ship(int size, Player& new_player)
 
       do
       {
-      cout << "Please enter a number for the row you would wish to place a ship in.\n";
- cin >> tempinput;
-      } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" ||
+        cout << "Please enter a number for the row you would wish to place a ship in.\n";
+        cin >> tempinput;
+      } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || 
               tempinput == "5" || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
 
       row = stoi(tempinput);
@@ -207,7 +176,7 @@ void Executive::game_start(Player& player1, Player& player2, int size,string ait
       cout << "Enter the the row number: "; // get the row
       cin >> tempinput;
 
-    } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5"
+    } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
               || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
 
     row = stoi(tempinput);
@@ -219,7 +188,7 @@ void Executive::game_start(Player& player1, Player& player2, int size,string ait
       column_num = (char)column - 65;
     } while (column_num < 0 || column_num > 10); //Boundary
     system("clear");
-
+    
     if (player2.checkHit(row, column))
     {
       player2.doAnimation(row-1, column_num);
@@ -301,7 +270,7 @@ void Executive::game_start(Player& player1, Player& player2, int size,string ait
       cout << "Enter the the row number: "; // get the row
       cin >> tempinput;
 
-    } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5"
+    } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
               || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
     row = stoi(tempinput);
     do
@@ -364,4 +333,3 @@ void Executive::game_start(Player& player1, Player& player2, int size,string ait
     cout << "Player1 WINS!\n";
   }
 }
-
