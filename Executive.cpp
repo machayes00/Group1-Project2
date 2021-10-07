@@ -234,13 +234,28 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
             cout << "Opponent's Board: AI is firing!.\n";  // Can change or remove this later
 
             srand(time(NULL)); // sets unique seed for random number generation
-            if (difficulty == 1)
+            if (difficulty == 1) // easy game, AI fires randomly
             {
                 row = (rand() % 9) + 1; // genterates a random number, 1-9
                 int randomnumber = (rand() % 10);  // generates a random number 0-9
                 column = 'A' + randomnumber;       // adds 0 to 9 to ASCII for 'A" to get 'A' - 'J'
             }
-            // will put difficlulty 2 (Medium) and 3 (Hard) here
+            else if(difficulty == 3)  // hard game, AI cheats and peeks at the ships
+            {
+                for (int i = 0; i < 9; i++) 
+                {
+                    for (int j = 0; j < 10; j++)
+                    {
+                        if(player1.checkHit2(i, j))
+                        {
+                            row = i + 1;
+                            column = 'A' + j;
+                            //return; testing without the return
+                        }
+                    }
+                }
+            }
+            // else if(difficulty == 2) need to put Medium difficulty here
         }
 
         else

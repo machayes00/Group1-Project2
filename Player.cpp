@@ -24,6 +24,18 @@ bool Player::checkHit(int row, char col)
     return false; // added this to get rid of compiler warning
 }
 
+bool Player::checkHit2(int row, int col)
+{
+    if(gameBoard.is_what2(row, col) == 'B')
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 int Player::checkShips()
 {
     return shipsLeft;
