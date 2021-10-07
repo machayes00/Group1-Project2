@@ -20,7 +20,7 @@ void Executive::run()
     system("clear");  // this clears the screen
     string tempinput; // temporary variable for capturing user input for number of ships
     string aitrigger; // variable for capturing user choice of AI or human player
-    int difficulty; // variable for difficulty for AI game
+    int difficulty; // variable for difficulty for AI game (changed from "diff" so people don't have to rembember)
 
     cout << "It is time for Batttle Ship!!!\n";
     do
@@ -155,18 +155,21 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
     char column = ' ';         // A - J
     int column_num = 0;        // 0 - 9
     string tempinput;          // temporary store of user row input before it is converted to int
-    do
+
+    do  // long do-while loop that takes up most of the game_start method (bad name; the method starts and ends the shooting)
     {
-        cout << "======================PLAYER1=======================\n\n";
-        cout << "Opponent's Board: choose a coordinate to fire at.\n";
-        player2.getHiddenBoard();
+        cout << "======================PLAYER1=======================\n\n";  // Player 1 is alays human, so takes firs shots
+        cout << "Opponent's Board: choose a coordinate to fire at.\n";       // regardless of human or AI opponent
+
+        player2.getHiddenBoard();  // pirnts Player 2 board with ships hidden (not a getter method despite name)
 
         do
         {
             cout << "Enter the the row number: "; // get the row
             cin >> tempinput;
 
-        } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
+        } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
+                  || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
 
         row = stoi(tempinput);   // convert string user input to int (1 - 9)
 
@@ -220,28 +223,51 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
         } while (player_choice != 'y');
         system("clear");
 
-        cout << "======================PLAYER2=======================\n\n";
-        cout << "Opponent's Board: choose a coordinate to fire at.\n";
-        player1.getHiddenBoard();
+        cout << "======================PLAYER2=======================\n\n";  // Player 2 is either AI or human
 
-        do
-        {
-            cout << "Enter the the row number: "; // get the row
-            cin >> tempinput;
+        player1.getHiddenBoard(); // Prints the board with hidden ships for Player 2 to shoot at
 
-        } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
-                  || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
-        row = stoi(tempinput); // convert string user input to int (1 - 9)
-        do
+        // E: temporary comment: split between AI and human opponent has to be at this point.
+
+        if(aitrigger == "y" || aitrigger == "Y")
         {
-            cout << "Enter the column character: "; // get the column
-            cin >> column;
-            column_num = (char)column - 65;
-            // while condition checks for valid gameboard boundary
-        } while (column_num < 0 || column_num > 9); // E: This was column_num > 10 in the game we inherited.
-                                                    // I don't think that's right so I changed to 9
+            cout << "Opponent's Board: AI is firing!.\n";  // Can change or remove this later
+
+            srand(time(NULL)); // sets unique seed for random number generation
+            if (difficulty == 1)
+            {
+                row = (rand() % 9) + 1; // genterates a random number, 1-9
+                int randomnumber = (rand() % 10);  // generates a random number 0-9
+                column = 'A' + randomnumber;       // adds 0 to 9 to ASCII for 'A" to get 'A' - 'J'
+            }
+            // will put difficlulty 2 (Medium) and 3 (Hard) here
+        }
+
+        else
+        {
+            cout << "Opponent's Board: choose a coordinate to fire at.\n";
+
+            do
+            {
+                cout << "Enter the the row number: "; // get the row
+                cin >> tempinput;
+
+            } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
+                       || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
+            row = stoi(tempinput); // convert string user input to int (1 - 9)
+
+            do
+            {
+                cout << "Enter the column character: "; // get the column
+                cin >> column;
+                column_num = (char)column - 65;
+                // while condition checks for valid gameboard boundary
+            } while (column_num < 0 || column_num > 9); // E: This was column_num > 10 in the game we inherited.
+                                                        // I don't think that's right so I changed to 9
+        }
 
         system("clear");
+
         if (player1.checkHit(row, column))
         {
             player1.get_hit(row, column);
@@ -284,7 +310,7 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
         } while (player_choice != 'y');
         system("clear");
 
-    } while (player1_count < max_count && player2_count < max_count);
+    } while (player1_count < max_count && player2_count < max_count); // end of longest do-while
 
     if (player1_count == max_count)
     {
