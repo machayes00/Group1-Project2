@@ -20,6 +20,8 @@ void Executive::run()
     system("clear");  // this clears the screen
     string tempinput; // temporary variable for capturing user input for number of ships
     string aitrigger; // variable for capturing user choice of AI or human player
+    int difficulty; // variable for difficulty for AI game
+
     cout << "It is time for Batttle Ship!!!\n";
     do
     {
@@ -45,6 +47,8 @@ void Executive::run()
 
     if (aitrigger == "Y" || aitrigger == "y")
     {
+        cout << "What lever of difficulty for the game? Easy(1), Medium(2), Hard(3):";
+        cin >> difficulty;
         cout << "Placing the ships for player 2\n";
         aiplace(ships, player2);
         system("clear");
@@ -97,18 +101,19 @@ void Executive::aiplace(int size, Player &new_player)
 
         cout << "Placed ship!\n";
         new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
+        // comment out the above if the check is not needed
         num++;
     } while (num < size + 1);
 }
 
 // Placing ship for human opponent
-void Executive::place_ship(int size, Player &new_player)
+void Executive::place_ship(int size, Player& new_player)
 {
     int num = 1;      // stores the size of ship, to be incremented with each ship placement
     string tempinput; // stores user imput for row number, to be converted to int
     int row = 0;
     char column = ' ';
-    char direction = ' '; // changed to char, to fix compiler error
+    char direction = ' '; 
     do
     {
         new_player.getGameBoard(); //returns the hidden board of the player class and prints it
@@ -125,7 +130,7 @@ void Executive::place_ship(int size, Player &new_player)
             } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" ||
                        tempinput == "5" || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
 
-            row = stoi(tempinput);
+            row = stoi(tempinput);  // converts user input from string to int
 
             cout << "Please enter a letter for the column you wish to place a ship in.\n";
             cin >> column;
@@ -134,7 +139,8 @@ void Executive::place_ship(int size, Player &new_player)
         } while (!new_player.placeShip(row, column, num, direction)); // places the ship in the hidden board where the player has specified.
 
         cout << "Placed ship!\n";
-        //new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
+        // new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
+        // comment out the above line if the test is not needed
         num++;
     } while (num < size + 1);
 }
@@ -144,11 +150,11 @@ void Executive::game_start(Player& player1, Player& player2, int size)
     int player1_count = 0; //keeps a running total of the number of hits scored on each player's side
     int player2_count = 0;
     int max_count = size * (1 + size) / 2; //uses the given amount of ships(size) to check how many hits each player can have before they are out of ships.
-    char player_choice = 'n';
-    int row = 0;
-    char column = ' ';
-    int column_num = 0;
-    string tempinput;
+    char player_choice = 'n';  // stores yes (y) or no (n) responses from payer after way too many questiond during game
+    int row = 0;               // int 1 - 9 after converting user input to int
+    char column = ' ';         // A - J
+    int column_num = 0;        // 0 - 9
+    string tempinput;          // temporary store of user row input before it is converted to int
     do
     {
         cout << "======================PLAYER1=======================\n\n";
@@ -162,14 +168,16 @@ void Executive::game_start(Player& player1, Player& player2, int size)
 
         } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
 
-        row = stoi(tempinput);
+        row = stoi(tempinput);   // convert string user input to int (1 - 9)
 
         do
         {
             cout << "Enter the column character: "; // get the column
             cin >> column;
-            column_num = (char)column - 65;
-        } while (column_num < 0 || column_num > 10); //Boundary
+            column_num = (char)column - 65;     // converts char to decimal ASCII; 'A' is 65, so converts to (0 to 9)
+            // while condition checks for valid gameboard boundary
+        } while (column_num < 0 || column_num > 9); // E: This was column_num > 10 in the game we inherited.
+                                                    // I don't think that's right so I changed to 9
         system("clear");
 
         if (player2.checkHit(row, column))
@@ -221,14 +229,17 @@ void Executive::game_start(Player& player1, Player& player2, int size)
             cout << "Enter the the row number: "; // get the row
             cin >> tempinput;
 
-        } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
-        row = stoi(tempinput);
+        } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
+                  || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
+        row = stoi(tempinput); // convert string user input to int (1 - 9)
         do
         {
             cout << "Enter the column character: "; // get the column
             cin >> column;
             column_num = (char)column - 65;
-        } while (column_num < 0 || column_num > 10); //Boundary
+            // while condition checks for valid gameboard boundary
+        } while (column_num < 0 || column_num > 9); // E: This was column_num > 10 in the game we inherited.
+                                                    // I don't think that's right so I changed to 9
 
         system("clear");
         if (player1.checkHit(row, column))
@@ -274,6 +285,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
         system("clear");
 
     } while (player1_count < max_count && player2_count < max_count);
+    
     if (player1_count == max_count)
     {
         cout << "Player2 WINS!\n";
