@@ -5,12 +5,12 @@ Board::Board()
 {
     m_length = 0;
     m_map = new char*[9];
-    for (int i = 0 ; i < 9 ; i++) //initialize the row
+    for (int i = 0; i < 9; i++) //initialize the row
     {
-        m_map[i]=new char[10]; //for each row, it has 10 column
+        m_map[i] = new char[10]; //for each row, it has 10 column
     }
 
-    for (int i = 0; i < 9; i ++) // initialize each character with ~
+    for (int i = 0; i < 9; i++) // initialize each character with ~
     {
         for (int j = 0; j < 10; j++)
         {
@@ -23,12 +23,12 @@ Board::Board(char hidden_letter)
 {
     m_length = 1;
     m_map = new char*[9];
-    for (int i = 0 ; i < 9 ; i++) //initialize the row
+    for (int i = 0; i < 9; i++) //initialize the row
     {
-        m_map[i]=new char[10]; //for each row, it has 10 column
+        m_map[i] = new char[10]; //for each row, it has 10 column
     }
 
-    for (int i = 0; i < 9; i ++) // initialize each character with hidden_letter
+    for (int i = 0; i < 9; i++) // initialize each character with hidden_letter
     {
         for (int j = 0; j < 10; j++)
         {
@@ -39,7 +39,7 @@ Board::Board(char hidden_letter)
 
 Board::~Board()
 {
-    for(int i = 0; i < 9; i++) //delete each row's column
+    for (int i = 0; i < 9; i++) //delete each row's column
     {
         delete[] m_map[i];
     }
@@ -48,7 +48,8 @@ Board::~Board()
 
 void Board::printAnimate(int row, int col)
 {
-    if(m_length == 2){
+    if (m_length == 2)
+    {
         return;
     }
     system("clear");
@@ -68,43 +69,47 @@ void Board::printAnimate(int row, int col)
 
 void Board::printAnimateHelp(int length, int row, int col)
 {
-    cout << "  ";// the first empty left-up corner
+    cout << "  "; // the first empty left-up corner
     for (int i = 0; i < 10; i++)
     {
-        cout << (char) (i+'A'); //print the column sequence from A-J
-        cout <<' ';
+        cout << (char)(i + 'A'); //print the column sequence from A-J
+        cout << ' ';
     }
     cout << endl; //switch 1 line
     for (int i = 0; i < 9; i++)
     {
-        cout << i+1 <<' ';//print the row sequence from 1-9
+        cout << i + 1 << ' '; //print the row sequence from 1-9
         for (int j = 0; j < 10; j++)
         {
-            if((i == row+m_length && j == col) || (i == row-m_length && j == col) || (i == row && j == col+m_length) || (i == row && j == col-m_length)) {
+            if ((i == row + m_length && j == col) || (i == row - m_length && j == col) 
+                 || (i == row && j == col + m_length) || (i == row && j == col - m_length))
+            {
                 cout << '*';
                 cout << ' ';
-            } else {
+            }
+            else
+            {
                 cout << m_map[i][j]; //print the map
                 cout << ' ';
             }
         }
         cout << endl; //switch line
     }
-    return ;
+    return;
 }
 
 void Board::print()
 {
-    cout << "  ";// the first empty left-up corner
+    cout << "  "; // the first empty left-up corner
     for (int i = 0; i < 10; i++)
     {
-        cout << (char) (i+'A'); //print the column sequence from A-J
-        cout <<' ';
+        cout << (char)(i + 'A'); //print the column sequence from A-J
+        cout << ' ';
     }
     cout << endl; //switch 1 line
     for (int i = 0; i < 9; i++)
     {
-        cout << i+1 <<' ';//print the row sequence from 1-9
+        cout << i + 1 << ' '; //print the row sequence from 1-9
         for (int j = 0; j < 10; j++)
         {
             cout << m_map[i][j]; //print the map
@@ -117,11 +122,11 @@ void Board::print()
 
 bool Board::exchange(int row_num, char column_letter, char new_letter)
 {
-    int column_num = (char)column_letter - 65; //change the letter to the ASCII number and minus the A'ASCII number
-    if(row_num>=1 && row_num <=9 && column_num>=0 && column_num <10) //determine if it is in the boundary
+    int column_num = (char)column_letter - 65;                              //change the letter to the ASCII number and minus the A'ASCII number
+    if (row_num >= 1 && row_num <= 9 && column_num >= 0 && column_num < 10) //determine if it is in the boundary
     {
-        m_map[row_num-1][column_num] = new_letter; //exchange the point's character to the new_letter
-        return 1; // return true
+        m_map[row_num - 1][column_num] = new_letter; //exchange the point's character to the new_letter
+        return 1;                                    // return true
     }
     else
     {
@@ -129,15 +134,15 @@ bool Board::exchange(int row_num, char column_letter, char new_letter)
     }
 }
 
-bool Board::put_column_ship(int row_num, char column_letter, int size,char new_letter)
+bool Board::put_column_ship(int row_num, char column_letter, int size, char new_letter)
 {
-    int column_num = (char)column_letter - 65; //change the letter to the ASCII number and minus the A'ASCII number
-    if(row_num>=1 && row_num+size-1 <=9 && column_num>=0 && column_num <10) //determine if it is in the boundary
+    int column_num = (char)column_letter - 65;                                         //change the letter to the ASCII number and minus the A'ASCII number
+    if (row_num >= 1 && row_num + size - 1 <= 9 && column_num >= 0 && column_num < 10) //determine if it is in the boundary
     {
         int test_num = row_num;
-        for(int i = 0; i<size ; i++)  //check if the ship is over put
+        for (int i = 0; i < size; i++) //check if the ship is over put
         {
-            if (is_what(test_num,column_letter) != '~')
+            if (is_what(test_num, column_letter) != '~')
             {
                 return false;
             }
@@ -147,8 +152,8 @@ bool Board::put_column_ship(int row_num, char column_letter, int size,char new_l
         int exchange_time = 0; // the time of the exchange
         do
         {
-            exchange(row_num,column_letter,new_letter);//exchange the point's letter
-            row_num++; //go foward for the ship's body
+            exchange(row_num, column_letter, new_letter); //exchange the point's letter
+            row_num++;                                    //go foward for the ship's body
             exchange_time++;
         } while (exchange_time < size);
         return 1; //return true
@@ -161,24 +166,24 @@ bool Board::put_column_ship(int row_num, char column_letter, int size,char new_l
 
 bool Board::put_row_ship(int row_num, char column_letter, int size, char new_letter)
 {
-    int column_num = (char)column_letter - 65; //change the letter to the ASCII number and minus the A'ASCII number
-    if(row_num>=1 && row_num<=9 && column_num>=0 && column_num+size-1 <10) //determine if it is in the boundary
+    int column_num = (char)column_letter - 65;                                         //change the letter to the ASCII number and minus the A'ASCII number
+    if (row_num >= 1 && row_num <= 9 && column_num >= 0 && column_num + size - 1 < 10) //determine if it is in the boundary
     {
         char test_char = column_letter;
-        for(int i = 0; i<size ; i++)  //check if the ship is over put
+        for (int i = 0; i < size; i++) //check if the ship is over put
         {
-            if (is_what(row_num,test_char) != '~')
+            if (is_what(row_num, test_char) != '~')
             {
                 return false;
             }
-            test_char = (char)(1+test_char);
+            test_char = (char)(1 + test_char);
         }
 
         int exchange_time = 0; // the time of the exchange
         do
         {
-            exchange(row_num,column_letter,new_letter);//exchange the point's letter
-            column_letter=(char)(1+column_letter); //go foward for the ship's boday
+            exchange(row_num, column_letter, new_letter); //exchange the point's letter
+            column_letter = (char)(1 + column_letter);    //go foward for the ship's boday
             exchange_time++;
         } while (exchange_time < size);
         return 1; //return true
@@ -191,17 +196,18 @@ bool Board::put_row_ship(int row_num, char column_letter, int size, char new_let
 
 char Board::is_what(int row_num, char column_letter)
 {
-    int column_num = (char)column_letter - 65; //change the letter to the ASCII number and minus the A'ASCII number
-    if(row_num>=1 && row_num<=9 && column_num>=0 && column_num <10) //determine if it is in the boundary
+    int column_num = (char)column_letter - 65;                              //change the letter to the ASCII number and minus the A'ASCII number
+    if (row_num >= 1 && row_num <= 9 && column_num >= 0 && column_num < 10) //determine if it is in the boundary
     {
-        return (m_map[row_num-1][column_num]); // return the letter
+        return (m_map[row_num - 1][column_num]); // return the letter
     }
     else
     {
-        throw (runtime_error("This point is not in the boundary")); // throw the error
+        throw(runtime_error("This point is not in the boundary")); // throw the error
     }
 }
 
-// E: there are no try-catch blocks in any code to catch bad entry but if time, I will add them (and more throws)
+// E: The above method can throw an exception but this is not how bad entry is beigh caught.
+// there are no try-catch blocks in any code to catch bad entry but if time, I will add them (and more throws)
 // because catching errors and printing them to user is much nicer than just repeating the entire
 // ship placement query from start.

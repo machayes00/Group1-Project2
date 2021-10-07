@@ -57,8 +57,6 @@ void Player::getOriginalBoard()
     original_Board.print();
 }
 
-// E: Alex added extra string parameter here (direction). I agree with the intent
-// but it caused compiler error even tho string library was imported. Changed to char.
 bool Player::placeShip(int row, char col, int size, char dir)
 {
     if (dir == 'r' || dir == 'R') // when the direction is right, horizontal
