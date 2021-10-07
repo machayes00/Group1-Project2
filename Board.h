@@ -3,16 +3,15 @@
 
 #include <iostream>
 #include <exception>
-#include<unistd.h>
-
+#include <unistd.h>
 
 class Board
 {
-    private:
+private:
     char** m_map = nullptr;
-    int m_length=0;
+    int m_length = 0;
 
-    public:
+public:
     Board(); //initialize the m_map with the size 9x10 character array
     // filled each character with '~' which shows waves
 
@@ -53,7 +52,6 @@ class Board
     //@process - determine if the point is in the bounday
     //@return - if it is in the boundary, return the letter
     //@return - if it is not in the boundary,  throw the exception error
-
 };
 
 #endif
