@@ -250,7 +250,7 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
                         {
                             row = i + 1;
                             column = 'A' + j;
-                            //return; testing without the return
+                            // break; probably add break but don't really need
                         }
                     }
                 }
