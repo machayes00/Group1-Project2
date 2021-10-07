@@ -60,11 +60,11 @@ void Executive::run()
         system("clear");
     }
 
-    game_start(player1, player2, ships);
+    game_start(player1, player2, ships, aitrigger, difficulty);
 }
 
 // Placing ships randomly for the AI opponent
-void Executive::aiplace(int size, Player &new_player)
+void Executive::aiplace(int size, Player& new_player)
 {
     char dir = ' ';    // will be randomly assigned a direction (changed to char because string caused compiler error)
     int num = 1;       // the size of the ship, to be incremented after each placement
@@ -145,7 +145,7 @@ void Executive::place_ship(int size, Player& new_player)
     } while (num < size + 1);
 }
 
-void Executive::game_start(Player& player1, Player& player2, int size)
+void Executive::game_start(Player& player1, Player& player2, int size, string aitrigger, int difficulty)
 {
     int player1_count = 0; //keeps a running total of the number of hits scored on each player's side
     int player2_count = 0;
@@ -285,7 +285,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
         system("clear");
 
     } while (player1_count < max_count && player2_count < max_count);
-    
+
     if (player1_count == max_count)
     {
         cout << "Player2 WINS!\n";
