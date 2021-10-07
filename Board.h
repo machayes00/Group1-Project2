@@ -3,14 +3,14 @@
 
 #include <iostream>
 #include <exception>
-#include <unistd.h>
+#include<unistd.h>
 
 
 class Board
 {
     private:
     char** m_map = nullptr;
-    int m_length = 0;
+    int m_length=0;
 
     public:
     Board(); //initialize the m_map with the size 9x10 character array
