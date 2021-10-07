@@ -229,14 +229,17 @@ void Executive::game_start(Player& player1, Player& player2, int size)
             cout << "Enter the the row number: "; // get the row
             cin >> tempinput;
 
-        } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
-        row = stoi(tempinput);
+        } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
+                  || tempinput == "6" || tempinput == "7" || tempinput == "8" || tempinput == "9"));
+        row = stoi(tempinput); // convert string user input to int (1 - 9)
         do
         {
             cout << "Enter the column character: "; // get the column
             cin >> column;
             column_num = (char)column - 65;
-        } while (column_num < 0 || column_num > 10); //Boundary
+            // while condition checks for valid gameboard boundary
+        } while (column_num < 0 || column_num > 9); // E: This was column_num > 10 in the game we inherited.
+                                                    // I don't think that's right so I changed to 9
 
         system("clear");
         if (player1.checkHit(row, column))
@@ -282,6 +285,7 @@ void Executive::game_start(Player& player1, Player& player2, int size)
         system("clear");
 
     } while (player1_count < max_count && player2_count < max_count);
+    
     if (player1_count == max_count)
     {
         cout << "Player2 WINS!\n";
