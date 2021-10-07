@@ -52,6 +52,9 @@ public:
     //@process - determine if the point is in the bounday
     //@return - if it is in the boundary, return the letter
     //@return - if it is not in the boundary,  throw the exception error
+
+    char is_what2(int row, int col);
+    //@sane is_what
 };
 
 #endif

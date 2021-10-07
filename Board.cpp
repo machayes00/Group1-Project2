@@ -194,6 +194,13 @@ bool Board::put_row_ship(int row_num, char column_letter, int size, char new_let
     }
 }
 
+// Obtain the character at the requested index like a sane method ought to
+char Board::is_what2(int row, int col)
+{
+    return (m_map[row][col]);
+}
+
+
 char Board::is_what(int row_num, char column_letter)
 {
     int column_num = (char)column_letter - 65;                              //change the letter to the ASCII number and minus the A'ASCII number
@@ -207,7 +214,8 @@ char Board::is_what(int row_num, char column_letter)
     }
 }
 
-// E: The above method can throw an exception but this is not how bad entry is beigh caught.
-// there are no try-catch blocks in any code to catch bad entry but if time, I will add them (and more throws)
+// E: The above method can throw an exception but this is not how bad entry is being caught.
+// There are no try-catch blocks in any code to catch bad entry but if time, I will add them (and more throws)
 // because catching errors and printing them to user is much nicer than just repeating the entire
 // ship placement query from start.
+// It is insane that they wrote most of their methods to take 1-9, A-J instead of 0-8, 0-9!!!!

@@ -42,6 +42,17 @@ public:
     bool checkHit(int row, char col);
 
     /**
+     * @brief Check for ships by checking if a B character exists at the row and col arguments
+     * @param row the row of the coordinate choosen for hit
+     * @param col the column of the coordinate choosen for hit
+     * @pre this sane method expects you to pass in 2D array indices, 0-8 for row, 0-9 for col
+     * @post none
+     * @return true if coordinates match a B character
+     * @return false if coordinates do not match a B character
+     */
+    bool checkHit2(int row, int col);
+
+    /**
      * @brief Determines how many ships left for a player
      * @param none
      * @pre none
@@ -106,8 +117,10 @@ public:
    */
     bool placeShip(int row, char col, int size, char dir);
 
-    //Alex:This method doesn't work right now(used for hard difficulty and finding boats)
+    /*Alex:This method doesn't work right now(used for hard difficulty and finding boats)
     void finder(int row, char col);
+    */
+
 };
 
 #endif
