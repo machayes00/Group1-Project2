@@ -3,10 +3,13 @@
 
 #include <iostream>
 #include "Player.h"
+using namespace std; // need for string type argument
 
 class Executive
 {
+
 private:
+
     Player player1;
     Player player2;
     int player1ships;
@@ -14,6 +17,7 @@ private:
     int ships;
 
 public:
+
     /**
      * @brief Construct a new Executive object
      * @pre none
@@ -61,7 +65,7 @@ public:
      * @param size The number of ships, 1-6
      * return none
      */
-    void game_start(Player& player1, Player& player2, int size);
+    void game_start(Player& player1, Player& player2, int size, string aitrigger, int difficulty);
 };
 
 #endif
