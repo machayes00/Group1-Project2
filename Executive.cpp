@@ -68,8 +68,8 @@ void Executive::aiplace(int size, Player& new_player)
 {
     char dir = ' ';    // will be randomly assigned a direction (changed to char because string caused compiler error)
     int num = 1;       // the size of the ship, to be incremented after each placement
-    int row = 0;       // will be randomly generated
-    char column = ' '; // will be randomly generated
+    int row = 0;       // will be randomly generated (1 - 9)
+    char column = ' '; // will be randomly generated ('A' - 'J')
 
     do
     {
@@ -83,9 +83,9 @@ void Executive::aiplace(int size, Player& new_player)
 
             // generate random column:
             // rand() % 10 gives randon number between 0 and 9
-            int randomnumber = (rand() % 10) + 1;
+            int randomnumber = (rand() % 10);  // E: I deleted the +1 because you want to add 0 to 9 to the 'A' value
             // Now, covnert randomnumber to ASCII and assign that to column char variable
-            column = 'A' + randomnumber;
+            column = 'A' + randomnumber;  // ASCII 65 plus 0 through 9
 
             // generate random orientation for ship placement
             int oddoreven = rand() % 2;
@@ -97,7 +97,7 @@ void Executive::aiplace(int size, Player& new_player)
             {
                 dir = 'd';
             }
-        } while (!new_player.placeShip(row, column, num, dir)); // places the ship in the hidden board where the player has specified.
+        } while (!new_player.placeShip(row, column, num, dir)); // places the ship in the hidden board where AI player has specified.
 
         cout << "Placed ship!\n";
         new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
