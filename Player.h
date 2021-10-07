@@ -17,7 +17,7 @@ private:
   int shipsLeft;  // keeps tracks of number of ships remaining
 
 public:
-   /**
+  /**
    * @brief Construct a new Player object
    * @param none
    * @pre none
@@ -25,7 +25,7 @@ public:
    */
   Player();
 
-   /**
+  /**
    * @brief Destroy the Player object
    * @pre none
    * @post Player object is deallocated from memory
@@ -42,7 +42,7 @@ public:
    */
   bool checkHit(int row,char col);
 
-   /**
+  /**
    * @brief Determines how many ships left for a player
    * @param none
    * @pre none
@@ -51,7 +51,7 @@ public:
    */
   int checkShips();
 
-   /**
+  /**
    * @brief Replaces a hit B character with an X character
    * @pre hit coordinates must be obtained after calling checkHit method
    * @pre requires exchange method from Board class
@@ -61,7 +61,7 @@ public:
    */
   void get_hit(int row, char col);//helper function checkHit()
 
-   /**
+  /**
    * @brief Prints the "hidden board" which hides the ships 'till hit
    * @pre none
    * @post board with ships hidden, and hits if any, is printed to screen
@@ -78,7 +78,7 @@ public:
    */
   void getGameBoard();
 
-   /**
+  /**
    * @brief Calls printAnimate Board method on hiddenBoard Board object
    * @pre Must be called within game_start method, after it calls checkHit method
    * @post printAnimate sub-method prints animation to screen when a ship is hit
