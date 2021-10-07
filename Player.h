@@ -33,7 +33,7 @@ public:
   ~Player();
 
   /**
-   * @brief Checks for ship hits by checking if a B character exists at the row and col arguments
+   * @brief Checks for ship hits by checking if a B character exists at the row and col arguments 
    * @param row the row of the coordinate choosen for hit
    * @param col the column of the coordinate choosen for hit
    * @pre the column character must be a capital letter char, A - J; row is int 1-9
@@ -59,7 +59,7 @@ public:
    * @param col the column, whch is a char, capital letter A - J
    * @ return none (a weird thing for a "get" function but it is not a getter)
    */
-  void get_hit(int row, char col);//helper function checkHit()
+  void get_hit(int row, char col);//helper function checkHit() 
 
   /**
    * @brief Prints the "hidden board" which hides the ships 'till hit
@@ -71,8 +71,8 @@ public:
   void getHiddenBoard();
 
   /**
-   * @brief Probably delete method. Original explanation for this method: "print the Game board
-   *    object. Mainly used for calling methods of the board class."
+   * @brief Probably delete method. Original explanation for this method: "print the Game board  
+   *    object. Mainly used for calling methods of the board class." 
    * @param none
    * @return none
    */
@@ -80,7 +80,7 @@ public:
 
   /**
    * @brief Calls printAnimate Board method on hiddenBoard Board object
-   * @pre Must be called within game_start method, after it calls checkHit method
+   * @pre Must be called within game_start method, after it calls checkHit method 
    * @post printAnimate sub-method prints animation to screen when a ship is hit
    * @param row the row index in 2D array (int 0 - 8)
    * @param col the column index in 2d array (int 0 - 9)
@@ -89,8 +89,8 @@ public:
    void doAnimation(int row, int col);
 
   /**
-   * @brief Probably delete method. Original explanation for this method: "print the Game board
-   *    object. Mainly used for calling methods of the board class."
+   * @brief Probably delete method. Original explanation for this method: "print the Game board  
+   *    object. Mainly used for calling methods of the board class." 
    * @param none
    * @return none
    */
