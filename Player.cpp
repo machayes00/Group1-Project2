@@ -97,20 +97,20 @@ void Player::finder(int row,char col)
     for(int i=1; i <= 9; i++)
     {
         for(int j =0; j < 10; j++)
-        {
-                if(check == true)
-                {
-                }
-                else
-                {
-                x='A'+j;
+     	{
+		if(check == true)
+	    	{
+	    	}
+		else
+		{
+		x='A'+j;
                 if (gameBoard.is_what(i, x) == 'B')
                 {
                     row = i;
                     col= x;
                     check =true;
                 }
-                }
-        }
+		}
+	}
      }
 }
