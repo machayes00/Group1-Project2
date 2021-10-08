@@ -116,11 +116,7 @@ public:
    * @return false if ship could not be placed
    */
     bool placeShip(int row, char col, int size, char dir);
-
-    /*Alex:This method doesn't work right now(used for hard difficulty and finding boats)
-    void finder(int row, char col);
-    */
-
+    
 };
 
 #endif
