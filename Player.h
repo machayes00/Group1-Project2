@@ -53,7 +53,7 @@ public:
     bool checkHit2(int row, int col);
 
     /**
-     * @brief Determines how many ships left for a player
+     * @brief Determines how many ship coordinates are left for a player
      * @param none
      * @pre none
      * @post none
@@ -94,12 +94,12 @@ public:
      * @pre Must be called within game_start method, after it calls checkHit method
      * @post printAnimate sub-method prints animation to screen when a ship is hit
      * @param row the row index in 2D array (int 0 - 8)
-     * @param col the column index in 2d array (int 0 - 9)
+     * @param col the column index in 2D array (int 0 - 9)
      */
     void doAnimation(int row, int col);
 
     /**
-     * @brief Probably delete method. Original explanation for this method: "print the Game board
+     * @brief E: I THINK NEEDS TO BE DELETED. Original explanation for this method: "print the Game board
      *       object. Mainly used for calling methods of the board class."
      * @param none
      * @return none
