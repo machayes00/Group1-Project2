@@ -5,12 +5,12 @@ Board::Board()
 {
     m_length = 0;
     m_map = new char*[9];
-    for (int i = 0; i < 9; i++) //initialize the row
+    for (int i = 0; i < 9; i++) // loop for making 9-element array for rows
     {
-        m_map[i] = new char[10]; //for each row, it has 10 column
+        m_map[i] = new char[10]; // each row has 10 column elements
     }
 
-    for (int i = 0; i < 9; i++) // initialize each character with ~
+    for (int i = 0; i < 9; i++) // initialize each character with '~'
     {
         for (int j = 0; j < 10; j++)
         {
@@ -19,11 +19,12 @@ Board::Board()
     }
 }
 
+// E: I think this constructor is not used (I left in the original comments; they are not mine)
 Board::Board(char hidden_letter)
 {
     m_length = 1;
     m_map = new char*[9];
-    for (int i = 0; i < 9; i++) //initialize the row
+    for (int i = 0; i < 9; i++) 
     {
         m_map[i] = new char[10]; //for each row, it has 10 column
     }
@@ -194,13 +195,6 @@ bool Board::put_row_ship(int row_num, char column_letter, int size, char new_let
     }
 }
 
-// Obtain the character at the requested index like a sane method ought to
-char Board::is_what2(int row, int col)
-{
-    return (m_map[row][col]);
-}
-
-
 char Board::is_what(int row_num, char column_letter)
 {
     int column_num = (char)column_letter - 65;                              //change the letter to the ASCII number and minus the A'ASCII number
@@ -214,7 +208,12 @@ char Board::is_what(int row_num, char column_letter)
     }
 }
 
-// E: The above method can throw an exception but this is not how bad entry is being caught.
+char Board::is_what2(int row, int col)
+{
+    return (m_map[row][col]);
+}
+
+// E: One of the original group's methods (is_what) can throw an exception but this is not how bad entry is being caught.
 // There are no try-catch blocks in any code to catch bad entry but if time, I will add them (and more throws)
 // because catching errors and printing them to user is much nicer than just repeating the entire
 // ship placement query from start.
