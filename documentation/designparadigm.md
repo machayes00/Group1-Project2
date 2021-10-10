@@ -1,0 +1,1 @@
+We think the Project 1 team used a combination of top-down functional decomposition and component level design as their design paradigms. This is because although the program was broken down into a Player and an Executive class, 
