@@ -67,40 +67,37 @@ public:
      */
     void game_start(Player& player1, Player& player2, int size, string aitrigger, int difficulty);
 
-    void introtitleanimation();
     /**
      * @brief prints title with alternating colors
      * @pre none
      * @return none
      * @post none
      */
+    void introtitleanimation();
 
-    void endscreenanimation1();
     /**
      * @brief prints player 1 win with alternating colors
      * @pre none
      * @return none
      * @post none
      */
+    void endscreenanimation1();
 
-    void endscreenanimation2();
     /**
      * @brief prints title with alternating colors
      * @pre none
      * @return none
      * @post none
      */
+    void endscreenanimation2();
 
-    char asciiArt();
     /**
      * @brief prints special Ascii art, to be used in conjuction with animation methods
      * @pre none
      * @return none
      * @post none
      */
-
-  
-   
+    char asciiArt();
 
     /*void changeColor(int color);*/
  
