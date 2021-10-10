@@ -32,7 +32,8 @@ public:
     ~Player();
 
     /**
-     * @brief Checks for ship hits by checking if a B character exists at the row and col arguments 
+     * @brief Checks for ship hits by checking if a 'B' character exists at the row and col arguments
+     *          Used to make sure ships do not overlap during placement on board. 
      * @param row the row of the coordinate choosen for hit
      * @param col the column of the coordinate choosen for hit
      * @pre the column character must be a capital letter char, A - J; row is int 1-9
@@ -42,13 +43,14 @@ public:
     bool checkHit(int row, char col);
 
     /**
-     * @brief Check for ships by checking if a B character exists at the row and col arguments
-     * @param row the row of the coordinate choosen for hit
-     * @param col the column of the coordinate choosen for hit
-     * @pre this sane method expects you to pass in 2D array indices, 0-8 for row, 0-9 for col
+     * @brief Check for ships by checking if a 'B' character exists at the row and col arguments.
+     *          Used by AI which deals with array indices rather that 1-9, A-J coordinates.
+     * @param row the row index of the coordinate choosen for hit
+     * @param col the column index of the coordinate choosen for hit
+     * @pre expects arguments that are 2D array indices, 0-8 for row, 0-9 for col
      * @post none
-     * @return true if coordinates match a B character
-     * @return false if coordinates do not match a B character
+     * @return true if coordinates match a 'B' character
+     * @return false if coordinates do not match a 'B' character
      */
     bool checkHit2(int row, int col);
 
@@ -71,14 +73,14 @@ public:
     int checkShips();
 
     /**
-     * @brief Replaces a hit B character with an X character
+     * @brief Replaces a hit B character with an X character. It is a helper function checkHit()
      * @pre hit coordinates must be obtained after calling checkHit method
      * @pre requires exchange method from Board class
      * @param row the row, which is an int 1-9
      * @param col the column, whch is a char, capital letter A - J
-     * @ return none (a weird thing for a "get" function but it is not a getter)
+     * @return none (a weird thing for a "get" function but it is not a getter)
      */
-    void get_hit(int row, char col); //helper function checkHit()
+    void get_hit(int row, char col); 
 
     /**
      * @brief Prints the "hidden board" which hides the ships 'till hit
@@ -90,7 +92,7 @@ public:
     void getHiddenBoard();
 
     /**
-     * @brief Prints the Board object that reveals ship locations and hits if present
+     * @brief Prints the Board object that reveals all ship locations and hits if present
      * @pre none
      * @post board with ships and hit locations is printed to screen
      * @param none
