@@ -11,13 +11,11 @@ using namespace std;
 
 Executive::Executive()
 {
-
 }
 
 Executive::~Executive()
 {
 }
-
 
 //G: Prints title with alternating colors for a specified length
 void Executive::introtitleanimation()
@@ -47,7 +45,6 @@ void Executive::introtitleanimation()
    }
 }
 
-
 //G: Prints end screen for player 1 with alternating colors for a specified length
 void Executive::endscreenanimation1()
 {
@@ -75,7 +72,6 @@ void Executive::endscreenanimation1()
    system("clear");
    }   
 }
-
 
 //G: Prints end screen for player 2 with alternating colors for a specified length
 void Executive::endscreenanimation2()
@@ -105,11 +101,6 @@ void Executive::endscreenanimation2()
    }   
 }
 
-
-    
-
-
-
 void Executive::run()
 {
     system("clear");  // this clears the screen
@@ -117,10 +108,10 @@ void Executive::run()
     string aitrigger; // variable for capturing user choice of AI or human player
     int difficulty; // variable for difficulty for AI game (changed from "diff" so people don't have to rembember)
 
-
     do
     {
-        introtitleanimation(); // prints title to screen with special effects
+        introtitleanimation(); // prints title to screen with special effects 
+        // E: should the above be outside of do-while? Because the animation would repeat if player gives bad input.
         cout << "\nPlease enter a number between 1-6 for the number of ships you would like per player:\n";
         cin >> tempinput;
 
@@ -145,8 +136,9 @@ void Executive::run()
     {
         cout << "What lever of difficulty for the game? Easy(1), Medium(2), Hard(3):";
         cin >> difficulty;
-        cout << "Placing the ships for player 2\n";
+        cout << "Placing the ships for AI (player 2)\n";
         aiplace(ships, player2);
+        // E: maybe insert a stall here so screen is shows with the "Placing ships" message
         system("clear");
     }
     else
@@ -162,7 +154,7 @@ void Executive::run()
 // Placing ships randomly for the AI opponent
 void Executive::aiplace(int size, Player& new_player)
 {
-    char dir = ' ';    // will be randomly assigned a direction (changed to char because string caused compiler error)
+    char dir = ' ';    // will be randomly assigned a direction
     int num = 1;       // the size of the ship, to be incremented after each placement
     int row = 0;       // will be randomly generated (1 - 9)
     char column = ' '; // will be randomly generated ('A' - 'J')
@@ -174,12 +166,12 @@ void Executive::aiplace(int size, Player& new_player)
         do
         {
             // generate random row:
+            // Rationale is, n%m  gives values between (0 and m-1) and so we want to add 1 to result
             row = (rand() % 9) + 1; // This should give random number between 1 and 9
-            // Rationale is, n%m  gives values between (0 and m-1) and so I want to add 1 to result
 
             // generate random column:
             // rand() % 10 gives randon number between 0 and 9
-            int randomnumber = (rand() % 10);  // E: I deleted the +1 because you want to add 0 to 9 to the 'A' value
+            int randomnumber = (rand() % 10);  // want to add 0 to 9 to the 'A' value
             // Now, covnert randomnumber to ASCII and assign that to column char variable
             column = 'A' + randomnumber;  // ASCII 65 plus 0 through 9
 
@@ -197,7 +189,7 @@ void Executive::aiplace(int size, Player& new_player)
 
         cout << "Placed ship!\n";
         new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
-        // comment out the above if the check is not needed
+        // Probably none of the "getGameBoard" methods do anything because 
         num++;
     } while (num < size + 1);
 }
@@ -212,7 +204,7 @@ void Executive::place_ship(int size, Player& new_player)
     char direction = ' '; 
     do
     {
-        new_player.getGameBoard(); //returns the hidden board of the player class and prints it
+        new_player.getGameBoard(); // prints the player's game board to help decide ship placement
         do
         {
             cout << "Where would you like to place a ship with size 1x" << num << "?\n";
@@ -235,18 +227,17 @@ void Executive::place_ship(int size, Player& new_player)
         } while (!new_player.placeShip(row, column, num, direction)); // places the ship in the hidden board where the player has specified.
 
         cout << "Placed ship!\n";
-        // new_player.getGameBoard(); // a check to make sure that the ship has been put in the correct spot
-        // comment out the above line if the test is not needed
         num++;
     } while (num < size + 1);
+    new_player.getGameBoard(); // prints final game board for player, showing ships placed
 }
 
 void Executive::game_start(Player& player1, Player& player2, int size, string aitrigger, int difficulty)
 {
     int player1_count = 0; //keeps a running total of the number of hits scored on each player's side
     int player2_count = 0;
-    int max_count = size * (1 + size) / 2; //uses the given amount of ships(size) to check how many hits each player can have before they are out of ships.
-    char player_choice = 'n';  // stores yes (y) or no (n) responses from payer after way too many questiond during game
+    int max_count = size * (1 + size) / 2; //uses the number of ships (size argument) to check how many hits each player can have before they are out of ships.
+    char player_choice = 'n';  // stores yes (y) or no (n) responses from payer after way too many questions during game
     int row = 0;               // int 1 - 9 after converting user input to int
     char column = ' ';         // A - J
     int column_num = 0;        // 0 - 9
@@ -259,14 +250,14 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
     
     do  // long do-while loop that takes up most of the game_start method (bad name; the method starts and ends the shooting)
     {
-        cout << "======================PLAYER1=======================\n\n";  // Player 1 is alays human, so takes firs shots
-        cout << "Opponent's Board: choose a coordinate to fire at.\n";       // regardless of human or AI opponent
+        cout << "======================PLAYER1=======================\n\n";  // Player 1 is always human, so takes first shot
+        cout << "Opponent's Board: choose a coordinate to fire at.\n";       // regardless of human or AI opponent option
 
-        player2.getHiddenBoard();  // pirnts Player 2 board with ships hidden (not a getter method despite name)
+        player2.getHiddenBoard();  // prints Player 2 board with ships hidden
 
         do
         {
-            cout << "Enter the the row number: "; // get the row
+            cout << "Enter the the row number: "; 
             cin >> tempinput;
 
         } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
@@ -276,7 +267,7 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
 
         do
         {
-            cout << "Enter the column character: "; // get the column
+            cout << "\nEnter the column character: "; // get the column
             cin >> column;
             column_num = (char)column - 65;     // converts char to decimal ASCII; 'A' is 65, so converts to (0 to 9)
             // while condition checks for valid gameboard boundary
@@ -326,15 +317,13 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
         } while (player_choice != 'y');
         system("clear");
 
-        cout << "======================PLAYER2=======================\n\n";  // Player 2 is either AI or human
+        cout << "======================PLAYER2=======================\n\n";  // Player 2 is either AI or human depending on mode
 
         player1.getHiddenBoard(); // Prints the board with hidden ships for Player 2 to shoot at
 
-        // E: temporary comment: split between AI and human opponent has to be at this point.
-
         if(aitrigger == "y" || aitrigger == "Y")
         {
-            cout << "Opponent's Board: AI is firing!.\n";  // Can change or remove this later
+            cout << "\nOpponent's Board: AI is firing!\n";  // Can change or remove this later
 
             srand(time(NULL)); // sets unique seed for random number generation
             if (difficulty == 1) // easy game, AI fires randomly
