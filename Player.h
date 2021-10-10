@@ -96,7 +96,7 @@ public:
      * @param row the row index in 2D array (int 0 - 8)
      * @param col the column index in 2D array (int 0 - 9)
      */
-    void doAnimation(int row, int col);
+    void doAnimation(int row, int col, bool hit);
 
     /**
      * @brief E: I THINK NEEDS TO BE DELETED. Original explanation for this method: "print the Game board

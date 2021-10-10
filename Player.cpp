@@ -57,8 +57,9 @@ void Player::getGameBoard()
     gameBoard.print();
 }
 
-void Player::doAnimation(int row, int col)
+void Player::doAnimation(int row, int col, bool hit)
 {
+    hiddenBoard.setAnimateChar(hit);
     hiddenBoard.printAnimate(row, col);
 }
 

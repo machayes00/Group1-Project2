@@ -5,6 +5,7 @@ Board::Board()
 {
     m_length = 0;
     m_map = new char*[9];
+    animateChar = '*';
     for (int i = 0; i < 9; i++) // loop for making 9-element array for rows
     {
         m_map[i] = new char[10]; // each row has 10 column elements
@@ -47,9 +48,18 @@ Board::~Board()
     delete[] m_map;
 }
 
+
+void Board::setAnimateChar(bool hit)
+{
+    if(hit){
+        animateChar = '*';
+    } else{
+        animateChar = '%';
+    }
+}
 void Board::printAnimate(int row, int col)
 {
-    if (m_length == 2)
+    if (m_length == 3)
     {
         return;
     }
@@ -57,7 +67,7 @@ void Board::printAnimate(int row, int col)
 
     printAnimateHelp(m_length, row, col);
 
-    usleep(500000);
+    usleep(700000);
 
     system("clear");
 
@@ -83,9 +93,11 @@ void Board::printAnimateHelp(int length, int row, int col)
         for (int j = 0; j < 10; j++)
         {
             if ((i == row + m_length && j == col) || (i == row - m_length && j == col) 
-                 || (i == row && j == col + m_length) || (i == row && j == col - m_length))
+                 || (i == row && j == col + m_length) || (i == row && j == col - m_length)
+                 || (i == row+m_length && j == col+m_length) || (i == row-m_length && j == col+m_length)
+                 || (i == row-m_length && j == col-m_length) || (i == row+m_length && j == col-m_length))
             {
-                cout << '*';
+                cout << animateChar;
                 cout << ' ';
             }
             else

@@ -11,6 +11,7 @@ private:
 
     char** m_map = nullptr; // pointer to 2D array that stores game board characters
     int m_length = 0;  // variable for printAnimate and printAnimateHelp methods
+    char animateChar = ' ';
 
 public:
 
@@ -37,6 +38,15 @@ public:
      * @post m_map 2D array is deleted and Board object is deallocated from memory
      */
     ~Board();
+
+    /**
+     * @brief sets animation char based on hit or miss
+     * @pre Must be called by the doAnimation Player class method
+     * @post Arguments are created and passed to printAnimateHelp method, which can now be executed
+     * @param row the row index in 2D array (int 0 - 8)
+     * @param col the column index in 2D array (int 0 - 9)
+     */
+    void setAnimateChar(bool hit);
 
     /**
      * @brief Calls printAnimateHelp method and passes arguments to it, to create an animation effect
