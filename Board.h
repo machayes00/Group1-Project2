@@ -110,7 +110,7 @@ public:
     bool put_row_ship(int row_num, char column_letter, int size, char new_letter);
 
     /**
-     * @brief Obtain the character and the indicated coordinate (used to check for hits)
+     * @brief Obtain the character at the argument coordinate (used to check for hits)
      * @param row_num the row number, 1-9
      * @param column_letter the column letter, 'A' - 'J'
      * @pre called by Board object in checkHit method in Player class
