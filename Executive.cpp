@@ -185,7 +185,7 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
 
         if (player2.checkHit(row, column))
         {
-            player2.doAnimation(row - 1, column_num);
+            player2.doAnimation(row - 1, column_num, 1);
             player2.get_hit(row, column);
             player2_count++;
             player2.getHiddenBoard();
@@ -197,8 +197,9 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
         }
         else
         {
+            player2.doAnimation(row - 1, column_num, 0);
+            player1.getHiddenBoard();
             cout << "YOU MISSED!\n";
-            player2.getHiddenBoard();
         }
 
         cout << "Do you want to see your Board(y/n)?\n";
@@ -285,10 +286,11 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
 
         if (player1.checkHit(row, column))
         {
+            player1.doAnimation(row - 1, column_num, 1);
             player1.get_hit(row, column);
             player1_count++;
-            cout << "YOU HIT!\n";
             player1.getHiddenBoard();
+            cout << "YOU HIT!\n";
             if (player1_count == max_count) //check if Player2 wins
             {
                 break;
@@ -296,8 +298,9 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
         }
         else
         {
-            cout << "YOU MISS!\n";
+            player1.doAnimation(row - 1, column_num, 0);
             player1.getHiddenBoard();
+            cout << "YOU MISS!\n"; 
         }
 
         cout << "Do you want to see your Board(y/n)?\n";
