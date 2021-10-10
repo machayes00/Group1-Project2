@@ -251,7 +251,12 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
     char column = ' ';         // A - J
     int column_num = 0;        // 0 - 9
     string tempinput;          // temporary store of user row input before it is converted to int
-
+    bool hit_trig = false;     //checks if there is a hit in medium difficulty
+    int offsetUP=1;                //offset in upwards direction from original hit point on medium difficulty
+    int offsetDOWN=1;              //offset in downwards direction from original hit point on medium difficulty
+    int offsetRIGHT=1;             //offset in right direction from original hit point on medium difficulty
+    int offsetLEFT=1;              //offset in left direction from original hit point on medium difficulty 
+    
     do  // long do-while loop that takes up most of the game_start method (bad name; the method starts and ends the shooting)
     {
         cout << "======================PLAYER1=======================\n\n";  // Player 1 is alays human, so takes firs shots
@@ -337,6 +342,48 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
                 row = (rand() % 9) + 1; // genterates a random number, 1-9
                 int randomnumber = (rand() % 10);  // generates a random number 0-9
                 column = 'A' + randomnumber;       // adds 0 to 9 to ASCII for 'A" to get 'A' - 'J'
+            }
+            else if(difficulty == 2)
+            {
+                if(hit_trig == false)
+                {
+                    row = (rand() % 9) + 1; // genterates a random number, 1-9
+                    int randomnumber = (rand() % 10);  // generates a random number 0-9
+                    column = 'A' + randomnumber;       // adds 0 to 9 to ASCII for 'A" to get 'A' - 'J'
+                    if(player1.checkHit2(row,column))
+                    {
+                        hit_trig=true;
+                    }
+                temprow=row;
+                tempcol=column;
+                }
+                else
+                {
+                    if(player1.checkHit2(temprow-offsetUP,tempcolumn))
+                    {
+                        row=temprow-offsetUP;
+                        column=tempcolumn;
+                        offsetUP++;
+                    }
+                    else if(player1.checkHit2(temprow+offsetDOWN,tempcolumn))
+                    {
+                        row=temprow+offsetDOWN;
+                        column=tempcolumn;
+                        offsetDOWN++;
+                    }
+                    else if(player1.checkHit2(temprow,tempcolumn+offsetRIGHT))
+                    {
+                        column=tempcolumn+offsetRIGHT;
+                        row=temprow;
+                        offsetRIGHT++;
+                    }
+                    else if(player1.checkHit2(temprow,tempcolumn-offsetLEFT))
+                    {
+                        column=tempcolumn-offsetLEFT;
+                        row=temprow;
+                        offsetLEFT++;
+                    }
+                }
             }
             else if(difficulty == 3)  // hard game, AI cheats and peeks at the ships
             {
