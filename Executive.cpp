@@ -478,13 +478,12 @@ void Executive::run()
     system("clear");  // this clears the screen
     string tempinput; // temporary variable for capturing user input for number of ships
     string aitrigger; // variable for capturing user choice of AI or human player
-    int difficulty; // variable for difficulty for AI game (changed from "diff" so people don't have to rembember)
+    int difficulty;   // variable for difficulty for AI game
 
     do
     {
         introtitleanimation(); // prints title to screen with special effects
         // E: should the above be outside of do-while? Because the animation would repeat if player gives bad input.
-        // I left it as it was originally for now, because I'm altering mostly AI code in this commit
 
         cout << "\nPlease enter a number between 1-6 for the number of ships you would like per player:  ";
         cin >> tempinput;
@@ -494,8 +493,8 @@ void Executive::run()
 
     ships = stoi(tempinput); // changes string input to int
     cout << "\nYou have selected: " << ships << " ships per player for this game. \n";
-    player1ships = ships;
-    player2ships = ships;
+    // player1ships = ships; E: I think these are unused variables; need to remove. first test game well without them.
+    // player2ships = ships;
 
     cout << "Do you want to play against an AI instead of human opponent? (Y/N): ";
     cin >> aitrigger;
@@ -667,8 +666,7 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
         else
         {
             player2.doAnimation(row - 1, column_num, 0);
-            // E: when there is a miss, the hiddenBoard did not correctly show miss location because wrong board was shown
-            player2.getHiddenBoard(); // E: I changed this from player1 to player2; it was showing the wrong board
+            player2.getHiddenBoard(); 
             cout << "\nYOU MISSED!\n\n";
         }
 
@@ -779,7 +777,7 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
                         {
                             row = i + 1;
                             column = 'A' + j;
-                            // break; probably add break but don't really need, works if commented out
+                            break; 
                         }
                     }
                 }
@@ -805,8 +803,7 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
                 cin >> column;
                 column_num = (char)column - 65;
                 // while condition checks for valid game board boundary
-            } while (column_num < 0 || column_num > 9); // E: This was column_num > 10 in the game we inherited.
-                                                        // I don't think that's right so I changed to 9
+            } while (column_num < 0 || column_num > 9); 
         } // end human opponent obtain shooting coordinates
 
         system("clear"); 
