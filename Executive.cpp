@@ -192,6 +192,7 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
             cout << "YOU HIT!\n";
             if (player2_count == max_count) //check if Player1 wins
             {
+                player2.doAnimation(row - 1, column_num, 1);
                 break;
             }
         }
@@ -293,6 +294,7 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
             cout << "YOU HIT!\n";
             if (player1_count == max_count) //check if Player2 wins
             {
+                player1.doAnimation(row - 1, column_num, 1);
                 break;
             }
         }
