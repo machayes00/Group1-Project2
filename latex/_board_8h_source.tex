@@ -1,0 +1,51 @@
+\hypertarget{_board_8h_source}{}\doxysection{Board.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BOARD\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BOARD\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <unistd.h>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_board}{Board}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{private}:}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keywordtype}{char}** m\_map = \textcolor{keyword}{nullptr}; \textcolor{comment}{// pointer to 2D array that stores game board characters}}
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} m\_length = 0;  \textcolor{comment}{// variable for printAnimate and printAnimateHelp methods}}
+\DoxyCodeLine{14     \textcolor{keywordtype}{char} animateChar = \textcolor{charliteral}{' '};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{24     \mbox{\hyperlink{class_board_a9ee491d4fea680cf69b033374a9fdfcb}{Board}}();}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{31     \mbox{\hyperlink{class_board_a9ee491d4fea680cf69b033374a9fdfcb}{Board}}(\textcolor{keywordtype}{char} hidden\_letter);}
+\DoxyCodeLine{32     \textcolor{comment}{// The original explanation for this constructor:}}
+\DoxyCodeLine{33     \textcolor{comment}{//@process -\/ this function works for hidden\_board, which exchange all the '\string~' into 'hidden\_letter'}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{40     \mbox{\hyperlink{class_board_af73f45730119a1fd8f6670f53f959e68}{\string~Board}}();}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_board_a8a96158dc829ff34317facb33f5c9698}{setAnimateChar}}(\textcolor{keywordtype}{bool} hit);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_board_a70b3c263dfe94cfa984c723c51d22ecf}{printAnimate}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_board_a1c76203e280f1ab10141b9af51ac5b08}{printAnimateHelp}}(\textcolor{keywordtype}{int} length, \textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_board_a44c7bca1c10c053898c048dc4c13f0d5}{print}}();}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{88     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_board_a8321fe6125da39eeb539f048e0bb4252}{exchange}}(\textcolor{keywordtype}{int} row\_num, \textcolor{keywordtype}{char} column\_letter, \textcolor{keywordtype}{char} new\_letter);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{99     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_board_a37bac02fd1f747527700501b694418e5}{put\_column\_ship}}(\textcolor{keywordtype}{int} row\_num, \textcolor{keywordtype}{char} column\_letter, \textcolor{keywordtype}{int} size, \textcolor{keywordtype}{char} new\_letter);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{110     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_board_a5e30c4446960ebf3c2bdf8dcbf8324a0}{put\_row\_ship}}(\textcolor{keywordtype}{int} row\_num, \textcolor{keywordtype}{char} column\_letter, \textcolor{keywordtype}{int} size, \textcolor{keywordtype}{char} new\_letter);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{120     \textcolor{keywordtype}{char} \mbox{\hyperlink{class_board_a53bf7daef764cfe734f984f1dc130db1}{is\_what}}(\textcolor{keywordtype}{int} row\_num, \textcolor{keywordtype}{char} column\_letter);}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{129     \textcolor{keywordtype}{char} \mbox{\hyperlink{class_board_af5df910b9a6814dba775201e05e098cd}{is\_what2}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col);}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 \};}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

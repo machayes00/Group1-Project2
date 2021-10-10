@@ -1,0 +1,307 @@
+\hypertarget{class_board}{}\doxysection{Board Class Reference}
+\label{class_board}\index{Board@{Board}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_board_a9ee491d4fea680cf69b033374a9fdfcb}{Board}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_board}{Board}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_board_a2a8d066fc798981b4062328360d7c7d1}{Board}} (char hidden\+\_\+letter)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_board}{Board}} object with arguments E\+: I THINK THIS IS NOT USED. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_board_af73f45730119a1fd8f6670f53f959e68}{$\sim$\+Board}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_board}{Board}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a8a96158dc829ff34317facb33f5c9698}{set\+Animate\+Char}} (bool hit)
+\begin{DoxyCompactList}\small\item\em sets animation char based on hit or miss \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a70b3c263dfe94cfa984c723c51d22ecf}{print\+Animate}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Calls print\+Animate\+Help method and passes arguments to it, to create an animation effect. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a1c76203e280f1ab10141b9af51ac5b08}{print\+Animate\+Help}} (int length, int row, int col)
+\begin{DoxyCompactList}\small\item\em Prints hidden\+Board with animation if there is a hit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a44c7bca1c10c053898c048dc4c13f0d5}{print}} ()
+\begin{DoxyCompactList}\small\item\em Prints the calling \mbox{\hyperlink{class_board}{Board}} object\textquotesingle{}s m\+\_\+map 2D array with names for columns and rows. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_board_a8321fe6125da39eeb539f048e0bb4252}{exchange}} (int row\+\_\+num, char column\+\_\+letter, char new\+\_\+letter)
+\begin{DoxyCompactList}\small\item\em Exchanges characters at specified coordinates of the m\+\_\+map 2D array of a \mbox{\hyperlink{class_board}{Board}} object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_board_a37bac02fd1f747527700501b694418e5}{put\+\_\+column\+\_\+ship}} (int row\+\_\+num, char column\+\_\+letter, int size, char new\+\_\+letter)
+\begin{DoxyCompactList}\small\item\em Places vertical ships on the game board if input arguments are acceptable. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_board_a5e30c4446960ebf3c2bdf8dcbf8324a0}{put\+\_\+row\+\_\+ship}} (int row\+\_\+num, char column\+\_\+letter, int size, char new\+\_\+letter)
+\begin{DoxyCompactList}\small\item\em Places horizontal ships on the game board if input arguments are acceptable. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_board_a53bf7daef764cfe734f984f1dc130db1}{is\+\_\+what}} (int row\+\_\+num, char column\+\_\+letter)
+\item 
+char \mbox{\hyperlink{class_board_af5df910b9a6814dba775201e05e098cd}{is\+\_\+what2}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Obtain the character at the requested index (used by AI, which efficiently uses array indices) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_board_a9ee491d4fea680cf69b033374a9fdfcb}\label{class_board_a9ee491d4fea680cf69b033374a9fdfcb}} 
+\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Board\+::\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_board}{Board}} object. 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a new \mbox{\hyperlink{class_board}{Board}} object is created\+: initializes the m\+\_\+map member with a 9x10 array filled with \textquotesingle{}$\sim$\textquotesingle{} characters representing water waves 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_board_a2a8d066fc798981b4062328360d7c7d1}\label{class_board_a2a8d066fc798981b4062328360d7c7d1}} 
+\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Board\+::\+Board (\begin{DoxyParamCaption}\item[{char}]{hidden\+\_\+letter }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_board}{Board}} object with arguments E\+: I THINK THIS IS NOT USED. 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em hidden\+\_\+letter} & character that replaces \textquotesingle{}$\sim$"{} character in \mbox{\hyperlink{class_board}{Board}} object m\+\_\+map array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_board_af73f45730119a1fd8f6670f53f959e68}\label{class_board_af73f45730119a1fd8f6670f53f959e68}} 
+\index{Board@{Board}!````~Board@{$\sim$Board}}
+\index{````~Board@{$\sim$Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{$\sim$Board()}{~Board()}}
+{\footnotesize\ttfamily Board\+::$\sim$\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{class_board}{Board}} object. 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+m\+\_\+map 2D array is deleted and \mbox{\hyperlink{class_board}{Board}} object is deallocated from memory 
+\end{DoxyPostcond}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_board_a8321fe6125da39eeb539f048e0bb4252}\label{class_board_a8321fe6125da39eeb539f048e0bb4252}} 
+\index{Board@{Board}!exchange@{exchange}}
+\index{exchange@{exchange}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{exchange()}{exchange()}}
+{\footnotesize\ttfamily bool Board\+::exchange (\begin{DoxyParamCaption}\item[{int}]{row\+\_\+num,  }\item[{char}]{column\+\_\+letter,  }\item[{char}]{new\+\_\+letter }\end{DoxyParamCaption})}
+
+
+
+Exchanges characters at specified coordinates of the m\+\_\+map 2D array of a \mbox{\hyperlink{class_board}{Board}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row\+\_\+num} & the row number, 1-\/9, of the row of the character to be exchanged \\
+\hline
+{\em column\+\_\+letter} & the column letter, \textquotesingle{}A\textquotesingle{} -\/ \textquotesingle{}J\textquotesingle{}, of the character to be exchanged \\
+\hline
+{\em new\+\_\+letter} & the character that will replace the current char at the specified index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+the coordinates that are passed in must be in the range specifed for the param 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+the \textquotesingle{}$\sim$\textquotesingle{} character of m\+\_\+map 2D array is exchanged for a new character, if conditions are met 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true if the method succeeds 
+
+false if the method fails 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_board_a53bf7daef764cfe734f984f1dc130db1}\label{class_board_a53bf7daef764cfe734f984f1dc130db1}} 
+\index{Board@{Board}!is\_what@{is\_what}}
+\index{is\_what@{is\_what}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{is\_what()}{is\_what()}}
+{\footnotesize\ttfamily char Board\+::is\+\_\+what (\begin{DoxyParamCaption}\item[{int}]{row\+\_\+num,  }\item[{char}]{column\+\_\+letter }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em row\+\_\+num} & the row number, 1-\/9 \\
+\hline
+{\em column\+\_\+letter} & the column letter, \textquotesingle{}A\textquotesingle{} -\/ \textquotesingle{}J\textquotesingle{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+called by \mbox{\hyperlink{class_board}{Board}} object in check\+Hit method in \mbox{\hyperlink{class_player}{Player}} class 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+char the character at the specified coordinate 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em an} & exception if the index generated from the arguments is not in the board boundary \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{class_board_af5df910b9a6814dba775201e05e098cd}\label{class_board_af5df910b9a6814dba775201e05e098cd}} 
+\index{Board@{Board}!is\_what2@{is\_what2}}
+\index{is\_what2@{is\_what2}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{is\_what2()}{is\_what2()}}
+{\footnotesize\ttfamily char Board\+::is\+\_\+what2 (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Obtain the character at the requested index (used by AI, which efficiently uses array indices) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & index of m\+\_\+map of calling \mbox{\hyperlink{class_board}{Board}} object \\
+\hline
+{\em col} & index of m\+\_\+map of calling \mbox{\hyperlink{class_board}{Board}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+called by \mbox{\hyperlink{class_board}{Board}} object in check\+Hit2 method in \mbox{\hyperlink{class_player}{Player}} class 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+char at the specified index of 2D m\+\_\+map array 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_board_a44c7bca1c10c053898c048dc4c13f0d5}\label{class_board_a44c7bca1c10c053898c048dc4c13f0d5}} 
+\index{Board@{Board}!print@{print}}
+\index{print@{print}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Board\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints the calling \mbox{\hyperlink{class_board}{Board}} object\textquotesingle{}s m\+\_\+map 2D array with names for columns and rows. 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Game board for calling \mbox{\hyperlink{class_board}{Board}} object is printed to screen 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_board_a70b3c263dfe94cfa984c723c51d22ecf}\label{class_board_a70b3c263dfe94cfa984c723c51d22ecf}} 
+\index{Board@{Board}!printAnimate@{printAnimate}}
+\index{printAnimate@{printAnimate}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{printAnimate()}{printAnimate()}}
+{\footnotesize\ttfamily void Board\+::print\+Animate (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Calls print\+Animate\+Help method and passes arguments to it, to create an animation effect. 
+
+\begin{DoxyPrecond}{Precondition}
+Must be called by the do\+Animation \mbox{\hyperlink{class_player}{Player}} class method 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Arguments are created and passed to print\+Animate\+Help method, which can now be executed 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em row} & the row index in 2D array (int 0 -\/ 8) \\
+\hline
+{\em col} & the column index in 2D array (int 0 -\/ 9) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_board_a1c76203e280f1ab10141b9af51ac5b08}\label{class_board_a1c76203e280f1ab10141b9af51ac5b08}} 
+\index{Board@{Board}!printAnimateHelp@{printAnimateHelp}}
+\index{printAnimateHelp@{printAnimateHelp}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{printAnimateHelp()}{printAnimateHelp()}}
+{\footnotesize\ttfamily void Board\+::print\+Animate\+Help (\begin{DoxyParamCaption}\item[{int}]{length,  }\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Prints hidden\+Board with animation if there is a hit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & controlled and passed in from print\+Animate method \\
+\hline
+{\em row} & the row index in 2D array (int 0 -\/ 8) \\
+\hline
+{\em col} & the column index in 2D array (int 0 -\/ 9) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+requires print\+Animate to pass in arguments 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Animated game board is printed to the screen when there is a hit (places X\textquotesingle{}s based on what row+length and col+length is) 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_board_a37bac02fd1f747527700501b694418e5}\label{class_board_a37bac02fd1f747527700501b694418e5}} 
+\index{Board@{Board}!put\_column\_ship@{put\_column\_ship}}
+\index{put\_column\_ship@{put\_column\_ship}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{put\_column\_ship()}{put\_column\_ship()}}
+{\footnotesize\ttfamily bool Board\+::put\+\_\+column\+\_\+ship (\begin{DoxyParamCaption}\item[{int}]{row\+\_\+num,  }\item[{char}]{column\+\_\+letter,  }\item[{int}]{size,  }\item[{char}]{new\+\_\+letter }\end{DoxyParamCaption})}
+
+
+
+Places vertical ships on the game board if input arguments are acceptable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row\+\_\+num} & the row number, 1-\/9, of the ship\textquotesingle{}s first coordinate \\
+\hline
+{\em column\+\_\+letter} & the column letter, \textquotesingle{}A\textquotesingle{} -\/ \textquotesingle{}J\textquotesingle{}, of the ship\textquotesingle{}s first coordinate \\
+\hline
+{\em size} & the size of the ship \\
+\hline
+{\em new\+\_\+letter} & the character that the \textquotesingle{}$\sim$\textquotesingle{} character will be exchanged with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the method succeeds (ship could be placed) 
+
+false if the method fails (ship could not be placed) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_board_a5e30c4446960ebf3c2bdf8dcbf8324a0}\label{class_board_a5e30c4446960ebf3c2bdf8dcbf8324a0}} 
+\index{Board@{Board}!put\_row\_ship@{put\_row\_ship}}
+\index{put\_row\_ship@{put\_row\_ship}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{put\_row\_ship()}{put\_row\_ship()}}
+{\footnotesize\ttfamily bool Board\+::put\+\_\+row\+\_\+ship (\begin{DoxyParamCaption}\item[{int}]{row\+\_\+num,  }\item[{char}]{column\+\_\+letter,  }\item[{int}]{size,  }\item[{char}]{new\+\_\+letter }\end{DoxyParamCaption})}
+
+
+
+Places horizontal ships on the game board if input arguments are acceptable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row\+\_\+num} & the row number, 1-\/9, of the ship\textquotesingle{}s first coordinate \\
+\hline
+{\em column\+\_\+letter} & the column letter, \textquotesingle{}A\textquotesingle{} -\/ \textquotesingle{}J\textquotesingle{}, of the ship\textquotesingle{}s first coordinate \\
+\hline
+{\em size} & the size of the ship \\
+\hline
+{\em new\+\_\+letter} & the character that the \textquotesingle{}$\sim$\textquotesingle{} character will be exchanged with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the method succeeds (ship could be placed) 
+
+false false if the method fails (ship could not be placed) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_board_a8a96158dc829ff34317facb33f5c9698}\label{class_board_a8a96158dc829ff34317facb33f5c9698}} 
+\index{Board@{Board}!setAnimateChar@{setAnimateChar}}
+\index{setAnimateChar@{setAnimateChar}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{setAnimateChar()}{setAnimateChar()}}
+{\footnotesize\ttfamily void Board\+::set\+Animate\+Char (\begin{DoxyParamCaption}\item[{bool}]{hit }\end{DoxyParamCaption})}
+
+
+
+sets animation char based on hit or miss 
+
+\begin{DoxyPrecond}{Precondition}
+Must be called by the do\+Animation \mbox{\hyperlink{class_player}{Player}} class method 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Arguments are created and passed to print\+Animate\+Help method, which can now be executed 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em row} & the row index in 2D array (int 0 -\/ 8) \\
+\hline
+{\em col} & the column index in 2D array (int 0 -\/ 9) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Board.\+h\item 
+Board.\+cpp\end{DoxyCompactItemize}

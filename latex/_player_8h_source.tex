@@ -1,0 +1,48 @@
+\hypertarget{_player_8h_source}{}\doxysection{Player.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PLAYER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PLAYER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Board.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_player}{Player}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{private}:}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \mbox{\hyperlink{class_board}{Board}} hiddenBoard;    \textcolor{comment}{// this board is shown to opponent}}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_board}{Board}} gameBoard;      \textcolor{comment}{// this board shows ships and hit locations}}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_board}{Board}} original\_Board; \textcolor{comment}{// this board stores all the ships and does not make any changes}}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} shipsLeft;        \textcolor{comment}{// keeps tracks of number of ships remaining}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{25     \mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{32     \mbox{\hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{\string~Player}}();}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_player_a474349ccdbc1e23ac83eada40d5a32d7}{checkHit}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{char} col);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_player_aec80921e82380c17a0bba9d895322321}{checkHit2}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_player_ade82137a8737ed559d6cbb4a330a9144}{checkShips}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_a79a940ef921c0976abb0ba627b5e30dd}{get\_hit}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{char} col); \textcolor{comment}{//helper function checkHit()}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_ad2bfb53e82871e00d5c5759d4d7c64e4}{getHiddenBoard}}();}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{90     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_a428aefe95b4b6e5c9cd5ef495b9f55a1}{getGameBoard}}();}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{99     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_afa0a2d69b851923146c721f9a0861dcc}{doAnimation}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, \textcolor{keywordtype}{bool} hit);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{107     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_adbbdf1ba411afd09495b47cc37dd3faf}{getOriginalBoard}}();}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{118     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_player_a4d4190c5e09f2b84988c28bb4b318559}{placeShip}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{char} col, \textcolor{keywordtype}{int} size, \textcolor{keywordtype}{char} dir);}
+\DoxyCodeLine{119     }
+\DoxyCodeLine{120 \};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
