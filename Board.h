@@ -110,7 +110,7 @@ public:
     bool put_row_ship(int row_num, char column_letter, int size, char new_letter);
 
     /**
-     * @brief 
+     * @brief Obtain the character at the argument coordinate (used to check for hits)
      * @param row_num the row number, 1-9
      * @param column_letter the column letter, 'A' - 'J'
      * @pre called by Board object in checkHit method in Player class
@@ -120,7 +120,7 @@ public:
     char is_what(int row_num, char column_letter);
 
     /**
-     * @brief Obtain the character at the requested index (used by AI, which efficiently uses array indices)
+     * @brief Obtain the character at the requested index (used by AI, which uses array indices)
      * @param row index of m_map of calling Board object
      * @param col index of m_map of calling Board object
      * @pre called by Board object in checkHit2 method in Player class

@@ -32,7 +32,8 @@ public:
     ~Player();
 
     /**
-     * @brief Checks for ship hits by checking if a B character exists at the row and col arguments 
+     * @brief Checks for ship hits by checking if a 'B' character exists at the row and col arguments
+     *          Used to make sure ships do not overlap during placement on board. 
      * @param row the row of the coordinate choosen for hit
      * @param col the column of the coordinate choosen for hit
      * @pre the column character must be a capital letter char, A - J; row is int 1-9
@@ -42,15 +43,25 @@ public:
     bool checkHit(int row, char col);
 
     /**
-     * @brief Check for ships by checking if a B character exists at the row and col arguments
-     * @param row the row of the coordinate choosen for hit
-     * @param col the column of the coordinate choosen for hit
-     * @pre this sane method expects you to pass in 2D array indices, 0-8 for row, 0-9 for col
+     * @brief Check for ships by checking if a 'B' character exists at the row and col arguments.
+     *          Used by AI which deals with array indices rather that 1-9, A-J coordinates.
+     * @param row the row index of the coordinate choosen for hit
+     * @param col the column index of the coordinate choosen for hit
+     * @pre expects arguments that are 2D array indices, 0-8 for row, 0-9 for col
      * @post none
-     * @return true if coordinates match a B character
-     * @return false if coordinates do not match a B character
+     * @return true if coordinates match a 'B' character
+     * @return false if coordinates do not match a 'B' character
      */
     bool checkHit2(int row, int col);
+
+    /**
+     * @brief Check if there is a hit 'X' character at the specified index, for Medium AI game
+     * @param row index, 0-8
+     * @param col inex, 0-9
+     * @return true if there is an 'X' and the index
+     * @return false if there is not an 'X' at the index
+     */
+    bool checkHit3(int row, int col);
 
     /**
      * @brief Determines how many ship coordinates are left for a player
@@ -62,14 +73,14 @@ public:
     int checkShips();
 
     /**
-     * @brief Replaces a hit B character with an X character
+     * @brief Replaces a hit B character with an X character. It is a helper function checkHit()
      * @pre hit coordinates must be obtained after calling checkHit method
      * @pre requires exchange method from Board class
      * @param row the row, which is an int 1-9
      * @param col the column, whch is a char, capital letter A - J
-     * @ return none (a weird thing for a "get" function but it is not a getter)
+     * @return none (a weird thing for a "get" function but it is not a getter)
      */
-    void get_hit(int row, char col); //helper function checkHit()
+    void get_hit(int row, char col); 
 
     /**
      * @brief Prints the "hidden board" which hides the ships 'till hit
@@ -81,7 +92,7 @@ public:
     void getHiddenBoard();
 
     /**
-     * @brief Prints the Board object that reveals ship locations and hits if present
+     * @brief Prints the Board object that reveals all ship locations and hits if present
      * @pre none
      * @post board with ships and hit locations is printed to screen
      * @param none
@@ -95,6 +106,7 @@ public:
      * @post printAnimate sub-method prints animation to screen when a ship is hit
      * @param row the row index in 2D array (int 0 - 8)
      * @param col the column index in 2D array (int 0 - 9)
+     * @param hit 
      */
     void doAnimation(int row, int col, bool hit);
 
@@ -107,14 +119,14 @@ public:
     void getOriginalBoard();
 
     /**
-   * @brief Interacts with user to place ships on gameBoard and original_Board objects
-   * @param row the rown number for first coordinate of a ship placement (int 1-9)
-   * @param col the col letter for first coordinate of a ship (char capital A-J)
-   * @param size the size of the ship (number of coordinates that need to be marked)
-   * @param dir the direction of the ship (Down or Right, char must be D, d, R, or r)
-   * @return true if ship could be placed
-   * @return false if ship could not be placed
-   */
+     * @brief Interacts with user to place ships on gameBoard and original_Board objects
+     * @param row the rown number for first coordinate of a ship placement (int 1-9)
+     * @param col the col letter for first coordinate of a ship (char capital A-J)
+     * @param size the size of the ship (number of coordinates that need to be marked)
+     * @param dir the direction of the ship (Down or Right, char must be D, d, R, or r)
+     * @return true if ship could be placed
+     * @return false if ship could not be placed
+     */
     bool placeShip(int row, char col, int size, char dir);
     
 };
