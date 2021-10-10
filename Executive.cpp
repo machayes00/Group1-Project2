@@ -493,8 +493,8 @@ void Executive::run()
 
     ships = stoi(tempinput); // changes string input to int
     cout << "\nYou have selected: " << ships << " ships per player for this game. \n";
-    player1ships = ships;
-    player2ships = ships;
+    // player1ships = ships; E: I think these are unused variables; need to remove. first test game well without them.
+    // player2ships = ships;
 
     cout << "Do you want to play against an AI instead of human opponent? (Y/N): ";
     cin >> aitrigger;
