@@ -5,15 +5,110 @@
 #include <stdlib.h> // need for srand rand
 #include <time.h>   // need for unique start point (seed) for random number generation
 #include <iostream>
+#include <unistd.h> 
+#include <string>
 using namespace std;
 
 Executive::Executive()
 {
+
 }
 
 Executive::~Executive()
 {
 }
+
+
+//G: Prints title with alternating colors for a specified length
+void Executive::introtitleanimation()
+{
+   for(int i = 0; i <10; i++)//loops for a specified duration
+   {
+   cout << "\033[1;91m********Welcome\033[0m ";//prints string with specified color: color is 91m
+   cout << "\033[1;92m to\033[0m ";
+   cout << "\033[1;93m battleship!********\033[0m\n";
+   usleep(200000);//lasts for 0.5 seconds
+   system("clear"); //clears previous prints statement allows for alternating title
+   cout << "\033[1;94m----------Welcome\033[0m ";
+   cout << "\033[1;95m to\033[0m ";
+   cout << "\033[1;96m battleship!----------\033[0m\n";
+   usleep(200000);
+   system("clear");
+   cout << "\033[1;91m********Welcome\033[0m ";
+   cout << "\033[1;93m to\033[0m ";
+   cout << "\033[1;95m battleship!********\033[0m\n";
+   usleep(200000);
+   system("clear");
+   cout << "\033[1;92m----------Welcome\033[0m ";
+   cout << "\033[1;94m to\033[0m ";
+   cout << "\033[1;96m battleship!----------\033[0m\n";
+   usleep(200000);
+   system("clear");
+   }
+}
+
+
+//G: Prints end screen for player 1 with alternating colors for a specified length
+void Executive::endscreenanimation1()
+{
+   for(int i = 0; i <10; i++)//loops for a specified duration
+   {
+   cout << "\033[1;91m ********Player\033[0m ";//prints string with specified color: color is 91m
+   cout << "\033[1;92m 1\033[0m ";
+   cout << "\033[1;93m wins!********\033[0m\n";
+   usleep(200000);//lasts for 0.5 seconds
+   system("clear");//clears previous prints statement allows for alternating title
+   cout << "\033[1;94m ********Player\033[0m ";
+   cout << "\033[1;95m 1\033[0m ";
+   cout << "\033[1;96m wins!********\033[0m\n";
+   usleep(200000);
+   system("clear");
+   cout << "\033[1;91m ********Player\033[0m ";
+   cout << "\033[1;93m 1\033[0m ";
+   cout << "\033[1;95m wins!********\033[0m\n";
+   usleep(200000);
+   system("clear");
+   cout << "\033[1;92m ********Player\033[0m ";
+   cout << "\033[1;94m 1\033[0m ";
+   cout << "\033[1;96m wins!********\033[0m\n";
+   usleep(200000);
+   system("clear");
+   }   
+}
+
+
+//G: Prints end screen for player 2 with alternating colors for a specified length
+void Executive::endscreenanimation2()
+{
+   for(int i = 0; i <10; i++)
+   {
+   cout << "\033[1;91m :D********Player\033[0m "; //prints string with specified color: color is 91m
+   cout << "\033[1;92m 2\033[0m ";
+   cout << "\033[1;93m wins!********:D\033[0m\n";
+   usleep(200000);//lasts for 0.5 seconds
+   system("clear");//clears previous prints statement allows for alternating title
+   cout << "\033[1;94m :D********Player\033[0m ";
+   cout << "\033[1;95m 2\033[0m ";
+   cout << "\033[1;96m wins!********:D\033[0m\n";
+   usleep(200000);
+   system("clear");
+   cout << "\033[1;91m :D********Player\033[0m ";
+   cout << "\033[1;93m 2\033[0m ";
+   cout << "\033[1;95m wins!********:D\033[0m\n";
+   usleep(200000);
+   system("clear");
+   cout << "\033[1;92m :D********Player\033[0m ";
+   cout << "\033[1;94m 2\033[0m ";
+   cout << "\033[1;96m wins!********:D\033[0m\n";
+   usleep(200000);
+   system("clear");
+   }   
+}
+
+
+    
+
+
 
 void Executive::run()
 {
@@ -22,10 +117,11 @@ void Executive::run()
     string aitrigger; // variable for capturing user choice of AI or human player
     int difficulty; // variable for difficulty for AI game (changed from "diff" so people don't have to rembember)
 
-    cout << "It is time for Batttle Ship!!!\n";
+
     do
     {
-        cout << "Please enter a number between 1-6 for the number of ships you would like per player:\n";
+        introtitleanimation(); // prints title to screen with special effects
+        cout << "\nPlease enter a number between 1-6 for the number of ships you would like per player:\n";
         cin >> tempinput;
 
     } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" ||
@@ -334,10 +430,10 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
 
     if (player1_count == max_count)
     {
-        cout << "Player2 WINS!\n";
+        endscreenanimation1();
     }
     else
-    {
-        cout << "Player1 WINS!\n";
+    {   
+        endscreenanimation2();
     }
 }
