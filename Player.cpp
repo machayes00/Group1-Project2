@@ -36,6 +36,18 @@ bool Player::checkHit2(int row, int col)
     }
 }
 
+bool Player::checkHit3(int row, int col)
+{
+    if(gameBoard.is_what2(row, col) == 'X')
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }  
+}
+
 int Player::checkShips()
 {
     return shipsLeft;
