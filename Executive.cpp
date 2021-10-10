@@ -18,88 +18,460 @@ Executive::~Executive()
 }
 
 // Prints title with alternating colors for a specified length of time
+string asciiArt1 =   R"( 
+                      *   
+                    *_\/_*     
+                    * /\ *     
+                     *..*)";
+
+string asciiArt2 = R"( .:::.                
+                       :|||:  
+                        :::)"  ;
+
+string asciiArt3 = R"(
+          _______  _        _______  _______  _______  _______ 
+|\     /|(  ____ \( \      (  ____ \(  ___  )(       )(  ____ \
+| )   ( || (    \/| (      | (    \/| (   ) || () () || (    \/
+| | _ | || (__    | |      | |      | |   | || || || || (__    
+| |( )| ||  __)   | |      | |      | |   | || |(_)| ||  __)   
+| || || || (      | |      | |      | |   | || |   | || (      
+| () () || (____/\| (____/\| (____/\| (___) || )   ( || (____/\
+(_______)(_______/(_______/(_______/(_______)|/     \|(_______/
+)";
+
+string asciiArt4 = R"(
+_________ _______ 
+\__   __/(  ___  )
+   ) (   | (   ) |
+   | |   | |   | |
+   | |   | |   | |
+   | |   | |   | |
+   | |   | (___) |
+   )_(   (_______|
+)";
+
+string asciiArt5 = R"(
+     ______   _______ __________________ _        _______  _______          _________ _______    _ 
+(  ___ \ (  ___  )\__   __/\__   __/( \      (  ____ \(  ____ \|\     /|\__   __/(  ____ )  ( )
+| (   ) )| (   ) |   ) (      ) (   | (      | (    \/| (    \/| )   ( |   ) (   | (    )|  | |
+| (__/ / | (___) |   | |      | |   | |      | (__    | (_____ | (___) |   | |   | (____)|  | |
+|  __ (  |  ___  |   | |      | |   | |      |  __)   (_____  )|  ___  |   | |   |  _____)  | |
+| (  \ \ | (   ) |   | |      | |   | |      | (            ) || (   ) |   | |   | (        (_)
+| )___) )| )   ( |   | |      | |   | (____/\| (____/\/\____) || )   ( |___) (___| )         _ 
+|/ \___/ |/     \|   )_(      )_(   (_______/(_______/\_______)|/     \|\_______/|/         (_)
+)";
+
+string asciiArt6 = R"(
+    _.-^^---....,,--       
+ _--                  --_  
+<                        >)
+|                         | 
+ \._                   _./  
+    ```--. . , ; .--'''       
+          | |   |             
+       .-=||  | |=-.   
+       `-=#$%&%$#=-'   
+          | ;  :|     
+ _____.,-#%&$@%#&#~,._____
+)";
+
+
+string asciiArt7 = R"(
+ _______  _        _______           _______  _______     __              _________ _        _______    _ 
+(  ____ )( \      (  ___  )|\     /|(  ____ \(  ____ )   /  \    |\     /|\__   __/( (    /|(  ____ \  ( )
+| (    )|| (      | (   ) |( \   / )| (    \/| (    )|   \/) )   | )   ( |   ) (   |  \  ( || (    \/  | |
+| (____)|| |      | (___) | \ (_) / | (__    | (____)|     | |   | | _ | |   | |   |   \ | || (_____   | |
+|  _____)| |      |  ___  |  \   /  |  __)   |     __)     | |   | |( )| |   | |   | (\ \) |(_____  )  | |
+| (      | |      | (   ) |   ) (   | (      | (\ (        | |   | || || |   | |   | | \   |      ) |  (_)
+| )      | (____/\| )   ( |   | |   | (____/\| ) \ \__   __) (_  | () () |___) (___| )  \  |/\____) |   _ 
+|/       (_______/|/     \|   \_/   (_______/|/   \__/   \____/  (_______)\_______/|/    )_)\_______)  (_)
+)";
+
+string asciiArt8 = R"(
+ _______  _        _______           _______  _______    _______            _________ _        _______    _ 
+(  ____ )( \      (  ___  )|\     /|(  ____ \(  ____ )  / ___   )  |\     /|\__   __/( (    /|(  ____ \  ( )
+| (    )|| (      | (   ) |( \   / )| (    \/| (    )|  \/   )  |  | )   ( |   ) (   |  \  ( || (    \/  | |
+| (____)|| |      | (___) | \ (_) / | (__    | (____)|      /   )  | | _ | |   | |   |   \ | || (_____   | |
+|  _____)| |      |  ___  |  \   /  |  __)   |     __)    _/   /   | |( )| |   | |   | (\ \) |(_____  )  | |
+| (      | |      | (   ) |   ) (   | (      | (\ (      /   _/    | || || |   | |   | | \   |      ) |  (_)
+| )      | (____/\| )   ( |   | |   | (____/\| ) \ \__  (   (__/\  | () () |___) (___| )  \  |/\____) |   _ 
+|/       (_______/|/     \|   \_/   (_______/|/   \__/  \_______/  (_______)\_______/|/    )_)\_______)  (_)
+                                                                                                            
+)";
+string victoryArt4 = R"(
+                *    *
+   *         '       *       .  *   '     .           * *
+                                                               '
+       *                *'          *          *        '
+   .           *               |               /
+               '.         |    |      '       |   '     *
+                 \*        \   \             /
+       '          \     '* |    |  *        |*                *  *
+            *      `.       \   |     *     /    *      '
+  .                  \      |   \          /               *
+     *'  *     '      \      \   '.       |
+        -._            `                  /         *
+  ' '      ``._   *                           '          .      '
+   *           *\*          * .   .      *
+*  '        *    `-._                       .         _..:='        *
+             .  '      *       *    *   .       _.:--'
+          *           .     .     *         .-'         *
+   .               '             . '   *           *         .
+  *       ___.-=--..-._     *                '               '
+                                  *       *
+                *        _.'  .'       `.        '  *             *
+     *              *_.-'   .'            `.               *
+                   .'                       `._             *  '
+   '       '                        .       .  `.     .
+       .                      *                  `
+               *        '             '                          .
+     .                          *        .           *  *
+             *        .
+)";
+
+string victoryArt1 = R"(
+           /\
+          /  \
+         /    \
+        /      \
+       /        \
+      /          \
+     /            \
+    /              \
+   /                \
+  /                  \
+ /                    \
+/______________________\
+  |                  |
+  |            _     |
+  |        _.-'_)    |
+  |    _.-'_.-'      |
+  |   (_  (._        |
+  |     `-._ `-_     |
+  |         `-. )    |
+  |   /~`-._  | |    |
+  |   |  _  | | |    |
+  |   | | | | | |    |
+  |   | | | `~  |    |
+  |   | |  ~-._/'    |
+  |   (_ `-._        |
+  |     `-._ `-_     |
+  |        _)  _)    |
+  |    _.-'_.-'      |
+ _|   (_  (._        |
+| |     `-._ `-_     |
+| |         `-. )    |
+| |        _.-'_|    |
+| |    _.-'_.-'      |
+| |   (_  (._        |
+| |     `-._ `-_     |
+| |         `-._)    |
+| |                  |
+| |                  |
+| |                  |
+| |~~~~~~~~||~~~~~~~~
+| |        ||
+| |         \\  ,
+| |          \*'
+| |          ',``
+| |
+| |
+| |
+)";
+
+string victoryArt2 = R"(
+    .:::.                
+    :|||:  
+    (:::)
+    .:::.                
+    :|||:  
+    (:::)
+    .:::.                
+    :|||:  
+    (:::)
+    .:::.                
+    :|||:  
+    (:::)
+    .:::.                
+    :|||:  
+    (:::)
+    .:::.                
+    :|||:  
+    (:::)
+    .:::.                
+    :|||:  
+    (:::)
+    .:::.                
+    :|||:  
+    (:::)
+    .:::.                
+    :|||:  
+    (:::)
+    .:::.                
+    :|||:  
+    (:::)
+)";
+
+string victoryArt3 = R"(
+
+     R"( 
+                      *   
+                    *_\/_*     
+                    * /\ *     
+                     *..*
+                      *   
+                    *_\/_*     
+                    * /\ *     
+                     *..*   *   
+                    *_\/_*     
+                    * /\ *     
+                     *..*   *   
+                    *_\/_*     
+                    * /\ *     
+                     *..*   *   
+                    *_\/_*     
+                    * /\ *     
+                     *..*   *   
+                    *_\/_*     
+                    * /\ *     
+                     *..*   *   
+                    *_\/_*     
+                    * /\ *     
+                     *..*   *   
+                    *_\/_*     
+                    * /\ *     
+                     *..*
+                        *   
+                    *_\/_*     
+                    * /\ *     
+                     *..*   *   
+                    *_\/_*     
+                    * /\ *     
+                     *..*)";
+
+
+
+//G: Prints title with alternating colors for a specified length
 void Executive::introtitleanimation()
 {
-   for(int i = 0; i <10; i++) //loops for a specified duration
+   for(int i = 0; i <2; i++)//loops for a specified duration
    {
-        cout << "\033[1;91m********Welcome\033[0m ";//prints string with specified color: color is 91m
-        cout << "\033[1;92m to\033[0m ";
-        cout << "\033[1;93m battleship!********\033[0m\n";
-        usleep(200000);//lasts for 0.5 seconds
-        system("clear"); //clears previous prints statement allows for alternating title
-        cout << "\033[1;94m----------Welcome\033[0m ";
-        cout << "\033[1;95m to\033[0m ";
-        cout << "\033[1;96m battleship!----------\033[0m\n";
-        usleep(200000);
-        system("clear");
-        cout << "\033[1;91m********Welcome\033[0m ";
-        cout << "\033[1;93m to\033[0m ";
-        cout << "\033[1;95m battleship!********\033[0m\n";
-        usleep(200000);
-        system("clear");
-        cout << "\033[1;92m----------Welcome\033[0m ";
-        cout << "\033[1;94m to\033[0m ";
-        cout << "\033[1;96m battleship!----------\033[0m\n";
-        usleep(200000);
-        system("clear");
+   cout << "\033[1;91m" << asciiArt2 << "\033[0m " << '\n';//special art
+   cout << "\033[1;91m" <<asciiArt3<< "\033[0m ";//prints string with specified color: color is 91m
+   cout << "\033[1;92m" << asciiArt4 << "\033[0m ";
+   cout << "\033[1;93m" << asciiArt5 <<"\033[0m \n";
+   cout << "\033[1;91m" << asciiArt2 << "\033[0m " << '\n';//special art
+   usleep(200000);//lasts for 0.5 seconds
+   system("clear"); //clears previous prints statement allows for alternating title
+
+   cout << "\033[1;93m" << asciiArt1 << "\033[0m " << '\n';//special art
+   cout << "\033[1;94m" <<asciiArt3<< "\033[0m ";//prints string with specified color: color is 91m
+   cout << "\033[1;95m" << asciiArt4 << "\033[0m ";
+   cout << "\033[1;96m" << asciiArt5 <<"\033[0m \n";
+   cout << "\033[1;93m" << asciiArt1 << "\033[0m " << '\n';//special art
+   usleep(200000);
+   system("clear");
+
+   cout << "\033[1;92m" << asciiArt6 << "\033[0m " << '\n';
+   cout << "\033[1;91m" <<asciiArt3<< "\033[0m ";//prints string with specified color: color is 91m
+   cout << "\033[1;93m" << asciiArt4 << "\033[0m ";
+   cout << "\033[1;95m" << asciiArt5 <<"\033[0m\n";
+   cout << "\033[1;92m" << asciiArt6 << "\033[0m " << '\n';
+   usleep(200000);
+   system("clear");
+
+   cout << "\033[1;93m" << asciiArt1 << "\033[0m " << '\n';
+   cout << "\033[1;92m" <<asciiArt3<< "\033[0m ";//prints string with specified color: color is 91m
+   cout << "\033[1;94m" << asciiArt4 << "\033[0m ";
+   cout << "\033[1;96m" << asciiArt5 <<"\033[0m \n";
+  cout << "\033[1;93m" << asciiArt1 << "\033[0m " << '\n';
+   usleep(200000);
+   system("clear");
+
+   cout << "\033[1;91m" << asciiArt2 << "\033[0m " << '\n';
+   cout << "\033[1;91m" <<asciiArt3<< "\033[0m ";//prints string with specified color: color is 91m
+   cout << "\033[1;94m" << asciiArt4 << "\033[0m ";
+   cout << "\033[1;95m" << asciiArt5 <<"\033[0m \n";
+   cout << "\033[1;91m" << asciiArt2 << "\033[0m " << '\n';
+   usleep(200000);
+   system("clear");
+
+   cout << "\033[1;92m" << asciiArt6 << "\033[0m " << '\n';
+   cout << "\033[1;93m" <<asciiArt3<< "\033[0m ";//prints string with specified color: color is 91m
+   cout << "\033[1;96m" << asciiArt4 << "\033[0m ";
+   cout << "\033[1;92m" << asciiArt5 <<"\033[0m \n";
+   cout << "\033[1;92m" << asciiArt6 << "\033[0m " << '\n';
+   usleep(200000);
+   system("clear");
    }
 }
 
 // Prints end screen for player 1 with alternating colors for a specified length of time
+
+// Prints end screen for player 2 with alternating colors for a specified length of time
 void Executive::endscreenanimation1()
 {
-   for(int i = 0; i <10; i++) //loops for a specified duration
+    cout << "\033[1;91m" << victoryArt1 << "\033[0m " << '\n'; //prints variations of victoryArt which are fireworks
+    usleep(500000);
+    system("clear");
+    cout << "\033[1;92m" << victoryArt2 << "\033[0m " << '\n';
+    usleep(400000);
+    system("clear");
+    cout << "\033[1;93m" << victoryArt3 << "\033[0m " << '\n';
+    usleep(400000);
+    system("clear");
+    cout << "\033[1;91m" << victoryArt4 << "\033[0m " << '\n';
+    usleep(300000);
+    system("clear");
+    cout << "\033[1;92m" << victoryArt4<< "\033[0m " << '\n';
+    usleep(300000);
+    system("clear");
+    cout << "\033[1;94m" << victoryArt4<< "\033[0m " << '\n';
+    usleep(300000);
+    system("clear");
+    cout << "\033[1;96m" << victoryArt4<< "\033[0m " << '\n';
+    usleep(300000);
+    system("clear");
+    cout << "\033[1;95m" << victoryArt4<< "\033[0m " << '\n';
+    usleep(300000);
+    system("clear");
+   for(int i = 0; i <2; i++)
    {
-        cout << "\033[1;91m ********Player\033[0m "; //prints string with specified color: color is 91m
-        cout << "\033[1;92m 1\033[0m ";
-        cout << "\033[1;93m wins!********\033[0m\n";
-        usleep(200000);     //lasts for 0.5 seconds
+
+   
+       if(i == 0)
+       {
+        cout << "\033[1;91m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     //lasts for 0.2 seconds
         system("clear");    //clears previous prints statement allows for alternating title
-        cout << "\033[1;94m ********Player\033[0m ";
-        cout << "\033[1;95m 1\033[0m ";
-        cout << "\033[1;96m wins!********\033[0m\n";
-        usleep(200000);
+        cout << "\033[1;92m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     //lasts for 0.2 seconds
         system("clear");
-        cout << "\033[1;91m ********Player\033[0m ";
-        cout << "\033[1;93m 1\033[0m ";
-        cout << "\033[1;95m wins!********\033[0m\n";
-        usleep(200000);
+        cout << "\033[1;93m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");    
+        cout << "\033[1;94m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");   
+        cout << "\033[1;95m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");   
+        cout << "\033[1;96m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");   
+        cout << "\033[1;97m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear"); 
+       }
+       else
+       {
+        cout << "\033[1;91m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     //lasts for 0.2 seconds
+        system("clear");    //clears previous prints statement allows for alternating title
+        cout << "\033[1;93m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     //lasts for 0.2 seconds
         system("clear");
-        cout << "\033[1;92m ********Player\033[0m ";
-        cout << "\033[1;94m 1\033[0m ";
-        cout << "\033[1;96m wins!********\033[0m\n";
-        usleep(200000);
+        cout << "\033[1;95m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");    
+        cout << "\033[1;97m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");   
+        cout << "\033[1;92m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");   
+        cout << "\033[1;94m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");   
+        cout << "\033[1;96m" << asciiArt8 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");    
+       }
+   }
+}
+
+
+void Executive::endscreenanimation2()
+{
+    cout << "\033[1;91m" << victoryArt1 << "\033[0m " << '\n';
+    usleep(500000);
+    system("clear");
+    cout << "\033[1;92m" << victoryArt2 << "\033[0m " << '\n';
+    usleep(400000);
+    system("clear");
+    cout << "\033[1;93m" << victoryArt3 << "\033[0m " << '\n';
+    usleep(400000);
+    system("clear");
+    cout << "\033[1;91m" << victoryArt4 << "\033[0m " << '\n';
+    usleep(300000);
+    system("clear");
+    cout << "\033[1;92m" << victoryArt4<< "\033[0m " << '\n';
+    usleep(300000);
+    system("clear");
+    cout << "\033[1;94m" << victoryArt4<< "\033[0m " << '\n';
+    usleep(300000);
+    system("clear");
+    cout << "\033[1;96m" << victoryArt4<< "\033[0m " << '\n';
+    usleep(300000);
+    system("clear");
+    cout << "\033[1;95m" << victoryArt4<< "\033[0m " << '\n';
+    usleep(300000);
+    system("clear");
+
+   for(int i = 0; i <8; i++) //loops for a specified duration
+   {
+       if(i == 0)
+       {
+        cout << "\033[1;91m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     //lasts for 0.2 seconds
+        system("clear");    //clears previous prints statement allows for alternating title
+        cout << "\033[1;92m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     //lasts for 0.2 seconds
         system("clear");
+        cout << "\033[1;93m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");    
+        cout << "\033[1;94m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");   
+        cout << "\033[1;95m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");   
+        cout << "\033[1;96m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");   
+        cout << "\033[1;97m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear"); 
+       }
+       else
+       {
+        cout << "\033[1;91m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     //lasts for 0.2 seconds
+        system("clear");    //clears previous prints statement allows for alternating title
+        cout << "\033[1;93m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     //lasts for 0.2 seconds
+        system("clear");
+        cout << "\033[1;95m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");    
+        cout << "\033[1;97m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");   
+        cout << "\033[1;92m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");   
+        cout << "\033[1;94m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");   
+        cout << "\033[1;96m" << asciiArt7 << "\033[0m " << '\n';
+        usleep(100000);     
+        system("clear");    
+       }
+
    }   
 }
 
-// Prints end screen for player 2 with alternating colors for a specified length of time
-void Executive::endscreenanimation2()
-{
-   for(int i = 0; i <10; i++)
-   {
-        cout << "\033[1;91m :D********Player\033[0m "; //prints string with specified color: color is 91m
-        cout << "\033[1;92m 2\033[0m ";
-        cout << "\033[1;93m wins!********:D\033[0m\n";
-        usleep(200000);      //lasts for 0.5 seconds
-        system("clear");     //clears previous prints statement allows for alternating title
-        cout << "\033[1;94m :D********Player\033[0m ";
-        cout << "\033[1;95m 2\033[0m ";
-        cout << "\033[1;96m wins!********:D\033[0m\n";
-        usleep(200000);
-        system("clear");
-        cout << "\033[1;91m :D********Player\033[0m ";
-        cout << "\033[1;93m 2\033[0m ";
-        cout << "\033[1;95m wins!********:D\033[0m\n";
-        usleep(200000);
-        system("clear");
-        cout << "\033[1;92m :D********Player\033[0m ";
-        cout << "\033[1;94m 2\033[0m ";
-        cout << "\033[1;96m wins!********:D\033[0m\n";
-        usleep(200000);
-        system("clear");
-   }   
-}
 
 void Executive::run()
 {
