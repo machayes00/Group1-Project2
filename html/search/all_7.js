@@ -6,7 +6,7 @@ var searchData=
   ['print_3',['print',['../class_board.html#a44c7bca1c10c053898c048dc4c13f0d5',1,'Board']]],
   ['printanimate_4',['printAnimate',['../class_board.html#a70b3c263dfe94cfa984c723c51d22ecf',1,'Board']]],
   ['printanimatehelp_5',['printAnimateHelp',['../class_board.html#a1c76203e280f1ab10141b9af51ac5b08',1,'Board']]],
-  ['project2_6',['project2',['../md__r_e_a_d_m_e.html',1,'']]],
+  ['project_202_6',['Project 2',['../index.html',1,'']]],
   ['put_5fcolumn_5fship_7',['put_column_ship',['../class_board.html#a37bac02fd1f747527700501b694418e5',1,'Board']]],
   ['put_5frow_5fship_8',['put_row_ship',['../class_board.html#a5e30c4446960ebf3c2bdf8dcbf8324a0',1,'Board']]]
 ];
