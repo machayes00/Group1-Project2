@@ -8,43 +8,46 @@
 \DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
 \DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
 \DoxyCodeLine{7 }
-\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_player}{Player}}}
-\DoxyCodeLine{9 \{}
-\DoxyCodeLine{10 \textcolor{keyword}{private}:}
-\DoxyCodeLine{11 }
-\DoxyCodeLine{12     \mbox{\hyperlink{class_board}{Board}} hiddenBoard;    \textcolor{comment}{// this board is shown to opponent}}
-\DoxyCodeLine{13     \mbox{\hyperlink{class_board}{Board}} gameBoard;      \textcolor{comment}{// this board shows ships and hit locations}}
-\DoxyCodeLine{14     \mbox{\hyperlink{class_board}{Board}} original\_Board; \textcolor{comment}{// this board stores all the ships and does not make any changes}}
-\DoxyCodeLine{15     \textcolor{keywordtype}{int} shipsLeft;        \textcolor{comment}{// keeps tracks of number of ships remaining}}
-\DoxyCodeLine{16 }
-\DoxyCodeLine{17 \textcolor{keyword}{public}:}
-\DoxyCodeLine{18 }
-\DoxyCodeLine{25     \mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}();}
-\DoxyCodeLine{26 }
-\DoxyCodeLine{32     \mbox{\hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{\string~Player}}();}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_player}{Player}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{private}:}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_board}{Board}} hiddenBoard;    \textcolor{comment}{// this board is shown to opponent}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{26     \mbox{\hyperlink{class_board}{Board}} gameBoard;     }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{32     \mbox{\hyperlink{class_board}{Board}} original\_Board; \textcolor{comment}{// this board stores all the ships and does not make any changes}}
 \DoxyCodeLine{33 }
-\DoxyCodeLine{43     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_player_a474349ccdbc1e23ac83eada40d5a32d7}{checkHit}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{char} col);}
-\DoxyCodeLine{44 }
-\DoxyCodeLine{55     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_player_aec80921e82380c17a0bba9d895322321}{checkHit2}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} shipsLeft;       }
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keyword}{public}:}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{48     \mbox{\hyperlink{class_player_affe0cc3cb714f6deb4e62f0c0d3f1fd8}{Player}}();}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{55     \mbox{\hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{\string~Player}}();}
 \DoxyCodeLine{56 }
-\DoxyCodeLine{64     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_player_a2c130fcf2734a2e53f62f5d2a422a7ff}{checkHit3}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col);}
-\DoxyCodeLine{65 }
-\DoxyCodeLine{73     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_player_ade82137a8737ed559d6cbb4a330a9144}{checkShips}}();}
-\DoxyCodeLine{74 }
-\DoxyCodeLine{83     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_a79a940ef921c0976abb0ba627b5e30dd}{get\_hit}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{char} col); }
-\DoxyCodeLine{84 }
-\DoxyCodeLine{92     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_ad2bfb53e82871e00d5c5759d4d7c64e4}{getHiddenBoard}}();}
-\DoxyCodeLine{93 }
-\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_a428aefe95b4b6e5c9cd5ef495b9f55a1}{getGameBoard}}();}
-\DoxyCodeLine{102 }
-\DoxyCodeLine{111     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_afa0a2d69b851923146c721f9a0861dcc}{doAnimation}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, \textcolor{keywordtype}{bool} hit);}
-\DoxyCodeLine{112 }
-\DoxyCodeLine{119     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_adbbdf1ba411afd09495b47cc37dd3faf}{getOriginalBoard}}();}
-\DoxyCodeLine{120 }
-\DoxyCodeLine{130     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_player_a4d4190c5e09f2b84988c28bb4b318559}{placeShip}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{char} col, \textcolor{keywordtype}{int} size, \textcolor{keywordtype}{char} dir);}
-\DoxyCodeLine{131     }
-\DoxyCodeLine{132 \};}
-\DoxyCodeLine{133 }
-\DoxyCodeLine{134 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{66     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_player_a474349ccdbc1e23ac83eada40d5a32d7}{checkHit}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{char} col);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_player_aec80921e82380c17a0bba9d895322321}{checkHit2}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{87     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_player_a2c130fcf2734a2e53f62f5d2a422a7ff}{checkHit3}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{96     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_player_ade82137a8737ed559d6cbb4a330a9144}{checkShips}}();}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{106     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_a79a940ef921c0976abb0ba627b5e30dd}{get\_hit}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{char} col); }
+\DoxyCodeLine{107 }
+\DoxyCodeLine{115     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_ad2bfb53e82871e00d5c5759d4d7c64e4}{getHiddenBoard}}();}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{124     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_a428aefe95b4b6e5c9cd5ef495b9f55a1}{getGameBoard}}();}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{134     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_afa0a2d69b851923146c721f9a0861dcc}{doAnimation}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col, \textcolor{keywordtype}{bool} hit);}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{142     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_player_adbbdf1ba411afd09495b47cc37dd3faf}{getOriginalBoard}}();}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{153     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_player_a4d4190c5e09f2b84988c28bb4b318559}{placeShip}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{char} col, \textcolor{keywordtype}{int} size, \textcolor{keywordtype}{char} dir);}
+\DoxyCodeLine{154     }
+\DoxyCodeLine{155 \};}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
