@@ -1,39 +1,110 @@
 Actual account of person-hours we used to complete project.
-Day to Day account of hours spent on project added from all team members:
 
-9-7-21
-2 hours total
+Mac — 09/22/2021
+Worked 11:10-11:40 to find bugs
 
-9-8
-none 
+Adina — 09/23/2021
+Worked 3:00 am to 4:40 am testing code, trying to figure out the code, and writing task suggestions in google doc
+September 25, 2021
 
-9-9
-none
+Adina — 09/24/2021
+Friday afternoon: worked ~ 1 hour intermittently on the task list to split up work for project 2
+Adina — 09/25/2021
+Satuday afternoon - 12:20 to 2:20 worked on project planning and task list for project 2
 
-9-10-21
-4 hours total
+Alice — 09/30/2021
 
-9-11-21
-2.5 hours total
+30 mins researching doxygen and autodoc generation 
 
-9-12
-2 hours total
+09/26/2021
+Group meeting 4 - 5:20 p.m.
 
-9-13
-1 hour total
+Adina — 10/02/2021
+Friday night/Sat morning, 2 hours: stress testing and listing needed fixes for original game; also checking state of most recent experimental branch and catching syntax and compile issues; commenting. (And figuring out how to work with fork and added branches in git/GitHub....).
 
-9-14
-4.5 hours total
+Adina — 10/02/2021
+Saturday afternoon intermittently 90 minutes: figuring out what went wrong with GitHub protocol and figuring out solutions; making comments and suggestions to help resolve issues and collaborate smoothly. 
 
-9-15
-2 hours total
+Mac — 10/03/2021
+worked 6:30 - 8:30pm on ASCII animations for hit and miss 
 
-9-16
-7 hours total
+Adina — 10/04/2021
+Worked 11:30 pm to 5 am.
 
-9-17
-4 hours total
+Mac — 10/04/2021
+worked 11am-12pm
+
+Adina — 10/04/2021
+worked 12 pm to 1 pm
+
+Alex — 10/05/2021
+Worked 6 to 6:15 pm changed 2 lines of code in AIplace and tested it(worked)
+worked 6:30 to 8:30
+
+George — 10/05/2021
+
+ 6-6:30 worked on menu animations
+
+Alex — 10/06/2021
+Worked 9:30 to 12:20
+
+Mac — 10/06/2021
+worked 10:30am-12pm
+
+Alex — 10/06/2021
+worked 3-4:30 pm
+
+Alex — 10/06/2021
+worked 6:15-6:45 pm
+October 8, 2021
+
+Adina — 10/07/2021
+Worked yesterday ~ 5 hours, fixing repo, AI random hit, AI cheater hit
+
+George — 10/08/2021
+7:45 - 9:30 worked on menu animations
+
+Alice — 10/09/2021
+
+1 hour on docs stuff
+
+Adina — 10/08/2021
+Worked ~ 3 h intermittently
+
+George — 10/09/2021
+worked 12:30-1:15
+worked 2 - 4:20  p.m. 
+worked 5- 6:50
+
+Alex — 10/09/2021
+worked 4-7:30 pm
+October 10, 2021
+
+Adina — 10/09/2021
+worked ~7 hours Saturday afternoon through Sunday morning
+
+Adina — 10/09/2021
+Adina Saturday morning another 1 hour
+
+George — 10/10/2021
+worked 1-2:30
+
+Alice — 10/09/2021
+~4 hours intermittently
+
+Mac — 10/10/2021
+
+2 hours
+
+Adina — 10/10/2021
+
+Worked ~3 hours sunday night 
+
+Alice — 10/10/2021
+
+~3 hours on creating artifacts, etc.
 
 TOTAL HOURS WORKED ON PROJECT:
-29 hours
+
+66.5 hours
 
