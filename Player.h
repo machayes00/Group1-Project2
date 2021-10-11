@@ -134,8 +134,7 @@ public:
     void doAnimation(int row, char col, bool hit);
 
     /**
-     * @brief E: I THINK NEEDS TO BE DELETED. Original explanation for this method: "print the Game board
-     *       object. Mainly used for calling methods of the board class."
+     * @brief Print the Game board object. Mainly used for calling methods of the board class
      * @param none
      * @return none
      */
