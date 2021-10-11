@@ -5,14 +5,37 @@
 #include <iostream>
 #include <string>
 
+/**
+ * Player Class for Battleship game
+ * Creates Player objects and controls Player boards with help of Board class methods
+ */
 class Player
 {
 private:
 
+    /**
+     * A private variable 
+     * Board object that is whown to opponent; hides ships until they are hit
+     */
     Board hiddenBoard;    // this board is shown to opponent
-    Board gameBoard;      // this board shows ships and hit locations
+
+    /**
+     * A private variable
+     * Board object that shows all ships and hit locations
+     */
+    Board gameBoard;     
+
+    /**
+     * A private variable
+     * Board object that stores all the ships and is not changes after ships are placed
+     */
     Board original_Board; // this board stores all the ships and does not make any changes
-    int shipsLeft;        // keeps tracks of number of ships remaining
+
+    /**
+     * A private variable
+     * keeps track of the number of ships remaining unsunk on a board
+     */
+    int shipsLeft;       
 
 public:
 
