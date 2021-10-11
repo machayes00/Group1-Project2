@@ -24,9 +24,9 @@ bool \mbox{\hyperlink{class_board_a37bac02fd1f747527700501b694418e5}{put\+\_\+co
 bool \mbox{\hyperlink{class_board_a5e30c4446960ebf3c2bdf8dcbf8324a0}{put\+\_\+row\+\_\+ship}} (int row\+\_\+num, char column\+\_\+letter, int size, char new\+\_\+letter)
 \begin{DoxyCompactList}\small\item\em Places horizontal ships on the game board if input arguments are acceptable. \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{class_board_a53bf7daef764cfe734f984f1dc130db1}{is\+\_\+what}} (int row\+\_\+num, char column\+\_\+letter)
-\item 
+\begin{DoxyCompactList}\small\item\em Obtain the character at the argument coordinate (used to check for hits) \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{class_board_af5df910b9a6814dba775201e05e098cd}{is\+\_\+what2}} (int row, int col)
-\begin{DoxyCompactList}\small\item\em Obtain the character at the requested index (used by AI, which efficiently uses array indices) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Obtain the character at the requested index (used by AI, which uses array indices) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -120,6 +120,10 @@ false if the method fails
 {\footnotesize\ttfamily char Board\+::is\+\_\+what (\begin{DoxyParamCaption}\item[{int}]{row\+\_\+num,  }\item[{char}]{column\+\_\+letter }\end{DoxyParamCaption})}
 
 
+
+Obtain the character at the argument coordinate (used to check for hits) 
+
+
 \begin{DoxyParams}{Parameters}
 {\em row\+\_\+num} & the row number, 1-\/9 \\
 \hline
@@ -145,7 +149,7 @@ char the character at the specified coordinate
 
 
 
-Obtain the character at the requested index (used by AI, which efficiently uses array indices) 
+Obtain the character at the requested index (used by AI, which uses array indices) 
 
 
 \begin{DoxyParams}{Parameters}
