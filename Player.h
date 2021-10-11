@@ -131,7 +131,7 @@ public:
      * @param col the column index in 2D array (int 0 - 9)
      * @param hit 
      */
-    void doAnimation(int row, int col, bool hit);
+    void doAnimation(int row, char col, bool hit);
 
     /**
      * @brief E: I THINK NEEDS TO BE DELETED. Original explanation for this method: "print the Game board

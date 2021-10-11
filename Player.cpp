@@ -69,10 +69,11 @@ void Player::getGameBoard()
     gameBoard.print();
 }
 
-void Player::doAnimation(int row, int col, bool hit)
+void Player::doAnimation(int row, char col, bool hit)
 {
+    int column_num = (char)col - 65;
     hiddenBoard.setAnimateChar(hit);
-    hiddenBoard.printAnimate(row, col);
+    hiddenBoard.printAnimate(row, column_num);
 }
 
 // E: I don't think this method is ever used.
