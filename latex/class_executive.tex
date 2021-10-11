@@ -1,5 +1,9 @@
 \hypertarget{class_executive}{}\doxysection{Executive Class Reference}
 \label{class_executive}\index{Executive@{Executive}}
+
+
+{\ttfamily \#include $<$Executive.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,16 +19,16 @@ void \mbox{\hyperlink{class_executive_a33a01ea3ff0dd74b074936f74c4e6cf1}{aiplace
 \begin{DoxyCompactList}\small\item\em AI randomly places ships on game\+Board. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_executive_a7a0f350ca26bacf7981d87fd0d814ae0}{game\+\_\+start}} (\mbox{\hyperlink{class_player}{Player}} \&player1, \mbox{\hyperlink{class_player}{Player}} \&player2, int size, string aitrigger, int difficulty)
 \begin{DoxyCompactList}\small\item\em Manages player turn-\/taking and checks for winner. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_executive_a4d9bc1f5fd3e75231cade09ba3ad0291}\label{class_executive_a4d9bc1f5fd3e75231cade09ba3ad0291}} 
-void {\bfseries introtitleanimation} ()
-\item 
-void \mbox{\hyperlink{class_executive_abed26c01b9724e083cd0e69ae1a1de2a}{endscreenanimation1}} ()
+void \mbox{\hyperlink{class_executive_a4d9bc1f5fd3e75231cade09ba3ad0291}{introtitleanimation}} ()
 \begin{DoxyCompactList}\small\item\em prints title with alternating colors \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_executive_aa2087dc1b58ca1ad670580e2f8699fc1}{endscreenanimation2}} ()
+void \mbox{\hyperlink{class_executive_abed26c01b9724e083cd0e69ae1a1de2a}{endscreenanimation1}} ()
 \begin{DoxyCompactList}\small\item\em prints player 1 win with alternating colors \end{DoxyCompactList}\item 
-char \mbox{\hyperlink{class_executive_a5d78e506e12462a9907e642d5f036f5d}{ascii\+Art}} ()
+void \mbox{\hyperlink{class_executive_aa2087dc1b58ca1ad670580e2f8699fc1}{endscreenanimation2}} ()
 \begin{DoxyCompactList}\small\item\em prints title with alternating colors \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_executive}{Executive}} Class for Battleship game. The top-\/level class that interacts with players and calls \mbox{\hyperlink{class_player}{Player}} class methods. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_executive_ad870c1d741f1f313eb0c5a8336f8af6b}\label{class_executive_ad870c1d741f1f313eb0c5a8336f8af6b}} 
@@ -90,25 +94,6 @@ AI randomly places ships on game\+Board.
 \begin{DoxyReturn}{Returns}
 none 
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_executive_a5d78e506e12462a9907e642d5f036f5d}\label{class_executive_a5d78e506e12462a9907e642d5f036f5d}} 
-\index{Executive@{Executive}!asciiArt@{asciiArt}}
-\index{asciiArt@{asciiArt}!Executive@{Executive}}
-\doxysubsubsection{\texorpdfstring{asciiArt()}{asciiArt()}}
-{\footnotesize\ttfamily char Executive\+::ascii\+Art (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-prints title with alternating colors 
-
-\begin{DoxyPrecond}{Precondition}
-none 
-\end{DoxyPrecond}
-\begin{DoxyReturn}{Returns}
-none 
-\end{DoxyReturn}
-\begin{DoxyPostcond}{Postcondition}
-none 
-\end{DoxyPostcond}
 \mbox{\Hypertarget{class_executive_abed26c01b9724e083cd0e69ae1a1de2a}\label{class_executive_abed26c01b9724e083cd0e69ae1a1de2a}} 
 \index{Executive@{Executive}!endscreenanimation1@{endscreenanimation1}}
 \index{endscreenanimation1@{endscreenanimation1}!Executive@{Executive}}
@@ -117,7 +102,7 @@ none
 
 
 
-prints title with alternating colors 
+prints player 1 win with alternating colors 
 
 \begin{DoxyPrecond}{Precondition}
 none 
@@ -136,7 +121,7 @@ none
 
 
 
-prints player 1 win with alternating colors 
+prints title with alternating colors 
 
 \begin{DoxyPrecond}{Precondition}
 none 
@@ -163,9 +148,31 @@ Manages player turn-\/taking and checks for winner.
 \hline
 {\em player2} & \mbox{\hyperlink{class_player}{Player}} object \\
 \hline
-{\em size} & The number of ships, 1-\/6 return none \\
+{\em size} & The number of ships, 1-\/6 \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_executive_a4d9bc1f5fd3e75231cade09ba3ad0291}\label{class_executive_a4d9bc1f5fd3e75231cade09ba3ad0291}} 
+\index{Executive@{Executive}!introtitleanimation@{introtitleanimation}}
+\index{introtitleanimation@{introtitleanimation}!Executive@{Executive}}
+\doxysubsubsection{\texorpdfstring{introtitleanimation()}{introtitleanimation()}}
+{\footnotesize\ttfamily void Executive\+::introtitleanimation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+prints title with alternating colors 
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
 \mbox{\Hypertarget{class_executive_a395d2a25c976f77d9f477b9633bff212}\label{class_executive_a395d2a25c976f77d9f477b9633bff212}} 
 \index{Executive@{Executive}!place\_ship@{place\_ship}}
 \index{place\_ship@{place\_ship}!Executive@{Executive}}
