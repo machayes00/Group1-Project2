@@ -76,7 +76,6 @@ void Player::doAnimation(int row, char col, bool hit)
     hiddenBoard.printAnimate(row, column_num);
 }
 
-// E: I don't think this method is ever used.
 // and the "getBoard" methods are not getters. Do not need getters.
 void Player::getOriginalBoard()
 {
