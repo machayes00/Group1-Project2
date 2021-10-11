@@ -42,6 +42,7 @@ void Board::printAnimate(int row, int col)
 {
     if (m_length == 3)
     {
+        m_length = 0;
         return;
     }
     system("clear");

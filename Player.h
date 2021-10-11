@@ -131,7 +131,7 @@ public:
      * @param col the column index in 2D array (int 0 - 9)
      * @param hit 
      */
-    void doAnimation(int row, int col, bool hit);
+    void doAnimation(int row, char col, bool hit);
 
     /**
      * @brief Print the Game board object. Mainly used for calling methods of the board class
