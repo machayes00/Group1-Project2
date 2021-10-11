@@ -17,7 +17,7 @@ Executive::~Executive()
 {
 }
 
-// Prints title with alternating colors for a specified length of time
+// strings for ASCII art at start and end of game
 string asciiArt1 =   R"( 
                       *   
                     *_\/_*     
@@ -250,8 +250,7 @@ string victoryArt3 = R"(
                      *..*)";
 
 
-
-//G: Prints title with alternating colors for a specified length
+// Prints title with alternating colors for a specified length
 void Executive::introtitleanimation()
 {
    for(int i = 0; i <2; i++)//loops for a specified duration
@@ -284,7 +283,7 @@ void Executive::introtitleanimation()
    cout << "\033[1;92m" <<asciiArt3<< "\033[0m ";//prints string with specified color: color is 91m
    cout << "\033[1;94m" << asciiArt4 << "\033[0m ";
    cout << "\033[1;96m" << asciiArt5 <<"\033[0m \n";
-  cout << "\033[1;93m" << asciiArt1 << "\033[0m " << '\n';
+   cout << "\033[1;93m" << asciiArt1 << "\033[0m " << '\n';
    usleep(200000);
    system("clear");
 
@@ -306,9 +305,7 @@ void Executive::introtitleanimation()
    }
 }
 
-// Prints end screen for player 1 with alternating colors for a specified length of time
-
-// Prints end screen for player 2 with alternating colors for a specified length of time
+// Prints end screen showing winner with alternating colors for a specified length of time
 void Executive::endscreenanimation1()
 {
     cout << "\033[1;91m" << victoryArt1 << "\033[0m " << '\n'; //prints variations of victoryArt which are fireworks
@@ -337,59 +334,56 @@ void Executive::endscreenanimation1()
     system("clear");
    for(int i = 0; i <2; i++)
    {
-
-   
        if(i == 0)
        {
-        cout << "\033[1;91m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     //lasts for 0.2 seconds
-        system("clear");    //clears previous prints statement allows for alternating title
-        cout << "\033[1;92m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     //lasts for 0.2 seconds
-        system("clear");
-        cout << "\033[1;93m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");    
-        cout << "\033[1;94m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");   
-        cout << "\033[1;95m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");   
-        cout << "\033[1;96m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");   
-        cout << "\033[1;97m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear"); 
+            cout << "\033[1;91m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     //lasts for 0.2 seconds
+            system("clear");    //clears previous prints statement allows for alternating title
+            cout << "\033[1;92m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     //lasts for 0.2 seconds
+            system("clear");
+            cout << "\033[1;93m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");    
+            cout << "\033[1;94m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");   
+            cout << "\033[1;95m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");   
+            cout << "\033[1;96m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");   
+            cout << "\033[1;97m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear"); 
        }
        else
        {
-        cout << "\033[1;91m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     //lasts for 0.2 seconds
-        system("clear");    //clears previous prints statement allows for alternating title
-        cout << "\033[1;93m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     //lasts for 0.2 seconds
-        system("clear");
-        cout << "\033[1;95m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");    
-        cout << "\033[1;97m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");   
-        cout << "\033[1;92m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");   
-        cout << "\033[1;94m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");   
-        cout << "\033[1;96m" << asciiArt8 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");    
+            cout << "\033[1;91m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     //lasts for 0.2 seconds
+            system("clear");    //clears previous prints statement allows for alternating title
+            cout << "\033[1;93m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     //lasts for 0.2 seconds
+            system("clear");
+            cout << "\033[1;95m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");    
+            cout << "\033[1;97m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");   
+            cout << "\033[1;92m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");   
+            cout << "\033[1;94m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");   
+            cout << "\033[1;96m" << asciiArt8 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");    
        }
    }
 }
-
 
 void Executive::endscreenanimation2()
 {
@@ -422,56 +416,54 @@ void Executive::endscreenanimation2()
    {
        if(i == 0)
        {
-        cout << "\033[1;91m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     //lasts for 0.2 seconds
-        system("clear");    //clears previous prints statement allows for alternating title
-        cout << "\033[1;92m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     //lasts for 0.2 seconds
-        system("clear");
-        cout << "\033[1;93m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");    
-        cout << "\033[1;94m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");   
-        cout << "\033[1;95m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");   
-        cout << "\033[1;96m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");   
-        cout << "\033[1;97m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear"); 
+            cout << "\033[1;91m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     //lasts for 0.2 seconds
+            system("clear");    //clears previous prints statement allows for alternating title
+            cout << "\033[1;92m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     //lasts for 0.2 seconds
+            system("clear");
+            cout << "\033[1;93m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");    
+            cout << "\033[1;94m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");   
+            cout << "\033[1;95m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");   
+            cout << "\033[1;96m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");   
+            cout << "\033[1;97m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear"); 
        }
        else
        {
-        cout << "\033[1;91m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     //lasts for 0.2 seconds
-        system("clear");    //clears previous prints statement allows for alternating title
-        cout << "\033[1;93m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     //lasts for 0.2 seconds
-        system("clear");
-        cout << "\033[1;95m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");    
-        cout << "\033[1;97m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");   
-        cout << "\033[1;92m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");   
-        cout << "\033[1;94m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");   
-        cout << "\033[1;96m" << asciiArt7 << "\033[0m " << '\n';
-        usleep(100000);     
-        system("clear");    
+            cout << "\033[1;91m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     //lasts for 0.2 seconds
+            system("clear");    //clears previous prints statement allows for alternating title
+            cout << "\033[1;93m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     //lasts for 0.2 seconds
+            system("clear");
+            cout << "\033[1;95m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");    
+            cout << "\033[1;97m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");   
+            cout << "\033[1;92m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");   
+            cout << "\033[1;94m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");   
+            cout << "\033[1;96m" << asciiArt7 << "\033[0m " << '\n';
+            usleep(100000);     
+            system("clear");    
        }
-
    }   
 }
-
 
 void Executive::run()
 {
@@ -480,11 +472,10 @@ void Executive::run()
     string aitrigger; // variable for capturing user choice of AI or human player
     int difficulty;   // variable for difficulty for AI game
 
+    introtitleanimation(); // prints title to screen with special effects
+
     do
     {
-        introtitleanimation(); // prints title to screen with special effects
-        // E: should the above be outside of do-while? Because the animation would repeat if player gives bad input.
-
         cout << "\nPlease enter a number between 1-6 for the number of ships you would like per player:  ";
         cin >> tempinput;
 
