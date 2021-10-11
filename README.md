@@ -1,6 +1,6 @@
 # Project 2
 
-This is Group 1's implementation of Project 2 for EECS 448. 
+This is Group 1's implementation of Project 2 for EECS 448. This project is a continuation of the battleship game from [here](https://github.com/rwyndrum4/project1.git)
 
 ## Battleship
 
@@ -43,6 +43,7 @@ This game is played through the terminal, with each player taking turns to type 
 - Alice Chen
 - Edina Harsay
 - Mac Hayes
+- The authors of [this](https://github.com/rwyndrum4/project1.git) project.
 
 ## Acknowledgments / Works Cited
 

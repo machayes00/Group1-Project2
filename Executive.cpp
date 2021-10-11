@@ -588,7 +588,7 @@ void Executive::place_ship(int size, Player& new_player)
 
             row = stoi(tempinput);  // converts user input from string to int
 
-            cout << "\nPlease enter a letter for the column you wish to place a ship in:  ";
+            cout << "\nPlease enter a letter for the column you wish to place a ship in (capital letters only):  ";
             cin >> column;
             cout << "\nIn which direction do you want to place? Enter D or d for down (vertical), R or r for right (horizontal):  ";
             cin >> direction;
@@ -623,7 +623,7 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
 
         do
         {
-            cout << "\nEnter the the row number: "; 
+            cout << "\nEnter the the row number (1-9): ";
             cin >> tempinput;
 
         } while (!(tempinput == "1" || tempinput == "2" || tempinput == "3" || tempinput == "4" || tempinput == "5" 
@@ -633,7 +633,7 @@ void Executive::game_start(Player& player1, Player& player2, int size, string ai
 
         do
         {
-            cout << "Enter the column character: "; 
+            cout << "Enter the column character (A-J, capital letters only): ";
             cin >> column;
             column_num = (char)column - 65;     // converts char to decimal ASCII; 'A' is 65, so converts to (0 to 9)
             // while condition checks for valid gameboard boundary
