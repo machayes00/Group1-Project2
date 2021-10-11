@@ -1,12 +1,14 @@
 \hypertarget{class_board}{}\doxysection{Board Class Reference}
 \label{class_board}\index{Board@{Board}}
+
+
+{\ttfamily \#include $<$Board.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_board_a9ee491d4fea680cf69b033374a9fdfcb}{Board}} ()
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_board}{Board}} object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_board_a2a8d066fc798981b4062328360d7c7d1}{Board}} (char hidden\+\_\+letter)
-\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_board}{Board}} object with arguments E\+: I THINK THIS IS NOT USED. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_board_af73f45730119a1fd8f6670f53f959e68}{$\sim$\+Board}} ()
 \begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_board}{Board}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_board_a8a96158dc829ff34317facb33f5c9698}{set\+Animate\+Char}} (bool hit)
@@ -24,16 +26,19 @@ bool \mbox{\hyperlink{class_board_a37bac02fd1f747527700501b694418e5}{put\+\_\+co
 bool \mbox{\hyperlink{class_board_a5e30c4446960ebf3c2bdf8dcbf8324a0}{put\+\_\+row\+\_\+ship}} (int row\+\_\+num, char column\+\_\+letter, int size, char new\+\_\+letter)
 \begin{DoxyCompactList}\small\item\em Places horizontal ships on the game board if input arguments are acceptable. \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{class_board_a53bf7daef764cfe734f984f1dc130db1}{is\+\_\+what}} (int row\+\_\+num, char column\+\_\+letter)
-\item 
+\begin{DoxyCompactList}\small\item\em Obtain the character at the argument coordinate (used to check for hits) \end{DoxyCompactList}\item 
 char \mbox{\hyperlink{class_board_af5df910b9a6814dba775201e05e098cd}{is\+\_\+what2}} (int row, int col)
-\begin{DoxyCompactList}\small\item\em Obtain the character at the requested index (used by AI, which efficiently uses array indices) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Obtain the character at the requested index (used by AI, which uses array indices) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_board}{Board}} Class for Battleship game The lowest-\/level level class for the game, which creates \mbox{\hyperlink{class_board}{Board}} objets for storing game data. It generates the 2D array for the game boards, and it is the only Class that can directly access the 2D arrays. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_board_a9ee491d4fea680cf69b033374a9fdfcb}\label{class_board_a9ee491d4fea680cf69b033374a9fdfcb}} 
 \index{Board@{Board}!Board@{Board}}
 \index{Board@{Board}!Board@{Board}}
-\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}}
 {\footnotesize\ttfamily Board\+::\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
@@ -46,24 +51,6 @@ none
 \begin{DoxyPostcond}{Postcondition}
 a new \mbox{\hyperlink{class_board}{Board}} object is created\+: initializes the m\+\_\+map member with a 9x10 array filled with \textquotesingle{}$\sim$\textquotesingle{} characters representing water waves 
 \end{DoxyPostcond}
-\mbox{\Hypertarget{class_board_a2a8d066fc798981b4062328360d7c7d1}\label{class_board_a2a8d066fc798981b4062328360d7c7d1}} 
-\index{Board@{Board}!Board@{Board}}
-\index{Board@{Board}!Board@{Board}}
-\doxysubsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Board\+::\+Board (\begin{DoxyParamCaption}\item[{char}]{hidden\+\_\+letter }\end{DoxyParamCaption})}
-
-
-
-Construct a new \mbox{\hyperlink{class_board}{Board}} object with arguments E\+: I THINK THIS IS NOT USED. 
-
-\begin{DoxyPrecond}{Precondition}
-none 
-\end{DoxyPrecond}
-
-\begin{DoxyParams}{Parameters}
-{\em hidden\+\_\+letter} & character that replaces \textquotesingle{}$\sim$"{} character in \mbox{\hyperlink{class_board}{Board}} object m\+\_\+map array \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{class_board_af73f45730119a1fd8f6670f53f959e68}\label{class_board_af73f45730119a1fd8f6670f53f959e68}} 
 \index{Board@{Board}!````~Board@{$\sim$Board}}
 \index{````~Board@{$\sim$Board}!Board@{Board}}
@@ -120,6 +107,10 @@ false if the method fails
 {\footnotesize\ttfamily char Board\+::is\+\_\+what (\begin{DoxyParamCaption}\item[{int}]{row\+\_\+num,  }\item[{char}]{column\+\_\+letter }\end{DoxyParamCaption})}
 
 
+
+Obtain the character at the argument coordinate (used to check for hits) 
+
+
 \begin{DoxyParams}{Parameters}
 {\em row\+\_\+num} & the row number, 1-\/9 \\
 \hline
@@ -145,7 +136,7 @@ char the character at the specified coordinate
 
 
 
-Obtain the character at the requested index (used by AI, which efficiently uses array indices) 
+Obtain the character at the requested index (used by AI, which uses array indices) 
 
 
 \begin{DoxyParams}{Parameters}

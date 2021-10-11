@@ -3,17 +3,37 @@
 
 #include <iostream>
 #include "Player.h"
-using namespace std; // need for string type argument
+using namespace std; 
 
+/**
+ * Executive Class for Battleship game. 
+ * The top-level class that interacts with players and calls Player class methods.
+ */
 class Executive
 {
 
 private:
 
+    /**
+     * A private variable 
+     * Player object for player 1
+     * Stores Board objects and 
+     * variable for keeping track of ships left
+     */
     Player player1;
+
+    /**
+     * A private variable
+     * Player object for player 2
+     * Stores Board objects and
+     * variable for keeping track of ships left
+     */
     Player player2;
-    int player1ships;
-    int player2ships;
+
+    /**
+     * A private variable
+     * Stores the number of ships for a game.
+     */
     int ships;
 
 public:
@@ -63,7 +83,7 @@ public:
      * @param player1 Player object
      * @param player2 Player object
      * @param size The number of ships, 1-6
-     * return none
+     * @return none
      */
     void game_start(Player& player1, Player& player2, int size, string aitrigger, int difficulty);
 
@@ -90,17 +110,6 @@ public:
      * @post none
      */
     void endscreenanimation2();
-
-    /**
-     * @brief prints special Ascii art, to be used in conjuction with animation methods
-     * @pre none
-     * @return none
-     * @post none
-     */
-    char asciiArt();
-
-    /*void changeColor(int color);*/
- 
 };
 
 #endif

@@ -68,15 +68,14 @@ $(function() {
   <div class="headertitle"><div class="title">Board Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_board_8h_source.html">Board.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9ee491d4fea680cf69b033374a9fdfcb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a9ee491d4fea680cf69b033374a9fdfcb">Board</a> ()</td></tr>
 <tr class="memdesc:a9ee491d4fea680cf69b033374a9fdfcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_board.html">Board</a> object.  <a href="class_board.html#a9ee491d4fea680cf69b033374a9fdfcb">More...</a><br /></td></tr>
 <tr class="separator:a9ee491d4fea680cf69b033374a9fdfcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a8d066fc798981b4062328360d7c7d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a2a8d066fc798981b4062328360d7c7d1">Board</a> (char hidden_letter)</td></tr>
-<tr class="memdesc:a2a8d066fc798981b4062328360d7c7d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="class_board.html">Board</a> object with arguments E: I THINK THIS IS NOT USED.  <a href="class_board.html#a2a8d066fc798981b4062328360d7c7d1">More...</a><br /></td></tr>
-<tr class="separator:a2a8d066fc798981b4062328360d7c7d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af73f45730119a1fd8f6670f53f959e68"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#af73f45730119a1fd8f6670f53f959e68">~Board</a> ()</td></tr>
 <tr class="memdesc:af73f45730119a1fd8f6670f53f959e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the <a class="el" href="class_board.html">Board</a> object.  <a href="class_board.html#af73f45730119a1fd8f6670f53f959e68">More...</a><br /></td></tr>
 <tr class="separator:af73f45730119a1fd8f6670f53f959e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,14 +101,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5e30c4446960ebf3c2bdf8dcbf8324a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Places horizontal ships on the game board if input arguments are acceptable.  <a href="class_board.html#a5e30c4446960ebf3c2bdf8dcbf8324a0">More...</a><br /></td></tr>
 <tr class="separator:a5e30c4446960ebf3c2bdf8dcbf8324a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53bf7daef764cfe734f984f1dc130db1"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#a53bf7daef764cfe734f984f1dc130db1">is_what</a> (int row_num, char column_letter)</td></tr>
+<tr class="memdesc:a53bf7daef764cfe734f984f1dc130db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the character at the argument coordinate (used to check for hits)  <a href="class_board.html#a53bf7daef764cfe734f984f1dc130db1">More...</a><br /></td></tr>
 <tr class="separator:a53bf7daef764cfe734f984f1dc130db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5df910b9a6814dba775201e05e098cd"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_board.html#af5df910b9a6814dba775201e05e098cd">is_what2</a> (int row, int col)</td></tr>
-<tr class="memdesc:af5df910b9a6814dba775201e05e098cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the character at the requested index (used by AI, which efficiently uses array indices)  <a href="class_board.html#af5df910b9a6814dba775201e05e098cd">More...</a><br /></td></tr>
+<tr class="memdesc:af5df910b9a6814dba775201e05e098cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtain the character at the requested index (used by AI, which uses array indices)  <a href="class_board.html#af5df910b9a6814dba775201e05e098cd">More...</a><br /></td></tr>
 <tr class="separator:af5df910b9a6814dba775201e05e098cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p ><a class="el" href="class_board.html">Board</a> Class for Battleship game The lowest-level level class for the game, which creates <a class="el" href="class_board.html">Board</a> objets for storing game data. It generates the 2D array for the game boards, and it is the only Class that can directly access the 2D arrays. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9ee491d4fea680cf69b033374a9fdfcb" name="a9ee491d4fea680cf69b033374a9fdfcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ee491d4fea680cf69b033374a9fdfcb">&#9670;&nbsp;</a></span>Board() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ee491d4fea680cf69b033374a9fdfcb">&#9670;&nbsp;</a></span>Board()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -126,33 +128,6 @@ Public Member Functions</h2></td></tr>
 <p>Construct a new <a class="el" href="class_board.html">Board</a> object. </p>
 <dl class="section pre"><dt>Precondition</dt><dd>none </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>a new <a class="el" href="class_board.html">Board</a> object is created: initializes the m_map member with a 9x10 array filled with '~' characters representing water waves </dd></dl>
-
-</div>
-</div>
-<a id="a2a8d066fc798981b4062328360d7c7d1" name="a2a8d066fc798981b4062328360d7c7d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a8d066fc798981b4062328360d7c7d1">&#9670;&nbsp;</a></span>Board() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Board::Board </td>
-          <td>(</td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>hidden_letter</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Construct a new <a class="el" href="class_board.html">Board</a> object with arguments E: I THINK THIS IS NOT USED. </p>
-<dl class="section pre"><dt>Precondition</dt><dd>none </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">hidden_letter</td><td>character that replaces '~" character in <a class="el" href="class_board.html">Board</a> object m_map array </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -252,6 +227,8 @@ false if the method fails </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Obtain the character at the argument coordinate (used to check for hits) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">row_num</td><td>the row number, 1-9 </td></tr>
@@ -296,7 +273,7 @@ false if the method fails </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Obtain the character at the requested index (used by AI, which efficiently uses array indices) </p>
+<p>Obtain the character at the requested index (used by AI, which uses array indices) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">row</td><td>index of m_map of calling <a class="el" href="class_board.html">Board</a> object </td></tr>
