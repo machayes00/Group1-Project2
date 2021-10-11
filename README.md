@@ -21,7 +21,7 @@ This game is played through the terminal, with each player taking turns to type 
 
 ### Executing program
 
-* Navigate to the folder where the 
+* Navigate to the folder where the files are located
 
 * Run the following commands in terminal:
 
@@ -30,7 +30,13 @@ This game is played through the terminal, with each player taking turns to type 
   > ./battleship
   ```
 
-## Authors
+### Documentation 
+
+- Navigate to ```documentation/html```
+- Open up ```index.html```
+- Click on the ```Classes``` tab and select ```Class List``` from the dropdown.  
+
+##  Authors
 
 - Alexander Archer
 - George Blue
@@ -38,7 +44,10 @@ This game is played through the terminal, with each player taking turns to type 
 - Edina Harsay
 - Mac Hayes
 
-##Acknowledgments / Works Cited
+## Acknowledgments / Works Cited
 
 - https://www.geeksforgeeks.org/how-to-print-colored-text-in-c/
 - https://stackoverflow.com/questions/2616906/how-do-i-output-coloured-text-to-a-linux-terminal
+- https://stackoverflow.com/questions/7414983/how-to-use-the-ansi-escape-code-for-outputting-colored-text-on-console
+- https://www.doxygen.nl/manual/docblocks.html#docexamples
+

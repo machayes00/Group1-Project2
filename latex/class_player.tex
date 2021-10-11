@@ -8,17 +8,19 @@
 \mbox{\hyperlink{class_player_a749d2c00e1fe0f5c2746f7505a58c062}{$\sim$\+Player}} ()
 \begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{class_player}{Player}} object. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_player_a474349ccdbc1e23ac83eada40d5a32d7}{check\+Hit}} (int row, char col)
-\begin{DoxyCompactList}\small\item\em Checks for ship hits by checking if a B character exists at the row and col arguments. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks for ship hits by checking if a \textquotesingle{}B\textquotesingle{} character exists at the row and col arguments Used to make sure ships do not overlap during placement on board. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_player_aec80921e82380c17a0bba9d895322321}{check\+Hit2}} (int row, int col)
-\begin{DoxyCompactList}\small\item\em Check for ships by checking if a B character exists at the row and col arguments. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Check for ships by checking if a \textquotesingle{}B\textquotesingle{} character exists at the row and col arguments. Used by AI which deals with array indices rather that 1-\/9, A-\/J coordinates. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_a2c130fcf2734a2e53f62f5d2a422a7ff}{check\+Hit3}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em Check if there is a hit \textquotesingle{}X\textquotesingle{} character at the specified index, for Medium AI game. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_player_ade82137a8737ed559d6cbb4a330a9144}{check\+Ships}} ()
 \begin{DoxyCompactList}\small\item\em Determines how many ship coordinates are left for a player. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_player_a79a940ef921c0976abb0ba627b5e30dd}{get\+\_\+hit}} (int row, char col)
-\begin{DoxyCompactList}\small\item\em Replaces a hit B character with an X character. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Replaces a hit B character with an X character. It is a helper function \mbox{\hyperlink{class_player_a474349ccdbc1e23ac83eada40d5a32d7}{check\+Hit()}} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_player_ad2bfb53e82871e00d5c5759d4d7c64e4}{get\+Hidden\+Board}} ()
 \begin{DoxyCompactList}\small\item\em Prints the \char`\"{}hidden board\char`\"{} which hides the ships \textquotesingle{}till hit. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_player_a428aefe95b4b6e5c9cd5ef495b9f55a1}{get\+Game\+Board}} ()
-\begin{DoxyCompactList}\small\item\em Prints the \mbox{\hyperlink{class_board}{Board}} object that reveals ship locations and hits if present. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Prints the \mbox{\hyperlink{class_board}{Board}} object that reveals all ship locations and hits if present. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_player_afa0a2d69b851923146c721f9a0861dcc}{do\+Animation}} (int row, int col, bool hit)
 \begin{DoxyCompactList}\small\item\em Calls print\+Animate \mbox{\hyperlink{class_board}{Board}} method on hidden\+Board \mbox{\hyperlink{class_board}{Board}} object to animate hits. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_player_adbbdf1ba411afd09495b47cc37dd3faf}{get\+Original\+Board}} ()
@@ -76,7 +78,7 @@ none
 
 
 
-Checks for ship hits by checking if a B character exists at the row and col arguments. 
+Checks for ship hits by checking if a \textquotesingle{}B\textquotesingle{} character exists at the row and col arguments Used to make sure ships do not overlap during placement on board. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -101,25 +103,47 @@ false if coordinates do not match a B character
 
 
 
-Check for ships by checking if a B character exists at the row and col arguments. 
+Check for ships by checking if a \textquotesingle{}B\textquotesingle{} character exists at the row and col arguments. Used by AI which deals with array indices rather that 1-\/9, A-\/J coordinates. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em row} & the row of the coordinate choosen for hit \\
+{\em row} & the row index of the coordinate choosen for hit \\
 \hline
-{\em col} & the column of the coordinate choosen for hit \\
+{\em col} & the column index of the coordinate choosen for hit \\
 \hline
 \end{DoxyParams}
 \begin{DoxyPrecond}{Precondition}
-this sane method expects you to pass in 2D array indices, 0-\/8 for row, 0-\/9 for col 
+expects arguments that are 2D array indices, 0-\/8 for row, 0-\/9 for col 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
 none 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
-true if coordinates match a B character 
+true if coordinates match a \textquotesingle{}B\textquotesingle{} character 
 
-false if coordinates do not match a B character 
+false if coordinates do not match a \textquotesingle{}B\textquotesingle{} character 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_a2c130fcf2734a2e53f62f5d2a422a7ff}\label{class_player_a2c130fcf2734a2e53f62f5d2a422a7ff}} 
+\index{Player@{Player}!checkHit3@{checkHit3}}
+\index{checkHit3@{checkHit3}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{checkHit3()}{checkHit3()}}
+{\footnotesize\ttfamily bool Player\+::check\+Hit3 (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})}
+
+
+
+Check if there is a hit \textquotesingle{}X\textquotesingle{} character at the specified index, for Medium AI game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & index, 0-\/8 \\
+\hline
+{\em col} & inex, 0-\/9 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there is an \textquotesingle{}X\textquotesingle{} and the index 
+
+false if there is not an \textquotesingle{}X\textquotesingle{} at the index 
 \end{DoxyReturn}
 \mbox{\Hypertarget{class_player_ade82137a8737ed559d6cbb4a330a9144}\label{class_player_ade82137a8737ed559d6cbb4a330a9144}} 
 \index{Player@{Player}!checkShips@{checkShips}}
@@ -167,6 +191,8 @@ print\+Animate sub-\/method prints animation to screen when a ship is hit
 \hline
 {\em col} & the column index in 2D array (int 0 -\/ 9) \\
 \hline
+{\em hit} & \\
+\hline
 \end{DoxyParams}
 \mbox{\Hypertarget{class_player_a79a940ef921c0976abb0ba627b5e30dd}\label{class_player_a79a940ef921c0976abb0ba627b5e30dd}} 
 \index{Player@{Player}!get\_hit@{get\_hit}}
@@ -176,7 +202,7 @@ print\+Animate sub-\/method prints animation to screen when a ship is hit
 
 
 
-Replaces a hit B character with an X character. 
+Replaces a hit B character with an X character. It is a helper function \mbox{\hyperlink{class_player_a474349ccdbc1e23ac83eada40d5a32d7}{check\+Hit()}} 
 
 \begin{DoxyPrecond}{Precondition}
 hit coordinates must be obtained after calling check\+Hit method 
@@ -187,9 +213,12 @@ requires exchange method from \mbox{\hyperlink{class_board}{Board}} class
 \begin{DoxyParams}{Parameters}
 {\em row} & the row, which is an int 1-\/9 \\
 \hline
-{\em col} & the column, whch is a char, capital letter A -\/ J @ return none (a weird thing for a \char`\"{}get\char`\"{} function but it is not a getter) \\
+{\em col} & the column, whch is a char, capital letter A -\/ J \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none (a weird thing for a \char`\"{}get\char`\"{} function but it is not a getter) 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_player_a428aefe95b4b6e5c9cd5ef495b9f55a1}\label{class_player_a428aefe95b4b6e5c9cd5ef495b9f55a1}} 
 \index{Player@{Player}!getGameBoard@{getGameBoard}}
 \index{getGameBoard@{getGameBoard}!Player@{Player}}
@@ -198,7 +227,7 @@ requires exchange method from \mbox{\hyperlink{class_board}{Board}} class
 
 
 
-Prints the \mbox{\hyperlink{class_board}{Board}} object that reveals ship locations and hits if present. 
+Prints the \mbox{\hyperlink{class_board}{Board}} object that reveals all ship locations and hits if present. 
 
 \begin{DoxyPrecond}{Precondition}
 none 
