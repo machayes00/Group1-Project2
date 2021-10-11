@@ -5,12 +5,32 @@
 #include <exception>
 #include <unistd.h>
 
+/**
+ * Board Class for Battleship game
+ * The lowest-level level class for the game, which creates Board objets
+ * for storing game data. It generates the 2D array for the game boards, and
+ * it is the only Class that can directly access the 2D arrays.
+ */
 class Board
 {
 private:
 
-    char** m_map = nullptr; // pointer to 2D array that stores game board characters
-    int m_length = 0;  // variable for printAnimate and printAnimateHelp methods
+    /**
+     * A private variable 
+     * Pointer for 2D array that stores game board characters
+     */
+    char** m_map = nullptr; 
+
+    /**
+     * A private variable 
+     * Used in printAnimate and printAnimateHelp methods
+     */
+    int m_length = 0;  
+
+    /**
+     * A private variable 
+     * Stores the character used for animating hits and misses
+     */
     char animateChar = ' ';
 
 public:
@@ -22,15 +42,6 @@ public:
      *      a 9x10 array filled with '~' characters representing water waves
      */
     Board();
-
-    /**
-     * @brief Construct a new Board object with arguments E: I THINK THIS IS NOT USED
-     * @pre none
-     * @param hidden_letter character that replaces '~" character in Board object m_map array
-     */
-    Board(char hidden_letter);
-    // The original explanation for this constructor:
-    //@process - this function works for hidden_board, which exchange all the '~' into 'hidden_letter'
 
     /**
      * @brief Destroy the Board object
