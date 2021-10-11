@@ -1,0 +1,2 @@
+Our idea for a custom feature was to add ASCII animation effects to the battlship game in its terminal implementation. It's written in C++. The idea was to add animation effects for a hit and for a miss, an animated title screen, and an animated end screen.
+
